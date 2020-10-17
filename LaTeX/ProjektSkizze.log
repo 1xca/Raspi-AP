@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  15 OCT 2020 15:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  17 OCT 2020 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -60,20 +60,20 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 (./ProjektSkizze.aux)
 \openout1 = `ProjektSkizze.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -98,18 +98,22 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 11.
+(Font)              <12> on input line 10.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 11.
+(Font)              <8> on input line 10.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 11.
+(Font)              <6> on input line 10.
+
+
+LaTeX Warning: No \author given.
+
 <./images/skizze.png, id=1, 711.65875pt x 397.485pt>
 File: ./images/skizze.png Graphic file (type png)
 <use ./images/skizze.png>
-Package pdftex.def Info: ./images/skizze.png  used on input line 28.
+Package pdftex.def Info: ./images/skizze.png  used on input line 27.
 (pdftex.def)             Requested size: 426.99855pt x 238.49283pt.
 
-Overfull \hbox (96.99855pt too wide) in paragraph at lines 28--29
+Overfull \hbox (96.99855pt too wide) in paragraph at lines 27--28
 [][] 
  []
 
@@ -120,17 +124,17 @@ Overfull \hbox (96.99855pt too wide) in paragraph at lines 28--29
 Here is how much of TeX's memory you used:
  1205 strings out of 482823
  18003 string characters out of 5956142
- 251972 words of memory out of 5000000
+ 251941 words of memory out of 5000000
  16614 multiletter control sequences out of 15000+600000
  539063 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,7n,33p,601b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,6n,33p,601b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jk
 nappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on ProjektSkizze.pdf (2 pages, 88112 bytes).
+Output written on ProjektSkizze.pdf (2 pages, 84745 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream
