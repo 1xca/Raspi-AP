@@ -1,0 +1,29 @@
+﻿Gruppe 8:
+
+- Latex oder ein Textdokument statt einer Präsentation, um seriös zu bleiben und mehr Informationen auf weniger Platz zu bekommen
+- Die Motivation sollte trotzdessen, dass es ein Studiumsprojekt ist seriös und sachlich geschrieben sein
+- Die Idee hinter der Motivation ist meiner Meinug nach völlig legitim und verständlich
+- Motivation sollte auch noch etwas ausführlicher sein
+- Ziel auch ausführlicher
+- Im Ziel können auch schon Ideen zur Umsetzung genannt werden oder die Technik
+- Folie 4 ist unnötig und liefert keinerlei Information
+- Hardware könnte meiner Meinung auch ein Arduino benutzt werden, denn er ist ausgelegt für solche Projekte
+- Zitat ist unnötig 
+
+Gruppe 9:
+
+- Motivation kann gerne mehr erklären z.B. wie werden Daten geklaut oder warum stört euch der Datenklau
+- Problem finde ich gut erklärt und ist verständlich
+- Eventuell Link als Fußnote einbauen
+- Man könnte die Hardware noch genauer definieren (welches Mikrofon usw.)
+- Ist die Platine sinnvoll (wie groß ist diese? Kann man die Funktionen dort sinnvoll anzeigen)
+- Meiner Meinung nach wird man wenn man den Voice Assistant benutzt, nicht auf die Platine schauen bzw. Den Assistant überhaupt anschauen
+
+Gruppe 10:
+
+- Motivation sehr gut erklärt und begründet
+- Problem hört sich mehr an wie das Ziel eures Projekts
+- Anforderungen eventuell noch begründen und wozu dies gut ist
+- Ist die Leistung eine RaspberryPi 4 wirklich nötig?
+- Wozu Lautsprecher + Soundbar?
+- Fritzbox würde ich als gegeben ansehen
