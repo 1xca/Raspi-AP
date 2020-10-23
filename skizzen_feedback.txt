@@ -53,12 +53,12 @@ gruppe 7
 
  gruppe 8:
 
-- latex oder ein textdokument statt einer präsentation, um seriös zu bleiben und mehr informationen auf weniger platz zu bekommen
-- die motivation sollte trotzdessen, dass es ein studiumsprojekt ist seriös und sachlich geschrieben sein
-- die idee hinter der motivation ist meiner meinug nach völlig legitim und verständlich
-- motivation sollte auch noch etwas ausführlicher sein
-- ziel auch ausführlicher
-- im ziel können auch schon ideen zur umsetzung genannt werden oder die technik
+- Verwendet Latex oder ein Textdokument statt einer präsentation, um seriös zu bleiben und mehr informationen auf weniger platz zu bekommen
+- Motivation sollte trotzdessen, dass es nur ein Projekt für das Studium ist seriös und sachlich geschrieben sein
+- Die Idee der Motivation ist gut
+- Motivation sollte auch noch etwas ausführlicher sein
+- Ziel auch ausführlicher
+- Im ziel können auch schon Ideen zur Umsetzung genannt werden
 - folie 4 ist unnötig und liefert keinerlei information
 - hardware könnte meiner meinung auch ein arduino benutzt werden, denn er ist ausgelegt für solche projekte
 - zitat ist unnötig 
