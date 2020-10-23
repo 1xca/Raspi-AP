@@ -1,0 +1,82 @@
+﻿Gruppe 1
+- Ziel vielleicht etwas kurz, was ist eure Motivation hinter dem Projekt?
+- Problem ist gut beschrieben
+- Anforderungen sind etwas unübersichtlich und machen es schwer zu erkennen an was ihr jetzt aktiv arbeitet
+- Braucht ihr dafür zum Beispiel extra Hardware auf der ihr die Logs speichert? 
+
+Gruppe 2
+- Gut strukturiert und angenehm lesbar
+- Anforderungen (z.B.) Ressourcen hätten in einem eigenen Punkt zusammengefasst werden, da sie momentan auf alle 
+  Unterpunkte verteilt sind
+- Eure Motivation ist gut beschrieben und klar
+- Ihr habt bei den möglichen Lösungen bereits gute Ansätze
+
+Gruppe 3
+- Projektname fehlt
+- In dem Punkt Motivation beschreibt ihr eigentlich nur das Problem und die Gefahren von USB
+- Euer Ziel ist klar
+- Es fehlen die Anforderungen an euer Projekt
+- Der Punkt Eigene Leistung ist extem generell gehalten und hätte z.B. gut durch die eigentlichen Anforderungen ersetzt werden können
+
+gruppe 5
+- es fehlt der projektname
+- keine weiteren überschriften vorhanden
+- projektziele gut abgesteckt, mit platz für erweiterungsarbeiten
+- guter plan zuerst auf eine messaging-apps zu fokussieren und dann erst auf andere auszuweiten.
+  trotzdem frühzeitig schon andere anschauen um inkompatibilitäten zu erkennen.
+- für welches os möchtet ihr diesen client erstellen? android oder ios oder beides?
+- was braucht ihr an ressourcen? (software, hardware)
+ - problemstellung und lösungsansatz wurde klar kommuniziert
+
+gruppe 6
+- projekt überschrift bzw. thema fehlt
+- keine auf den ersten blick ersichtliche gliederung bzw. keine unterüberschriften (z.b motivation, problemstellung, lösung...)
+- motivation und idee verständlich
+- auf welche messaging-apps wollt ihr euren fokus richten?
+- messaging-apps schicken doch normal ihre nachrichten ins internet.
+  gibt es nicht probleme mit (sensiblen) dokumente die man drucken möchte, da
+  messaging-apps nicht direkt im heimnetzwerk kommunizieren, sondern nur über umweg durchs internet?
+- kann jeder aus dem internet den bot erreichen? wenn ja, ist er dann abgesichert?
+ 
+gruppe 7
+- überzeugende und sehr gut lesbare motivation
+- unter der überschrift "problem" wird die umsetzung erläutert
+- etwas unklar beschrieben was alles für funktionen/modi am ende wirklich vorhanden sein sollen.
+- sollen bei brettspielen nur das brett dargestellt werden oder gibt es weitere komfort funktionen z.b punkteanzeige?
+- welche anschlüsse werden benötigt für die led-matrix?
+- wie groß muss die led-matrix sein um spielfelder gut darstellen zu können (z.b schach)? 
+- werden weitere taster/schalter/sensoren benötigt für manche spiele?
+- braucht man dafür einen raspberrypi oder sind andere, kleinere microcontroller besser geeignet?
+- wo wird der raspberrypi befestigt damit er möglichst nicht zu sehen ist?
+- gut das quelle angegeben wurde
+
+
+ gruppe 8:
+
+- latex oder ein textdokument statt einer präsentation, um seriös zu bleiben und mehr informationen auf weniger platz zu bekommen
+- die motivation sollte trotzdessen, dass es ein studiumsprojekt ist seriös und sachlich geschrieben sein
+- die idee hinter der motivation ist meiner meinug nach völlig legitim und verständlich
+- motivation sollte auch noch etwas ausführlicher sein
+- ziel auch ausführlicher
+- im ziel können auch schon ideen zur umsetzung genannt werden oder die technik
+- folie 4 ist unnötig und liefert keinerlei information
+- hardware könnte meiner meinung auch ein arduino benutzt werden, denn er ist ausgelegt für solche projekte
+- zitat ist unnötig 
+
+gruppe 9:
+
+- motivation kann gerne mehr erklären z.b. wie werden daten geklaut oder warum stört euch der datenklau
+- problem finde ich gut erklärt und ist verständlich
+- eventuell link als fußnote einbauen
+- man könnte die hardware noch genauer definieren (welches mikrofon usw.)
+- ist die platine sinnvoll (wie groß ist diese? kann man die funktionen dort sinnvoll anzeigen)
+- meiner meinung nach wird man wenn man den voice assistant benutzt, nicht auf die platine schauen bzw. den assistant überhaupt anschauen
+
+gruppe 10:
+
+- motivation sehr gut erklärt und begründet
+- problem hört sich mehr an wie das ziel eures projekts
+- anforderungen eventuell noch begründen und wozu dies gut ist
+- ist die leistung eine raspberrypi 4 wirklich nötig?
+- wozu lautsprecher + soundbar?
+- Fritzbox würde ich als gegeben ansehen
