@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  17 OCT 2020 10:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  30 OCT 2020 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -107,37 +107,49 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 LaTeX Warning: No \author given.
 
-<./images/skizze.png, id=1, 711.65875pt x 397.485pt>
-File: ./images/skizze.png Graphic file (type png)
-<use ./images/skizze.png>
-Package pdftex.def Info: ./images/skizze.png  used on input line 27.
-(pdftex.def)             Requested size: 426.99855pt x 238.49283pt.
 
-Overfull \hbox (96.99855pt too wide) in paragraph at lines 27--28
-[][] 
+Overfull \hbox (18.77719pt too wide) in paragraph at lines 24--25
+\OT1/cmr/m/n/10 Es wurde sich f^^?ur einen QR-Code anstatt eines RFID/NFC Trans
+pon-der entschieden,
  []
 
+<./images/skizze.png, id=1, 534.49687pt x 332.74312pt>
+File: ./images/skizze.png Graphic file (type png)
+<use ./images/skizze.png>
+Package pdftex.def Info: ./images/skizze.png  used on input line 26.
+(pdftex.def)             Requested size: 320.70059pt x 199.6474pt.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./images/skizze.png>] 
-(./ProjektSkizze.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (9.88028pt too wide) in paragraph at lines 30--36
+\OT1/cmr/m/n/10 Pakete in-stal-liert und eine Net-zw-erkkon-fig-u-ra-tion vorge
+nom-men wer-den. Darunter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--36
+
+ []
+
+[2 <./images/skizze.png>] [3] (./ProjektSkizze.aux) ) 
 Here is how much of TeX's memory you used:
  1205 strings out of 482823
  18003 string characters out of 5956142
- 251941 words of memory out of 5000000
+ 252941 words of memory out of 5000000
  16614 multiletter control sequences out of 15000+600000
  539063 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,6n,33p,601b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jk
-nappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on ProjektSkizze.pdf (2 pages, 84747 bytes).
+ 36i,6n,33p,561b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/marius/.texlive202
+0/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb>
+Output written on ProjektSkizze.pdf (3 pages, 96999 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 36 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
