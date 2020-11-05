@@ -1,0 +1,13 @@
+******************************************************
+* Smarter LED-Tisch - Gruppe 4			     *
+******************************************************
+- wenn möglich wir/ich vermeiden
+- Motivation etwas persönlich geschrieben -> sachlicher bleiben
++ Aussehen
+- sehr viele Fragen im Anfang von 2.
++ Kreative Ideen
+- Nebensatz zum Micro-USB Anschluss für welchen Zweck ihr diesen benötigt
+- Warum ein Arduino
+- Lösungsvorschlag fehlt
++ Selbstprogramierbar
+- Hauptprio sollte die Lichteffekte selbst sein, danach erst die Programmierbarkeit für den einzelnen User
