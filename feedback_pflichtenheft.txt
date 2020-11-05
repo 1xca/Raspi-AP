@@ -1,13 +1,17 @@
 ******************************************************
 * Smarter LED-Tisch - Gruppe 4			     *
 ******************************************************
++ Aussehen
++ Kreative Ideen mit Spielbrettern
++ Selbstprogramierbar
++ Gut definiertes Endprodukt
 - wenn möglich wir/ich vermeiden
 - Motivation etwas persönlich geschrieben -> sachlicher bleiben
-+ Aussehen
-- sehr viele Fragen im Anfang von 2.
-+ Kreative Ideen
+- sehr viele Fragen am Anfang von 2.
 - Nebensatz zum Micro-USB Anschluss für welchen Zweck ihr diesen benötigt
-- Warum ein Arduino
+- Warum ein Arduino, die Erläuterung fehlt
 - Lösungsvorschlag fehlt
-+ Selbstprogramierbar
 - Hauptprio sollte die Lichteffekte selbst sein, danach erst die Programmierbarkeit für den einzelnen User
+- Soll nur das Spiel angezeigt werden oder kann man auch eine Punkte Anzeige über taster gestalten (evtl. Max. 4 Spieler)
+- Wird ein Stromanschluss benötigt oder kann man es auch über einen Akku betreiben?
+
