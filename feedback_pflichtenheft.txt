@@ -1,5 +1,17 @@
 ******************************************************
-* Smarter LED-Tisch - Gruppe 4			     *
+* Log-Management-System - Gruppe 3		               *
+******************************************************
++ Inhaltsverzeichnis
++ Einteilung in verschiedene Kriterien
++ Übersichtlichkeit
+- Motivation und Problemstellung fehlen im Pflichtenheft
+- Punkte wie z.B "Anwendungsbereich" oder "Produktfunktionen" könnten ausführlicher sein. 
+- Die Schriftart/Größe unterscheidet sich unter dem Punkt "Qualitätszielbestimmungen" von der des restlichen Dokumentes.
+- Eine weitere Erläuterung bzw. Begründung der Qualitätsanforderungen könnte vorteilhaft sein. Verbessert so die Nachvollziehbarkeit z.B wieso die Portierbarkeit unwichtig ist.
+
+
+******************************************************
+* Smarter LED-Tisch - Gruppe 4			                 *
 ******************************************************
 + Aussehen
 + Kreative Ideen mit Spielbrettern
