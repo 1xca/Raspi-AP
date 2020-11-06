@@ -1,4 +1,17 @@
 ******************************************************
+* UniMessenger - Gruppe 3		               *
+******************************************************
++ sehr einfach beschrieben
++ Anforderungen sind klar
++ Endprodukt ist definiert
+- nur Strichpunkte
+- manche Punkte wiederholen sich (z.B. Benutzeroberfläche und Gliederung)
+- Ist eine permanente Internetanbindung wirklich nötig?
+- Die Überpunkte zu nummerieren könnte vorteilhaft sein
+- Motivation und Problemstellung sind weggefallen
+
+
+******************************************************
 * Log-Management-System - Gruppe 3		               *
 ******************************************************
 + Inhaltsverzeichnis
