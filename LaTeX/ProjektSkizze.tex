@@ -25,8 +25,9 @@
 	Da die geschilderten Umstände den Verfassern dieses Dokumentes nicht fremd sind, soll mit diesem Projekt eine eigenständige Lösung erstellt werden. Der Fokus liegt auf einfacher Bedienung und komfortabler Sicherheit. Weiterhin wird für die Sicherheit auf fertige Endprodukte von Drittanbietern verzichtet. 
 	
 	\section{Problem}
-	Der pre-shared Key eines WLAN-Netzwerkes wird in den meisten Netzwerken einmal oder gar nicht geändert. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist.  \\ \\ 
-	Dies hat zur Folge, dass sich sobald einmal das Passwort geknackt oder bewusst/unbewusst weitergegeben wurde, jeder mit dem Access-Point verbinden kann. Regelmäßiges Wechseln des Keys führt jedoch zu unangenehmen Mehraufwand, den sehr viele Nutzer nicht eingehen wollen. Die Folge sind auf Dauer ungewollte Endgeräte im eigenen Netzwerk.
+		Wie im vorherigen Abschnitt erwähnt, ist vielen Endnutzer die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist.  
+	Dies hat zur Folge, dass sich sobald einmal das Passwort  bewusst/unbewusst weitergegeben wurde, jeder mit dem Access-Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk. \\ \\ 
+	Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-shared Keys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge, dass der Zugang einfacher geknacht werden kann.
 	
 	\section{Lösungsansätze}
 	Ein Lösungsansatz stellt ein sich automatisch oder auf Tastendruck ändernder pre-shared Key dar. Der Key wird jeden Montag morgen um 03:00 Uhr automatisch durch einen Cron-Job gewechselt. Der Taster kann zusätzlich betätigt werden, falls das Passwort sofort geändert werden soll. \\ 
