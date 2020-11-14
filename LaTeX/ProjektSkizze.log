@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  13 NOV 2020 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  14 NOV 2020 13:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -232,10 +232,45 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count194
+\calc@Bcount=\count195
+\calc@Adimen=\dimen145
+\calc@Bdimen=\dimen146
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count196
+\calc@Cskip=\skip52
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+)
+\AM@pagewidth=\dimen147
+\AM@pageheight=\dimen148
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box47
+\AM@global@opts=\toks19
+\AM@pagecnt=\count197
+\AM@toc@title=\toks20
+\c@AM@survey=\count198
+\AM@templatesizebox=\box48
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count194
-\l__pdf_internal_box=\box47
+\l__kernel_color_stack_int=\count199
+\l__pdf_internal_box=\box49
 )
 (./ProjektSkizze.aux)
 \openout1 = `ProjektSkizze.aux'.
@@ -259,17 +294,17 @@ LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count195
-\scratchdimen=\dimen145
-\scratchbox=\box48
-\nofMPsegments=\count196
-\nofMParguments=\count197
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count198
-\MPscratchDim=\dimen146
-\MPnumerator=\count199
-\makeMPintoPDFobject=\count266
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count266
+\scratchdimen=\dimen149
+\scratchbox=\box50
+\nofMPsegments=\count267
+\nofMParguments=\count268
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count269
+\MPscratchDim=\dimen150
+\MPnumerator=\count270
+\makeMPintoPDFobject=\count271
+\everyMPtoPDFconversion=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -279,7 +314,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box49
+\AtBeginShipoutBox=\box51
 Package hyperref Info: Link coloring OFF on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -291,7 +326,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count267
+\c@section@level=\count272
 )
 LaTeX Info: Redefining \ref on input line 18.
 LaTeX Info: Redefining \pageref on input line 18.
@@ -301,88 +336,187 @@ LaTeX Info: Redefining \nameref on input line 18.
 \@outlinefile=\write3
 \openout3 = `ProjektSkizze.out'.
 
-\c@lstlisting=\count268
+\c@lstlisting=\count273
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+<./images/rwu_logo_hor-lila-cyan_rgb_0.png, id=56, 998.26187pt x 334.31374pt>
+File: ./images/rwu_logo_hor-lila-cyan_rgb_0.png Graphic file (type png)
+<use ./images/rwu_logo_hor-lila-cyan_rgb_0.png>
+Package pdftex.def Info: ./images/rwu_logo_hor-lila-cyan_rgb_0.png  used on inp
+ut line 26.
+(pdftex.def)             Requested size: 299.48087pt x 100.29489pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
+(Font)              <6> on input line 26.
+ [1
 
-
-LaTeX Warning: No \author given.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/rwu_logo_hor-lila
+-cyan_rgb_0.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
  []
 
 
-Overfull \hbox (4.00626pt too wide) in paragraph at lines 27--29
+Overfull \hbox (1.85976pt too wide) in paragraph at lines 30--33
+\T1/cmr/m/n/10.95 Da die geschilderten Um-stände den Ver-fassern dieses Doku-me
+ntes nicht fremd
+ []
+
+
+Overfull \hbox (4.00626pt too wide) in paragraph at lines 36--39
 \T1/cmr/m/n/10.95 wusst/un-be-wusst weit-ergegeben wurde, jeder mit dem Access-
 Point verbinden
  []
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./images/skizze.png, id=62, 534.49687pt x 332.74312pt>
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.44 	\begin{itemize}
+                      [1]
+<./images/skizze.png, id=72, 534.49687pt x 332.74312pt>
 File: ./images/skizze.png Graphic file (type png)
 <use ./images/skizze.png>
-Package pdftex.def Info: ./images/skizze.png  used on input line 42.
+Package pdftex.def Info: ./images/skizze.png  used on input line 53.
 (pdftex.def)             Requested size: 320.70059pt x 199.6474pt.
  [2 <./images/skizze.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 60--62
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
+Overfull \hbox (0.8139pt too wide) in paragraph at lines 76--77
+\T1/cmr/m/n/10.95 zliche Pakete in-stal-liert (hostapd) und eine Net-zw-erkkon-
+fig-u-ra-tion vorgenom-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 66.
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--72
+(Font)              <10.95> on input line 82.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 86--89
 
  []
 
-[3]
-Overfull \hbox (13.3884pt too wide) in paragraph at lines 83--84
+
+Overfull \hbox (13.3884pt too wide) in paragraph at lines 100--101
 \T1/cmr/m/n/10.95 Das Pro-jekt ist für Haushalte geeignet, welche ein sicheres 
 Gästenetz gewährleis-
  []
 
 
-Overfull \hbox (5.50084pt too wide) in paragraph at lines 86--87
+Overfull \hbox (5.50084pt too wide) in paragraph at lines 103--104
 \T1/cmr/m/n/10.95 Im Fol-gen-den wer-den die ver-schiede-nen Funk-tio-nen defin
 iert und kat-e-gorisiert. 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
-[4] [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
+[4]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./images/WLAN_AP_Gantt-Diagramm.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<./images/WLAN_AP_Gantt-Diagramm.pdf, id=93, 845.07724pt x 597.55246pt>
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf  used on input lin
+e 122.
+(pdftex.def)             Requested size: 845.07518pt x 597.551pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./images/WLAN_AP_Gantt-Diagramm.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf  used on input lin
+e 122.
+(pdftex.def)             Requested size: 845.07518pt x 597.551pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./images/WLAN_AP_Gantt-Diagramm.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./images/WLAN_AP_Gantt-Diagramm.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<./images/WLAN_AP_Gantt-Diagramm.pdf, id=96, page=2, 845.07724pt x 597.55246pt>
+
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf, page 2>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf , page2 used on in
+put line 122.
+(pdftex.def)             Requested size: 845.07518pt x 597.551pt.
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf, page 2>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf , page2 used on in
+put line 122.
+(pdftex.def)             Requested size: 597.55902pt x 422.5328pt.
+[5]
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf, page 2>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf , page2 used on in
+put line 122.
+(pdftex.def)             Requested size: 597.55902pt x 422.5328pt.
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf, page 2>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf , page2 used on in
+put line 122.
+(pdftex.def)             Requested size: 597.55902pt x 422.5328pt.
+File: ./images/WLAN_AP_Gantt-Diagramm.pdf Graphic file (type pdf)
+<use ./images/WLAN_AP_Gantt-Diagramm.pdf, page 2>
+Package pdftex.def Info: ./images/WLAN_AP_Gantt-Diagramm.pdf , page2 used on in
+put line 122.
+(pdftex.def)             Requested size: 597.55902pt x 422.5328pt.
+ [6 <./images/WLAN_AP_Gantt-Diagramm.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
  (./ProjektSkizze.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
 Package rerunfilecheck Info: File `ProjektSkizze.out' has not changed.
-(rerunfilecheck)             Checksum: B972B48D50DB020C0A4F094AA7B0ACF0;694.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 110.
+(rerunfilecheck)             Checksum: 766F198D9EEFE90D8DF87086AAD90E03;758.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
  ) 
 Here is how much of TeX's memory you used:
- 7271 strings out of 482823
- 108017 string characters out of 5956142
- 370490 words of memory out of 5000000
- 22521 multiletter control sequences out of 15000+600000
+ 8059 strings out of 482823
+ 120896 string characters out of 5956142
+ 387094 words of memory out of 5000000
+ 23280 multiletter control sequences out of 15000+600000
  544484 words of font info for 49 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,11n,37p,434b,370s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,18n,43p,589b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.60
 0pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.
 600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm109
@@ -394,10 +528,10 @@ crm1200.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec
 mmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ProjektSkizze.pdf (5 pages, 137294 bytes).
+Output written on ProjektSkizze.pdf (7 pages, 417079 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 102 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 401 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
+ 135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
