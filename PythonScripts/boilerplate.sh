@@ -8,6 +8,9 @@ execute_script() {
     local wpa=$(grep /etc/hostapd/hostapd.conf -e wpa | cut -f 2 -d '=' | head -n 1)
     local ssid=$(grep /etc/hostapd/hostapd.conf -e ssid | cut -f 2 -d '=' | head -n 1)
     echo "wpa:${wpa} ssid:${ssid} pass:${pass}" 
+
+    #QRCODE
+    python3 qrCodeGenerator.py $ssid $wpa $pass
 }
 
 # main
