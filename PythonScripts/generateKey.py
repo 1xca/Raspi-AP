@@ -10,7 +10,6 @@ def get_random_password():
     
     #remove problematic characters
     alphabet = temp.replace('\'', '').replace('\\', '').replace('\"', '')
-    print(alphabet)
 
     #generate a random password
     password = ''.join(random.choice(alphabet) for i in range(10))
