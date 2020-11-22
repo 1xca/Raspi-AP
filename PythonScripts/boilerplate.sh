@@ -4,13 +4,16 @@ readonly SCRIPT="$(test -L "${BASH_SOURCE[0]}" && readlink "${BASH_SOURCE[0]}" |
 readonly SCRIPT_DIR="$(cd "$(dirname "${SCRIPT}")"; pwd)"
 
 execute_script() {
-    local pass=$(python3 generateKey.py)         
+    local pass=$(python3 "${SCRIPT_DIR}/generateKey.py")         
     local wpa=$(grep /etc/hostapd/hostapd.conf -e wpa | cut -f 2 -d '=' | head -n 1)
     local ssid=$(grep /etc/hostapd/hostapd.conf -e ssid | cut -f 2 -d '=' | head -n 1)
     echo "wpa:${wpa} ssid:${ssid} pass:${pass}" 
 
     #QRCODE
-    python3 qrCodeGenerator.py $ssid $wpa $pass
+    python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "${wpa}" "${pass}"
+
+    #CHANGE PASSWORD
+    sed "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" "/etc/hostapd/hostapd.conf"
 }
 
 # main
