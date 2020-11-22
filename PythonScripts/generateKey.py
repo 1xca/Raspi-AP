@@ -9,7 +9,7 @@ def get_random_password():
     temp = string.ascii_letters + string.digits + string.punctuation
     
     #remove problematic characters
-    alphabet = temp.replace('\'', '').replace('\\', '').replace('\"', '')
+    alphabet = temp.replace('\'', '').replace('\\', '').replace('\"', '').replace('\`', '').replace(';', '')
 
     #generate a random password
     password = ''.join(random.choice(alphabet) for i in range(10))
