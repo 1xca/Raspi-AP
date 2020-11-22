@@ -13,7 +13,8 @@ execute_script() {
     python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "WPA${wpa}" "${pass}"
 
     #CHANGE PASSWORD
-    sed "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" "/etc/hostapd/hostapd.conf"
+    sed -i "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" "/etc/hostapd/hostapd.conf"
+    systemctl restart hostapd.service
 }
 
 # main
