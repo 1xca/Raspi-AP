@@ -1,6 +1,11 @@
 '''
+Changes the existing password in the /etc/hostapd/hostapd.conf
 '''
+import sys
 
-import subprocess 
+def change_password(password):
+    pass
 
 if __name__ == "__main__":
+    password = sys.argv[1]
+    change_password(password)
