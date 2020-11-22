@@ -10,7 +10,7 @@ execute_script() {
     echo "wpa:${wpa} ssid:${ssid} pass:${pass}" 
 
     #QRCODE
-    python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "${wpa}" "${pass}"
+    python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "WPA${wpa}" "${pass}"
 
     #CHANGE PASSWORD
     sed "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" "/etc/hostapd/hostapd.conf"
