@@ -28,7 +28,6 @@
     	
     	\section{Zusammenfassung}
     	\tableofcontents
-    	\newpage
     	
     	\section{Abbildungsverzeichnis}
     	\listoffigures
@@ -39,10 +38,45 @@
     	\section{Fachbegriffe}
     	
     	\section{Hardware}
-    	
+    		\subsection{Raspberry Pi}
+    			Der Raspberry Pi ist wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa Kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware. Zudem ist er vielseitig einsetzbar in diesem Fall wird er zu einem Access-Point konfiguriert. 
+    			\begin{figure}[ht]
+    				\centering
+	    			\includegraphics[scale=0.5]{raspberry_pi_3b}
+	    				\caption{Raspberry Pi 3b}
+	    				\label{raspberrypi3b}
+			\end{figure}
+			Technische Spezifikationen unseres Raspberry Pi 3b:
+			\begin{itemize}
+				\item Quad Core 1.2GHz Broadcom BCM2837 64bit CPU
+				\item 1GB RAM
+				\item BCM43438 wireless LAN and Bluetooth Low Energy (BLE) on board
+				\item 100 Base Ethernet
+				\item 40-pin extended GPIO
+				\item 4 USB 2 ports
+				\item 4 Pole stereo output and composite video port
+				\item Full size HDMI
+				\item CSI camera port for connecting a Raspberry Pi camera
+				\item DSI display port for connecting a Raspberry Pi touchscreen display
+				\item Micro SD port for loading your operating system and storing data
+				\item Upgraded switched Micro USB power source up to 2.5A
+			\end{itemize}
+		\subsection{RASP PI 3.2 in TD}
+			image + Buttons und touchscreen
+		\subsection{SD-Karte}
+    			32GB
+    			
     	\section{Software}
-    	
-    	\section{Konfiguration des RaspberryPi als Access-Point}
+    		\subsection{balenaEtcher}
+    			Flash Sd Card
+		\subsection{hostapd}
+    		\subsection{dnsmasq}
+    		\subsection{cron}
+			Planen der Ausführung des Skripts
+    		\subsection{Python3.7}
+    			\subsubsection{pyqrcode}
+    			\subsubsection{gpiozero}
+    	\section{Konfiguration des Raspberry Pi als Access-Point}
     	
     	\section{Passwortgenerierung}
     	
@@ -51,5 +85,7 @@
     	\section{Fazit mit Ausblick}
     	
     	\section{Quellenverzeichnis}
+    	
+    	\url{http://www.elektronik-kompendium.de/sites/raspberry-pi/bilder/19052512.jpg} [aufgerufen am 25.11.2020] \ref{raspberrypi3b}
     	
 \end{document}
