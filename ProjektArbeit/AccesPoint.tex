@@ -15,6 +15,7 @@
 
 
 
+
 \begin{document}
 	\setlength{\parindent}{0ex}
 	
@@ -28,6 +29,7 @@
     	
     	\section{Zusammenfassung}
     	\tableofcontents
+    	\newpage
     	
     	\section{Abbildungsverzeichnis}
     	\listoffigures
@@ -35,15 +37,15 @@
     	
     	\section{Allgemeines}
     	
-    	\section{Fachbegriffe}
+    	\subsection{Fachbegriffe}
     	
-    	\section{Hardware}
+      	\section{Hardware}
     		\subsection{Raspberry Pi}
     			Der Raspberry Pi wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa Kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware. Zudem ist er vielseitig einsetzbar, in diesem Fall wird er zu einem Access-Point konfiguriert. 
     			\begin{figure}[ht]
     				\centering
 	    			\includegraphics[scale=0.5]{raspberry_pi_3b}
-	    				\caption{Raspberry Pi 3b}
+	    				\caption{Raspberry Pi 3b - Quelle: \cite{Picture_Raspberrypi3b} }
 	    				\label{raspberrypi3b}
 				\end{figure}
 				Technische Spezifikationen unseres Raspberry Pi 3b:
@@ -66,7 +68,7 @@
 				\begin{figure}[ht]
 					\centering
 					\includegraphics[scale=0.5]{touch_display}
-					\caption{Touchscreen Display für den Raspberry Pi}
+					\caption{Touchscreen Display für den Raspberry Pi - Quelle: \cite{Picture_touchdisplay}}
 					\label{touchdisplay}
 				\end{figure}
 				Technische Spezifikationen unseres Raspberry Pi Shield - Display LCD-Touch, 3.2in:
@@ -80,22 +82,69 @@
 				\end{itemize}
 			\subsection{SD-Karte}
     			Die SD-Karte ist eine SanDisk extreme mit einer Speicherkapazität von 32GB. Sie dient als Speichermedium des Raspberry Pi's. Zu Beginn wird das Betriebssystem auf die Karte geflasht von dieser wird der Einplatinencomputer gebooted.
+
+    			
     	\section{Software}
     		\subsection{balenaEtcher}
     			Flash Sd Card
-		\subsection{hostapd}
+    		\subsection{hostapd}
+        		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständing. \cite{Quote_hostapd1} 
     		\subsection{dnsmasq}
+        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwerdet um dies zu ermöglichen.
+    		\subsubsection{netfilter-persistent und iptables-persistent}
+        		Für die Druchführung des Projektes ist es nötig iptable-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb wurden die Pakete netfilter-persistent und iptables-persistent installliert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.
     		\subsection{cron}
 			Planen der Ausführung des Skripts
     		\subsection{Python3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 kommt ist bei Raspbian vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
     			\subsubsection{gpiozero}
-    	\section{Konfiguration des Raspberry Pi als Access-Point}
     	
+    	
+    	\section{Vorbereitung des Raspberry Pi}
+    	\subsection{Auswahl und Installation des Betriebssystem}
+    	Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
+    	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfälche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenützte Software, desto weniger Angriffsfläche. \\ \\
+    	
+    	Nach der Auswahl des Betriebsystems konnte dieses auf eine SD-Karte geschrieben werden.
+    	Hierzu wurde die Software balenaEtcher verwendet.   
+    	
+    	
+    	\subsection{Aktualisierung und Paketinstallation}
+    	Nach der Neuinstallation eines Betriebsystems fehlt diesem oft die aktuellsten Versionen von Softwarpaketen und Updates. Deshalb wurde diese zuerst aktuallisiert und installiert. So werden Konflikte aufgrund veraltete Software vermieden und die Sicherheit verbessert.  
+    	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
+    	
+    	
+    	\subsection{SSH Zugriff einrichten}
+    	Da das Projektteam aus drei Personen besteht, wurde ein SSH Zugriff in den Einstellungen des Raspberry Pi eingerichtet. Die Einstellungen könne mit folgendem Befehl geöffnet werden: 
+    	\lstset{
+        language=bash,
+        keywordstyle=\color{blue},
+        commentstyle=\color{dkgreen},
+        numbers=left,
+        basicstyle=\scriptsize\ttfamily,
+        showspaces=false,
+        frame= single,
+        xleftmargin=0.5cm
+        }
+
+        \begin{lstlisting}
+sudo raspi-config
+        \end{lstlisting} 
+    	
+        In diesem Zuge wurde das der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den SSH Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
+    	
+    	\section{Konfiguration des RaspberryPi als funktionalen Access-Point}
+            \subsection{WLAN Interface}
+            \subsection{Routing}
+            \subsection{DNS und DHCP}
+            \subsection{Access Point Einstellungen}
+         
+            
     	\section{Passwortgenerierung}
     		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub repository hinterlegt und für jeden zugänglich (ref zum Link). Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
-    		\lstset{
+    	
+    	\lstset{
     			numbers=left,
     			basicstyle=\ttfamily,
     			language=Python,
@@ -103,29 +152,38 @@
     			commentstyle=\color{green},
     			xleftmargin=1cm
     		}
-			\begin{lstlisting}
+    	
+    	
+    	
+\begin{lstlisting}
 import secrets
 import string
 
 def get_random_password():
-temp = string.ascii_letters + string.digits + string.punctuation
+temp = string.ascii_letters + string.digits 
++ string.punctuation
 
-alphabet = temp.replace('\'', '').replace('\\', '')
-.replace('\"','').replace('\`', '').replace(';', '')
+alphabet = temp.replace('\'', '')
+.replace('\\', '')
+.replace('\"','').replace('\`', '')
+.replace(';', '')
 
-password = ''.join(secrets.choice(alphabet) for i in range(10))
+password = ''.join(secrets
+.choice(alphabet) for i in range(10))
 return password
 
 if __name__ == "__main__":
 print(get_random_password())
-			\end{lstlisting}
+\end{lstlisting}
+    	
     	\section{Ausgabe des Passworts}
+    	
+    	
     	
     	\section{Fazit mit Ausblick}
     	
     	\section{Quellenverzeichnis}
+        \bibliography{zitate}
+        \bibliographystyle{plain}
     	
-    	\url{http://www.elektronik-kompendium.de/sites/raspberry-pi/bilder/19052512.jpg} [aufgerufen am 25.11.2020] \ref{raspberrypi3b} \\
-    	
-    	\url{https://cdn-reichelt.de/bilder/web/artikel_ws/A300/TFTV2.jpg} [aufgerufen am 26.11.2020] \ref{touchdisplay}
 \end{document}
