@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  26 NOV 2020 15:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  26 NOV 2020 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -398,7 +398,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
+) [4]
 Overfull \hbox (103.01915pt too wide) in paragraph at lines 111--113
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -418,7 +418,7 @@ Overfull \hbox (96.22905pt too wide) in paragraph at lines 116--117
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[4]
+
 Overfull \hbox (42.74434pt too wide) in paragraph at lines 128--129
 []$\T1/cmtt/m/n/10.95 http : / / www . elektronik-[]kompendium . de / sites / r
 aspberry-[]pi / bilder / 19052512 .
@@ -448,11 +448,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
 Here is how much of TeX's memory you used:
  8551 strings out of 482823
  125684 string characters out of 5956142
- 580692 words of memory out of 5000000
+ 581223 words of memory out of 5000000
  23734 multiletter control sequences out of 15000+600000
  544798 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,8n,40p,564b,1918s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,8n,40p,661b,1914s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.60
 0pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.
 600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx120
@@ -462,9 +462,9 @@ x1095.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/e
 cbx1440.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec
 /ecrm1200.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecrm1728.600pk>
-Output written on AccesPoint.pdf (6 pages, 247335 bytes).
+Output written on AccesPoint.pdf (6 pages, 247981 bytes).
 PDF statistics:
- 519 PDF objects out of 1000 (max. 8388607)
+ 520 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
  46 named destinations out of 1000 (max. 500000)
  184 words of extra memory for PDF output out of 10000 (max. 10000000)

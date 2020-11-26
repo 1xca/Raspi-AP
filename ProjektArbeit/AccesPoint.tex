@@ -39,7 +39,7 @@
     	
     	\section{Hardware}
     		\subsection{Raspberry Pi}
-    			Der Raspberry Pi ist wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa Kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware. Zudem ist er vielseitig einsetzbar in diesem Fall wird er zu einem Access-Point konfiguriert. 
+    			Der Raspberry Pi wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa Kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware. Zudem ist er vielseitig einsetzbar, in diesem Fall wird er zu einem Access-Point konfiguriert. 
     			\begin{figure}[ht]
     				\centering
 	    			\includegraphics[scale=0.5]{raspberry_pi_3b}
@@ -78,9 +78,8 @@
 					\item SPI-Schnittstelle
 					\item Touchscreen Technologie resistiv
 				\end{itemize}
-		\subsection{SD-Karte}
-    			32GB
-    			
+			\subsection{SD-Karte}
+    			Die SD-Karte ist eine SanDisk extreme mit einer Speicherkapazität von 32GB. Sie dient als Speichermedium des Raspberry Pi's. Zu Beginn wird das Betriebssystem auf die Karte geflasht von dieser wird der Einplatinencomputer gebooted.
     	\section{Software}
     		\subsection{balenaEtcher}
     			Flash Sd Card
@@ -89,12 +88,13 @@
     		\subsection{cron}
 			Planen der Ausführung des Skripts
     		\subsection{Python3.7}
+    			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 kommt ist bei Raspbian vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
     			\subsubsection{gpiozero}
     	\section{Konfiguration des Raspberry Pi als Access-Point}
     	
     	\section{Passwortgenerierung}
-    		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub repository hinterlegt und für jeden zugänglich (ref zum Link). Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden können. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt. Dies wird 10 mal ausgeführt.
+    		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub repository hinterlegt und für jeden zugänglich (ref zum Link). Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
     		\lstset{
     			numbers=left,
     			basicstyle=\ttfamily,
