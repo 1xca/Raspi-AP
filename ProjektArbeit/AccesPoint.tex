@@ -103,16 +103,16 @@
     	
     	\section{Vorbereitung des Raspberry Pi}
     	\subsection{Auswahl und Installation des Betriebssystem}
-    	Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
-    	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfälche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenützte Software, desto weniger Angriffsfläche. \\ \\
+    	    Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
+        	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfälche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenützte Software, desto weniger Angriffsfläche. \\ 
     	
-    	Nach der Auswahl des Betriebsystems konnte dieses auf eine SD-Karte geschrieben werden.
-    	Hierzu wurde die Software balenaEtcher verwendet.   
+        	Nach der Auswahl des Betriebsystems konnte dieses auf eine SD-Karte geschrieben werden.
+        	Hierzu wurde die Software balenaEtcher verwendet.   
     	
     	
     	\subsection{Aktualisierung und Paketinstallation}
-    	Nach der Neuinstallation eines Betriebsystems fehlt diesem oft die aktuellsten Versionen von Softwarpaketen und Updates. Deshalb wurde diese zuerst aktuallisiert und installiert. So werden Konflikte aufgrund veraltete Software vermieden und die Sicherheit verbessert.  
-    	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
+        	Nach der Neuinstallation eines Betriebsystems fehlt diesem oft die aktuellsten Versionen von Softwarpaketen und Updates. Deshalb wurde diese zuerst aktuallisiert und installiert. So werden Konflikte aufgrund veraltete Software vermieden und die Sicherheit verbessert.  
+        	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
     	
     	
     	\subsection{SSH Zugriff einrichten}
@@ -120,23 +120,56 @@
     	\lstset{
         language=bash,
         keywordstyle=\color{blue},
-        commentstyle=\color{dkgreen},
+        commentstyle=\color {violet},
+        stringstyle=\color{orange},
         numbers=left,
         basicstyle=\scriptsize\ttfamily,
         showspaces=false,
         frame= single,
         xleftmargin=0.5cm
         }
-
         \begin{lstlisting}
 sudo raspi-config
         \end{lstlisting} 
     	
-        In diesem Zuge wurde das der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den SSH Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
-    	
+        In diesem Zuge wurde das der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den  Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
     	\section{Konfiguration des RaspberryPi als funktionalen Access-Point}
             \subsection{WLAN Interface}
+                Der Raspberry Pi benötigt eine statische IP Konfiguration für sein WLAN Interface. Diese wird in der Datei /etc/dhcpcd.conf vorgenommen. Die Datei wir geöffnet und um folgendes ergänzt:\\
+                \lstset{
+                language=bash,
+                }
+                \begin{lstlisting}
+interface wlan0
+    static ip_address=192.168.4.1/24
+    nohook wpa_supplicant
+                \end{lstlisting} 
+                Mit der 192.168.4.1 wird eine statische IP Adresse vergeben unter die der Raspberry Pi im WLAN erreichbar ist. Weiterhin wird der wpa{\_}supplicant deaktiviert um keine Konflikte mit hostapd zu verursachen. 
+            
             \subsection{Routing}
+                Der Access Point muss den Datenverkehr der Endgeräte im WLAN zum Router weiterleiten können.
+                Hierzu wird in /etc/sysctl.d/routed-ap.conf ein Eintrag hinzugefügt bzw. das Kommentarzeichen entfernt:\\
+                \lstset{
+                language=bash,
+                }
+
+                \begin{lstlisting}
+# Enable IPv4 routing
+net.ipv4.ip_forward=1
+                \end{lstlisting} 
+                Endgeräte können nun den Hauptrouter erreichen. Um jedoch eine Kommunikation zu ermöglichen muss NAT eingestellt werden. Die wird durch einen Eintrag in die iptables Firewall erreicht: \\
+            
+                \begin{lstlisting}
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+                \end{lstlisting} 
+       
+                Bei Datenverkehr zum Hauptrouter wird nun die Absender IP Adresse der Endgeräte mit der IP der LAN-Schnittstelle ersetzt. Bei Rückantworten an den Raspberry Pi werden diese an den jeweiligen Absender richtig weitergeleitet.\\
+            
+                Um  Firewall Regel bei einem Neustart zu behalten, wurde diese abgespeichert:\\
+                
+            \begin{lstlisting}
+sudo netfilter-persistent save
+         \end{lstlisting}    
             \subsection{DNS und DHCP}
             \subsection{Access Point Einstellungen}
          
@@ -145,17 +178,12 @@ sudo raspi-config
     		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub repository hinterlegt und für jeden zugänglich (ref zum Link). Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
     	
     	\lstset{
-    			numbers=left,
     			basicstyle=\ttfamily,
     			language=Python,
-    			keywordstyle=\color{blue},
-    			commentstyle=\color{green},
-    			xleftmargin=1cm
     		}
     	
-    	
-    	
-\begin{lstlisting}
+
+            \begin{lstlisting}
 import secrets
 import string
 
@@ -174,7 +202,7 @@ return password
 
 if __name__ == "__main__":
 print(get_random_password())
-\end{lstlisting}
+            \end{lstlisting}
     	
     	\section{Ausgabe des Passworts}
     	
