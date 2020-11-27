@@ -302,9 +302,19 @@ if __name__ == "__main__":
     	
     	\section{Passworttausch}
     		Das Tauschen des Passworts wird durch ein Bash Skript, mit dem Namen changePassword.sh, vorgenommen. Zunächst wird das neue Passwort mit Hilfe von generatePassword.py generiert und der Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei gelesen. Die drei Parameter werden einmal als Klartext ausgegeben und dann werden sie dem Python Skript zum Generieren des QRCodes übergeben. Im Anschluss wird mit dem Unix Tool sed die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
-    		Die zugehörigen Python Dateien müssen sich im selben Ordner wie das Bash Skript befinden. Das Skript bezieht sich auf den Pfad an dem es liegt und nicht den aktiven Pfad, damit es von überall ausführbar ist und keine Probleme mit Cron auftreten. 
+    		Die zugehörigen Python Dateien müssen sich im selben Ordner wie das Bash Skript befinden. Das Skript bezieht sich auf den Pfad an dem es liegt und nicht den aktiven Pfad, damit es von überall ausführbar ist und keine Probleme mit Cron auftreten.  \\
     	\lstset{
     		language=bash,
+        keywordstyle=\color{blue},
+        commentstyle=\color {violet},
+        stringstyle=\color{orange},
+        numbers=left,
+        breaklines=true,
+        postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+        basicstyle=\scriptsize\ttfamily,
+        showspaces=false,
+        frame= single,
+        xleftmargin=0.5cm
     	}
     	\begin{lstlisting}
 #!/usr/bin/env bash
@@ -323,7 +333,8 @@ execute_script() {
 	python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "WPA${wpa}" "${pass}"
 
 	# Change the Password and restart Access Point
-	sed -i "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" "/etc/hostapd/hostapd.conf"
+	sed -i "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" \
+		"/etc/hostapd/hostapd.conf"
 	systemctl restart hostapd.service
 }
 
