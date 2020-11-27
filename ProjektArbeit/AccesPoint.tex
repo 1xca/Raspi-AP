@@ -29,7 +29,7 @@
     	\end{titlepage}
     	
     	\section{Zusammenfassung}
-    	Das Ziel dieses Projekts war es, die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. Der pre-shared Key eines WLANs wird in den meisten Netzwerken einmal oder nie geändert wird. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben. Gelöst wurde dies durch einen eigenen Access Point für Gäste. Über diesen wird der Zugriff ins Internet geleitet. Der pre-shared Key wird einmal die Woche oder manuell neu erzeugt und auf einem Display ausgegeben. Die Ausgabe erfolgt in Form eines QR - Codes und in Klartext.   \\
+    	Das Ziel dieses Projekts war es, die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. Der pre-shared Key eines WLANs wird in den meisten Netzwerken einmal oder nie geändert. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben. Gelöst wurde dies durch einen eigenen Access Point für Gäste. Über diesen wird der Zugriff ins Internet geleitet. Der pre-shared Key wird einmal die Woche oder manuell neu erzeugt und auf einem Display ausgegeben. Die Ausgabe erfolgt in Form eines QR - Codes und in Klartext.   \\
 
     	
     	
@@ -94,9 +94,9 @@
     		\subsection{balenaEtcher}
     			Flash Sd Card
     		\subsection{hostapd}
-        		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständing. \cite{Quote_hostapd1} 
+        		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständing. \cite{Quote_hostapd1} 
     		\subsection{dnsmasq}
-        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwerdet um dies zu ermöglichen.
+        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwendet, um dies zu ermöglichen.
     		\subsubsection{netfilter-persistent und iptables-persistent}
         		Für die Druchführung des Projektes ist es nötig iptable-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb wurden die Pakete netfilter-persistent und iptables-persistent installliert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.
     		\subsection{cron}
@@ -106,7 +106,7 @@
     			\subsubsection{pyqrcode}
     				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
     			\subsubsection{gpiozero}
-    	
+    				Im Beta-Stand noch nicht umgesetzt
     	
     	\section{Vorbereitung des Raspberry Pi}
     	\subsection{Auswahl und Installation des Betriebssystem}
@@ -118,12 +118,12 @@
     	
     	
     	\subsection{Aktualisierung und Paketinstallation}
-        	Nach der Neuinstallation eines Betriebsystems fehlt diesem oft die aktuellsten Versionen von Softwarpaketen und Updates. Deshalb wurde diese zuerst aktuallisiert und installiert. So werden Konflikte aufgrund veraltete Software vermieden und die Sicherheit verbessert.  
+        	Nach der Neuinstallation eines Betriebsystems fehlt diesem oft die aktuellsten Versionen von Softwarpaketen und Updates. Deshalb wurde diese zuerst aktualisiert und installiert. So werden Konflikte aufgrund veralteter Software vermieden und die Sicherheit verbessert.  
         	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
     	
     	
     	\subsection{SSH Zugriff einrichten}
-    	Da das Projektteam aus drei Personen besteht, wurde ein SSH Zugriff in den Einstellungen des Raspberry Pi eingerichtet. Die Einstellungen könne mit folgendem Befehl geöffnet werden: 
+    	Da das Projektteam aus drei Personen besteht, wurde ein SSH Zugriff in den Einstellungen des Raspberry Pi eingerichtet. Die Einstellungen können mit folgendem Befehl geöffnet werden: 
     	\lstset{
         language=bash,
         keywordstyle=\color{blue},
@@ -139,10 +139,10 @@
 sudo raspi-config
         \end{lstlisting} 
     	
-        In diesem Zuge wurde das der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den  Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
+        In diesem Zuge wurde der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den  Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
     	\section{Konfiguration des RaspberryPi als funktionalen Access-Point}
             \subsection{WLAN Interface}
-                Der Raspberry Pi benötigt eine statische IP Konfiguration für sein WLAN Interface. Diese wird in der Datei /etc/dhcpcd.conf vorgenommen. Die Datei wir geöffnet und um folgendes ergänzt:\\
+                Der Raspberry Pi benötigt eine statische IP Konfiguration für sein WLAN Interface. Diese wird in der Datei /etc/dhcpcd.conf vorgenommen. Die Datei wird um folgendes ergänzt:\\
                 \lstset{
                 language=bash,
                 }
@@ -203,7 +203,7 @@ address=/gw.wlan/192.168.4.1
                     Nun musste die Konfigurationsdatei unter /etc/hostapd/hostapd.conf erstellt und gefüllt werden.
                     In dieser werden verschiedene Parameter eingestellt. Darunter fallen unter anderem die SSID, das Passwort und die Art der Verschlüsselung. Es wurde eingestellt das nur WPA2 verwendet wird, da WEP als unsicher gilt. Weiterhin wurde der Funkstandard auf n und 2.4GHz eingestellt. Grund hiefür war das der Raspberry Pi keinen höheren Standard in Form von z.B AC unterstützen würde. Weiterhin ist der eingestellte Standard ausreichend  für das surfen im Gast-Internet. \\
                     Der Kanal wurde auf null gesetzt. Mit dieser Einstellung sucht der Access Point automatisch einen passenden Kanal. Bedeutet, den mit den wenigsten Störungen bzw. einen Kanal der sich möglichst wenig mit anderen Netzen überschneidet.\\
-                    Um Wireless-Networking auf dem Raspberry Pi zu ermöglichen muss ein "Country Code" gesetzt werden. In diesem Fall auf "DE", welches Deutschland entspricht. Die ist notwendig je nach Land die Frequenzbänder unterschiedlich vergeben bzw. reguliert sind. Im folgenden der Inhalt der Konfigurationsdatei:
+                    Um Wireless-Networking auf dem Raspberry Pi zu ermöglichen muss ein "Country Code" gesetzt werden. In diesem Fall auf "DE", welches Deutschland entspricht. Die ist notwendig, denn je nach Land die Frequenzbänder unterschiedlich vergeben bzw. reguliert sind. Im folgenden der Inhalt der Konfigurationsdatei:
  
                 
                     \begin{lstlisting}
