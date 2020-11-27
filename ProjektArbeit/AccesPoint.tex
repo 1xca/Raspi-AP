@@ -28,6 +28,10 @@
     	\end{titlepage}
     	
     	\section{Zusammenfassung}
+    	Das Ziel dieses Projekts war es, die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. Der pre-shared Key eines WLANs wird in den meisten Netzwerken einmal oder nie geändert wird. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben. Gelöst wurde dies durch einen eigenen Access Point für Gäste. Über diesen wird der Zugriff ins Internet geleitet. Der pre-shared Key wird einmal die Woche oder manuell neu erzeugt und auf einem Display ausgegeben. Die Ausgabe erfolgt in Form eines QR - Codes und in Klartext.   \\
+
+    	
+    	
     	\tableofcontents
     	\newpage
     	
@@ -38,6 +42,7 @@
     	\section{Allgemeines}
     	
     	\subsection{Fachbegriffe}
+    	host access point daemon = hostapd
     	
       	\section{Hardware}
     		\subsection{Raspberry Pi}
@@ -165,7 +170,7 @@ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
        
                 Bei Datenverkehr zum Hauptrouter wird nun die Absender IP Adresse der Endgeräte mit der IP der LAN-Schnittstelle ersetzt. Bei Rückantworten an den Raspberry Pi werden diese an den jeweiligen Absender richtig weitergeleitet.\\
             
-                Um  Firewall Regel bei einem Neustart zu behalten, wurde diese abgespeichert:\\
+                Um die Firewall Regel bei einem Neustart zu behalten, wurde diese abgespeichert:\\
                 
             \begin{lstlisting}
 sudo netfilter-persistent save
