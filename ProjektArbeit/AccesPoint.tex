@@ -228,6 +228,34 @@ rsn_pairwise=CCMP
                 
             
     	\section{Passwortgenerierung}
+    		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub repository hinterlegt und für jeden zugänglich (ref zum Link). Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
+    	
+    	\lstset{
+    			basicstyle=\ttfamily,
+    			language=Python,
+    		}
+    	
+
+            \begin{lstlisting}
+import secrets
+import string
+
+def get_random_password():
+temp = string.ascii_letters + string.digits 
++ string.punctuation
+
+alphabet = temp.replace('\'', '')
+.replace('\\', '')
+.replace('\"','').replace('\`', '')
+.replace(';', '')
+
+password = ''.join(secrets
+.choice(alphabet) for i in range(10))
+return password
+
+if __name__ == "__main__":
+print(get_random_password())
+            \end{lstlisting}
     	
     	    	Als Passwortkonzept wurde sich auf einen 10 Zeichen langen Key geeinigt. Dieser benützt 90 Zeichen in Form von Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen. Begründet wurde diese Entscheidung mit folgender Annahme: \\\\
 		Angenommen ein leistungsstarker Rechner schafft durch Brute-Force 2 Billionen Keys pro Sekunde, so würde er 346 Tage benötigen, um alle Keys zu testen.  Wenn schon zur Hälfte der Zeit der richtigen Key gefunden wurde, wäre dies immernoch mehr als ausreichend für eine Woche. Zu sehen ist dies in der folgenden Rechnung:
