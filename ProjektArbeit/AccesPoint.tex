@@ -1,3 +1,4 @@
+% !TeX spellcheck = de_DE
 \documentclass[a4paper,11pt,singlespacing]{article}
 
 \usepackage{setspace}
@@ -44,6 +45,8 @@
     	
     	\subsection{Fachbegriffe}
     	host access point daemon = hostapd
+    	sed = Stream EDitor, Unix-Werkzeug zum Bearbeiten von Text
+    	stdout = Standard Ausgabe, normalerweise mit Monitor verbunden
     	
       	\section{Hardware}
     		\subsection{Raspberry Pi}
@@ -94,31 +97,33 @@
     		\subsection{balenaEtcher}
     			Flash Sd Card
     		\subsection{hostapd}
-        		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständing. \cite{Quote_hostapd1} 
+        		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
     		\subsection{dnsmasq}
-        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwendet, um dies zu ermöglichen.
+        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwendet um dies zu ermöglichen.
     		\subsubsection{netfilter-persistent und iptables-persistent}
-        		Für die Druchführung des Projektes ist es nötig iptable-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb wurden die Pakete netfilter-persistent und iptables-persistent installliert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.
-    		\subsection{cron}
-			Planen der Ausführung des Skripts
-    		\subsection{Python3.7}
+        		Für die Durchführung des Projektes ist es nötig iptables-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb wurden die Pakete netfilter-persistent und iptables-persistent installiert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.
+        	\subsection{Bash}
+        		Im Projekt wird Bash benutzt um die einzelnen Python Skripte aufzurufen, Infos aus Konfigurationsdateien auszulesen und schnelle Änderungen an Diesen vorzunehmen. Bash ist als Standardshell bei Raspberry Pi OS Lite vorinstalliert. 
+    		\subsection{Cron}
+				Cron ermöglicht das zeit basierte Ausführen des Bash Skripts. So kann beispielsweise jeden Montag um 03:00 Uhr nachts das Passwort automatisch geändert werden. 
+    		\subsection{Python 3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 ist bei Raspberry Pi OS Lite  vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
-    				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
+    				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
     			\subsubsection{gpiozero}
     				Im Beta-Stand noch nicht umgesetzt
     	
     	\section{Vorbereitung des Raspberry Pi}
     	\subsection{Auswahl und Installation des Betriebssystem}
     	    Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
-        	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfälche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenützte Software, desto weniger Angriffsfläche. \\ 
+        	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfläche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenutzte Software, desto weniger Angriffsfläche. \\ 
     	
-        	Nach der Auswahl des Betriebsystems konnte dieses auf eine SD-Karte geschrieben werden.
+        	Nach der Auswahl des Betriebssystems konnte dieses auf eine SD-Karte geschrieben werden.
         	Hierzu wurde die Software balenaEtcher verwendet.   
     	
     	
     	\subsection{Aktualisierung und Paketinstallation}
-        	Nach der Neuinstallation eines Betriebsystems fehlt diesem oft die aktuellsten Versionen von Softwarpaketen und Updates. Deshalb wurde diese zuerst aktualisiert und installiert. So werden Konflikte aufgrund veralteter Software vermieden und die Sicherheit verbessert.  
+        	Nach der Neuinstallation eines Betriebssystems fehlen diesem oft die aktuellsten Versionen von Softwarepaketen und Updates. Deshalb wurden diese zuerst aktualisiert und installiert. So werden Konflikte aufgrund veralteter Software vermieden und die Sicherheit verbessert.  
         	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
     	
     	
@@ -296,7 +301,48 @@ if __name__ == "__main__":
             \end{lstlisting}
     	
     	\section{Passworttausch}
-    	
+    		Das Tauschen des Passworts wird durch ein Bash Skript, mit dem Namen changePassword.sh, vorgenommen. Zunächst wird das neue Passwort mit Hilfe von generatePassword.py generiert und der Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei gelesen. Die drei Parameter werden einmal als Klartext ausgegeben und dann werden sie dem Python Skript zum Generieren des QRCodes übergeben. Im Anschluss wird mit dem Unix Tool sed die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
+    		Die zugehörigen Python Dateien müssen sich im selben Ordner wie das Bash Skript befinden. Das Skript bezieht sich auf den Pfad an dem es liegt und nicht den aktiven Pfad, damit es von überall ausführbar ist und keine Probleme mit Cron auftreten. 
+    	\lstset{
+    		language=bash,
+    	}
+    	\begin{lstlisting}
+#!/usr/bin/env bash
+
+readonly SCRIPT="$(test -L "${BASH_SOURCE[0]}" && readlink "${BASH_SOURCE[0]}" || echo "${BASH_SOURCE[0]}")"
+readonly SCRIPT_DIR="$(cd "$(dirname "${SCRIPT}")"; pwd)"
+
+execute_script() {
+	# Get Access Point Parameter
+	local pass=$(python3 "${SCRIPT_DIR}/generateKey.py")         
+	local wpa=$(grep /etc/hostapd/hostapd.conf -e wpa | cut -f 2 -d '=' | head -n 1)
+	local ssid=$(grep /etc/hostapd/hostapd.conf -e ssid | cut -f 2 -d '=' | head -n 1)
+	echo "WPA-Type:${wpa} Ssid:${ssid} Passphrase:${pass}" 
+
+	# Generate QRCode
+	python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "WPA${wpa}" "${pass}"
+
+	# Change the Password and restart Access Point
+	sed -i "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" "/etc/hostapd/hostapd.conf"
+	systemctl restart hostapd.service
+}
+
+# main
+if [[ "${BASH_SOURCE[0]}" != "$0" ]]; then
+	echo "Script is being sourced"
+else
+	set -x
+	set -euo pipefail
+	execute_script "$@"
+fi  	
+    	\end{lstlisting}
+    		\subsection{Automischer Tausch}
+    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Damit das Passwort und der QRCode dennoch auf dem angeschlossenen Bildschirm angezeigt werden ist es wichtig beim Aufrufen des Skripts den Standardoutput das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. Da manche Änderungen root-Rechte benötigen, wird der Aufruf in der crontab Datei des root Nutzers definiert.
+    			\begin{lstlisting}
+* 3 * * 1 /home/pi/scripts/changePassword.sh > /dev/tty1
+    			\end{lstlisting}
+    		
+    		    	
     	\section{Ausgabe des Passworts}
     		Derzeit wird aufgrund dem fehlenden Display (bisher noch nicht erhalten)  das Passwort im Klartext auf die Konsole ausgegeben. Zusätzlich wird im Folgenden die Generierung des QR-Codes erläutert.
     		
