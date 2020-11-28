@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.18)  28 NOV 2020 17:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.18)  28 NOV 2020 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -515,13 +515,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 272--287
 [11]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 288.
-
-Overfull \hbox (1.97887pt too wide) in paragraph at lines 319--320
-\T1/cmr/m/n/10.95 wort und der QR-Code den-noch auf dem angeschlosse-nen Bild-s
-chirm angezeigt
- []
-
-[12]
+ [12]
 Underfull \hbox (badness 10000) in paragraph at lines 329--330
 
  []
@@ -552,7 +546,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 363.
 Here is how much of TeX's memory you used:
  8898 strings out of 482056
  131548 string characters out of 5937674
- 719533 words of memory out of 5000000
+ 720533 words of memory out of 5000000
  24254 multiletter control sequences out of 15000+600000
  543125 words of font info for 47 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
@@ -576,7 +570,7 @@ local/texlive/2020basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
 r/local/texlive/2020basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
 fb>
-Output written on AccesPoint.pdf (15 pages, 356358 bytes).
+Output written on AccesPoint.pdf (15 pages, 356461 bytes).
 PDF statistics:
  914 PDF objects out of 1000 (max. 8388607)
  446 compressed objects within 5 object streams
