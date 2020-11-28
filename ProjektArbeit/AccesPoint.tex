@@ -29,13 +29,9 @@
     	\section{Zusammenfassung}
     	Das Ziel dieses Projekts war es, die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. Der pre-shared Key eines WLANs wird in den meisten Netzwerken einmal oder nie geändert. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben. Gelöst wurde dies durch einen eigenen Access Point für Gäste. Über diesen wird der Zugriff ins Internet geleitet. Der pre-shared Key wird einmal die Woche oder manuell neu erzeugt und auf einem Display ausgegeben. Die Ausgabe erfolgt in Form eines QR - Codes und in Klartext.   \\
 
-    	
-    	
-    	\tableofcontents
     	\newpage
     	
-    	\section{Abbildungsverzeichnis}
-    	\listoffigures
+    	\tableofcontents
     	\newpage
     	
     	\section{Allgemeines}
@@ -92,7 +88,7 @@
     			
     	\section{Software}
     		\subsection{balenaEtcher}
-    			Flash Sd Card
+    			Programm um Raspberry Pi OS Lite auf die SD Karte zu flashen.
     		\subsection{hostapd}
         		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
     		\subsection{dnsmasq}
@@ -235,6 +231,8 @@ rsn_pairwise=CCMP
     	\lstset{
     			basicstyle=\ttfamily,
     			language=Python,
+    			breaklines=true,
+        		postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
     		}
     	
 
@@ -243,20 +241,13 @@ import secrets
 import string
 
 def get_random_password():
-temp = string.ascii_letters + string.digits 
-+ string.punctuation
-
-alphabet = temp.replace('\'', '')
-.replace('\\', '')
-.replace('\"','').replace('\`', '')
-.replace(';', '')
-
-password = ''.join(secrets
-.choice(alphabet) for i in range(10))
-return password
+	temp = string.ascii_letters + string.digits + string.punctuation
+	alphabet = temp.replace('\'', '').replace('\\', '').replace('\"','').replace('\`', '').replace(';', '')
+	password = ''.join(secrets.choice(alphabet) for i in range(10))
+	return password
 
 if __name__ == "__main__":
-print(get_random_password())
+	print(get_random_password())
             \end{lstlisting}
     	
     	    	Als Passwortkonzept wurde sich auf einen 10 Zeichen langen Key geeinigt. Dieser benützt 90 Zeichen in Form von Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen. Begründet wurde diese Entscheidung mit folgender Annahme: \\\\
@@ -331,6 +322,8 @@ fi
     	\lstset{
     		basicstyle=\ttfamily,
     		language=Python,
+    		breaklines=true,
+        	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
     	}
     	
 
@@ -340,12 +333,7 @@ import pyqrcode as pqr
 
 def create_qr_code(ssid, security, password):
 	qr = pqr.create(
-	'WIFI:S:{ssid};T:{security};P:{password};;'
-	.format(
-		ssid=ssid,
-		security=security,
-		password=password
-	))
+	'WIFI:S:{ssid};T:{security};P:{password};;'.format(ssid=ssid, security=security, password=password))
 	print(qr.terminal())
 
 if __name__ == "__main__":
@@ -354,8 +342,10 @@ if __name__ == "__main__":
 	password = sys.argv[3]
 	create_qr_code(ssid, security, password)
 	 \end{lstlisting}
-    	\section{Fazit mit Ausblick}
-    	
+    %	\section{Fazit mit Ausblick}
+    	\pagebreak
+    	\section{Abbildungsverzeichnis}
+    	\listoffigures
     	\section{Quellenverzeichnis}
         \bibliography{zitate}
         \bibliographystyle{plain}
