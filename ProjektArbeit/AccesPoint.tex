@@ -266,36 +266,7 @@ print(get_random_password())
 			29936846.961918945312\ s\ \div\ 60\ \div\ 60\ \div\ 24\ \approx 202 \ Tage\\
 			202\ Tage\ \div\ 2\ =\ 101\ Tage
 		\end{eqnarray}\\
-    	
-    		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub repository hinterlegt und für jeden zugänglich (ref zum Link). Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt. \\
-    	
-    	\lstset{
-    			basicstyle=\ttfamily,
-    			language=Python,
-    		}
-    	
 
-            \begin{lstlisting}
-import secrets
-import string
-
-def get_random_password():
-	temp = string.ascii_letters + 
-	string.digits
-	+ string.punctuation
-	
-	alphabet = temp.replace('\'', '')
-	.replace('\\', '')
-	.replace('\"','').replace('\`', '')
-	.replace(';', '')
-	
-	password = ''.join(secrets
-	.choice(alphabet) for i in range(10))
-	return password
-
-if __name__ == "__main__":
-	print(get_random_password())
-            \end{lstlisting}
     	
     	\section{Passworttausch}
     		Das Tauschen des Passworts wird durch ein Bash Skript, mit dem Namen changePassword.sh, vorgenommen. Zunächst wird das neue Passwort mit Hilfe von generatePassword.py generiert und der Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei gelesen. Die drei Parameter werden einmal als Klartext ausgegeben und dann werden sie dem Python Skript zum Generieren des QRCodes übergeben. Im Anschluss wird mit dem Unix Tool sed die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
