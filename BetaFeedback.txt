@@ -1,0 +1,24 @@
+Feedback Beta-Arbeiten
++-----------------------+
+|--------Gruppe8--------|
++-----------------------+
+
++	Anforderungen sind gut Eingeteilt(Verwaltung, GUI, etc.)
++	Ablauf und Ziel soweit verständlich
+-	Da es sich um eine wissenschaftliche Arbeit handelt, wenn es geht auf "wir" verzichten. 
+- Soweit wir es verstanden habe sind die Projektarbeit und das Pflichtenheft zwei unterschiedliche Dokumente.
+	Es wäre besser wenn nur kleine passende Teile aus dem Pflichtenheft übernommen werden wie 
+	z.B die Motivation und Problem und nicht das komplette Pflichtenheft.
+- 	Namens-Platzhalter auf dem Deckblatt können noch ersetzt werden 
+- 	Für bessere Lesbarkeit und Einheitlichkeit könnte die Formatierung in Latex angepasst werden. Darunter fällt:
+		-> Eine eiheitliche Formatierung der Unterüberschriften
+		-> Code Zeilen der Vorlage entsprechen mit 	\lstset{} und lstlisting darstellen
+		-> Abbildungen beschriften + Abbildungsverzeichnis
+		-> Bei Texte die um eine Abbildung handeln ein Verweis auf diese erstellen 
+		-> Quellenverzeichnis einfügen bzw. zitate.bib erstellen und verlinken
+		
+-	Unter "10 Auswahl der Lösungen anhand der Anforderungen" gibt es einen Unterpunkt mit 3.2
+-   RFC 5424 könnte genauer erklärt werden
+-	Eine Abbildung die die kompletten Webapp zeigt würden einen noch besseren Einblick geben 
+-	Testfälle bzw. Bezug ob die Qualitätsziele erfüllt worden sind könnten hilfreich sein um einen Bogen zum Pflichtenheft zu schlagen
+?	Werden bei Neustart des Raspberry alle Dienste und Server von selbst wieder gestartet oder müssen diese wieder manuell gestartet werden?
