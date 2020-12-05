@@ -22,3 +22,17 @@ Feedback Beta-Arbeiten
 -	Eine Abbildung die die kompletten Webapp zeigt würden einen noch besseren Einblick geben 
 -	Testfälle bzw. Bezug ob die Qualitätsziele erfüllt worden sind könnten hilfreich sein um einen Bogen zum Pflichtenheft zu schlagen
 ?	Werden bei Neustart des Raspberry alle Dienste und Server von selbst wieder gestartet oder müssen diese wieder manuell gestartet werden?
+
++-----------------------+
+|--------Gruppe10--------|
++-----------------------+
++ Die Elektronische Installation ist sehr gut verständlich
++ Abbildung und Quellenverzeichnis
+- Layout entspricht nicht der Vorlage in moodle
+- Eine Zusammenfassung zu Begin wäre noch gut
+- viele Wortwiederholungen bei 1.
+- Abbildung 3 ist nihct verständlich (wie kann ich dort die durchsichtige Schicht erkennen?)
+- Begründen der Hard- und Software (warum Python und nicht eine andere Sprache)
+- Commands das nächste mal sowie in der Vorlage einfügen
+- Hardware in Form von Unterüberschriften is übersichtlicher
+- Da es sich um eine wissenschaftliche Arbeit handelt, wenn es geht auf "wir" verzichten. 
