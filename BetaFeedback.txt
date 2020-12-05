@@ -1,5 +1,24 @@
 Feedback Beta-Arbeiten
 +-----------------------+
+|--------Gruppe7--------|
++-----------------------+
+
++ Literaturverzeichnis
++ DSGVO konform definiert
++ Gliederung gut unterteilt
++ Ablauf sehr genau beschrieben
++ Wissenschaftliche Formulierungen
+
+- Rechtschreibung und Grammatik noch prüfen vor endgültiger Abgabe
+- Fachbegriffe könnten erklärt werden
+- Beispiel: (In 4.1) Schwer verständlich was Padatious ist. Was macht Mimic?
+- Für Quellcode kann man mit dem listings Paket in LateX hervorheben, anstatt mit Abbildungen (z.B. Konfigurationsdateien) [-> steht in Vorlage in Moodle]
+- Fließtext mit vielen Kommandos wird schnell unübersichtlich -> Formatierung evtl. ändern
+- Python und PostgresDB kann man noch in 4. Software als Unterpunkte von Selene schnell erwähnen
+
+
+
++-----------------------+
 |--------Gruppe8--------|
 +-----------------------+
 
