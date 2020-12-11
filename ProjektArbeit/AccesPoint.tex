@@ -10,12 +10,25 @@
 \usepackage{listings,xcolor}
 \usepackage{pdfpages}
 \usepackage{float}
+\usepackage[acronym]{glossaries}
+
+%\input{glossary.tex}
+\makeglossaries
+\input{glossary.tex}
+
+
 
 \renewcommand{\figurename}{Abbildung}
 
 \graphicspath{ {./images/} }
 
+
+
+
+
 \begin{document}
+    
+ 
 	\setlength{\parindent}{0ex}
 	
 	\begin{titlepage}
@@ -34,15 +47,39 @@
     	\tableofcontents
     	\newpage
     	
-    	\section{Allgemeines}
+    	\section{Einleitung}
     	
-    	\subsection{Fachbegriffe}
+    	
+    	
+    	\subsection{Motivation}
+    	Der Hauptgrund für dieses Projekt war es die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. \\ \\
+    	Wenn Gäste in der heimischen Wohnung auftauchen, ist der Wunsch nach freiem WLAN meist sehr groß. Bedeutet, der pre-shared key muss abgelesen und den Gästen bekannt gemacht werden. Folgend muss dieser umständlich von Hand eingegeben werden. Um hierbei Sicherheit zu gewährleisten, ist dieser meist länger und kryptisch gewählt. Dies führt oft zur falschen Eingabe bzw. Mehrversuchen und darauf folgenden Ärger darüber. Weiterhin ist es vom Gastgeber nicht immer erwünscht, dass die Gäste nach der Verabschiedung den Zugriff zum WLAN behalten. \\ \\
+    	Da die geschilderten Umstände den Verfassern dieses Dokumentes nicht fremd sind, soll mit diesem Projekt eine eigenständige Lösung erstellt werden. Der Fokus liegt auf einfacher Bedienung und komfortabler Sicherheit. Weiterhin wird für die Sicherheit auf fertige Endprodukte von Drittanbietern verzichtet. 
+    	
+    	
+    		
+    		
+    			\subsection{Ziel}
+    	
+    	
+    	\subsection{Fachbegriffe --> kommt ins glossary} 
     	host access point daemon = hostapd
     	sed = Stream EDitor, Unix-Werkzeug zum Bearbeiten von Text
     	stdout = Standard Ausgabe, normalerweise mit Monitor verbunden
     	
-      	\section{Hardware}
-    		\subsection{Raspberry Pi}
+    	\section{Problemstellung}
+    	
+    	
+    	\section{Anforderungsanalyse}
+    	\subsection{Funktionale Anforderungen}
+    	\subsection{Nichtfunktionale Anforderungen}
+
+        \section{Lösungsidee}
+        
+        \section{Bewertung der Lösung anhand der Anforderungen}
+    	\section{Grundlagende Hard- und Software}
+      	\subsection{Hardware}
+    		\subsubsection{Raspberry Pi}
     			Der Raspberry Pi wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware zu erlangen. Zudem ist er vielseitig einsetzbar, in diesem Fall wird er zu einem Access-Point konfiguriert. 
     			\begin{figure}[H]
     				\centering
@@ -63,9 +100,9 @@
 					\item CSI camera port for connecting a Raspberry Pi camera
 					\item DSI display port for connecting a Raspberry Pi touchscreen display
 					\item Micro SD port for loading your operating system and storing data
-					\item Upgraded switched Micro USB power source up to 2.5A
+					\item Upgraded switched Micro USB power source up to 2.5A  \cite{Quote_Raspberrypi3b}
 				\end{itemize}
-			\subsection{Raspberry Pi Shield - Display LCD-Touch, 3,2in}
+			\subsubsection{Raspberry Pi Shield - Display LCD-Touch, 3,2in}
 				Der Touchscreen wertet den Raspberry Pi zu einem vollwertigen Touch-PC auf. Für zusätzliche Funktionen besitzt der Display 3 Buttons an der Seite, welche einfach über die GPIO Pins eingelesen werden können.
 				\begin{figure}[H]
 					\centering
@@ -82,34 +119,35 @@
 					\item SPI-Schnittstelle
 					\item Touchscreen Technologie resistiv
 				\end{itemize}
-			\subsection{SD-Karte}
+			\subsubsection{SD-Karte}
     			Die SD-Karte ist eine SanDisk extreme mit einer Speicherkapazität von 32GB. Sie dient als Speichermedium des Raspberry Pi's. Zu Beginn wird das Betriebssystem auf die Karte geflasht von dieser wird der Einplatinencomputer gebooted.
 
     			
-    	\section{Software}
-    		\subsection{balenaEtcher}
+    	\subsection{Software}
+    		\subsubsection{balenaEtcher}
     			Programm um Raspberry Pi OS Lite auf die SD Karte zu flashen.
-    		\subsection{hostapd}
-        		Mit hostapd ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
-    		\subsection{dnsmasq}
+    		\subsubsection{hostapd}
+        		Mit \acrshort{hostapd} ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
+    		\subsubsection{dnsmasq}
         		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwendet, um dies zu ermöglichen.
     		\subsubsection{netfilter-persistent und iptables-persistent}
         		Für die Durchführung des Projektes ist es nötig iptables-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb wurden die Pakete netfilter-persistent und iptables-persistent installiert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.
-        	\subsection{Bash}
+        	\subsubsection{Bash}
         		Im Projekt wird Bash benutzt um die einzelnen Python Skripte aufzurufen, Infos aus Konfigurationsdateien auszulesen und schnelle Änderungen an Diesen vorzunehmen. Bash ist als Standardshell bei Raspberry Pi OS Lite vorinstalliert. 
-    		\subsection{Cron}
+    		\subsubsection{Cron}
 				Cron ermöglicht das zeitbasierte Ausführen des Bash Skripts. So kann beispielsweise jeden Montag um 03:00 Uhr nachts das Passwort automatisch geändert werden. 
 			\subsection{fim}
 				fim ermöglicht es Bilder oder andere Media Dateien im Terminal anzuzeigen. In diesem Fall wird der QR-Code als .png erzeugt und mithilfe von fim angezeigt.
-    		\subsection{Python 3.7}
+    		\subsubsection{Python 3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 ist bei Raspberry Pi OS Lite  vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
     				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
     			\subsubsection{GPIO zero}
     				Das Modul GPIO zero wird in diesem Projekt für das Einlesen der einzelnen Buttons genutzt, die bereits in dem Display integriert sind. Das Mapping der Buttons wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
     	
-    	\section{Vorbereitung des Raspberry Pi}
-    	\subsection{Auswahl und Installation des Betriebssystem}
+    	\section{Implementierung}
+    	\subsection{Vorbereitung des Raspberry Pi}
+    	\subsubsection{Auswahl und Installation des Betriebssystem}
     	    Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
         	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfläche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenutzte Software, desto weniger Angriffsfläche. \\ 
     	
@@ -117,12 +155,12 @@
         	Hierzu wurde die Software balenaEtcher verwendet.   
     	
     	
-    	\subsection{Aktualisierung und Paketinstallation}
+    	\subsubsection{Aktualisierung und Paketinstallation}
         	Nach der Neuinstallation eines Betriebssystems fehlen diesem oft die aktuellsten Versionen von Softwarepaketen und Updates. Deshalb wurden diese zuerst aktualisiert und installiert. So werden Konflikte aufgrund veralteter Software vermieden und die Sicherheit verbessert.  
         	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
     	
     	
-    	\subsection{SSH Zugriff einrichten}
+    	\subsubsection{SSH Zugriff einrichten}
     	Da das Projektteam aus drei Personen besteht, wurde ein SSH Zugriff in den Einstellungen des Raspberry Pi eingerichtet. Die Einstellungen können mit folgendem Befehl geöffnet werden: 
     	\lstset{
         language=bash,
@@ -140,8 +178,8 @@ sudo raspi-config
         \end{lstlisting} 
     	
         In diesem Zuge wurde der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den  Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
-    	\section{Konfiguration des RaspberryPi als funktionalen Access-Point}
-            \subsection{WLAN Interface}
+    	\subsection{Konfiguration des RaspberryPi als funktionalen Access-Point}
+            \subsubsection{WLAN Interface}
                 Der Raspberry Pi benötigt eine statische IP Konfiguration für sein WLAN Interface. Diese wird in der Datei /etc/dhcpcd.conf vorgenommen. Die Datei wird um folgendes ergänzt:\\
                 \lstset{
                 language=bash,
@@ -153,7 +191,7 @@ interface wlan0
                 \end{lstlisting} 
                 Mit der 192.168.4.1 wird eine statische IP Adresse vergeben unter die der Raspberry Pi im WLAN erreichbar ist. Weiterhin wird der wpa{\_}supplicant deaktiviert um keine Konflikte mit hostapd zu verursachen. 
             
-            \subsection{Routing}
+            \subsubsection{Routing}
                 Der Access Point muss den Datenverkehr der Endgeräte im WLAN zum Router weiterleiten können.
                 Hierzu wird in /etc/sysctl.d/routed-ap.conf ein Eintrag hinzugefügt bzw. das Kommentarzeichen entfernt:\\
                 \lstset{
@@ -177,8 +215,8 @@ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
                 \begin{lstlisting}
 sudo netfilter-persistent save
                 \end{lstlisting}    
-            \subsection{DNS und DHCP}
-                Durch dnsmasq können nun die DHCP und DNS Einstellungen erfolgen. Diese werden in der /etc/dnsmasq.conf Datei vorgenommen. Diese dient als Vorlage und gibt Erklärungen zu den Einstellungen. Zur Übersichtlichkeit wurde diese in nsmasq.conf.orig umbenannt und eine neue Datei mit dem ürsprünglichen Namen erzeugt. In der neuen Datei werden nur die getätigten Konfigurationen eingetragen:
+            \subsubsection{DNS und DHCP}
+                Durch dnsmasq können nun die DHCP und DNS Einstellungen erfolgen. Diese werden in der /etc/dnsmasq.conf Datei vorgenommen. Diese dient als Vorlage und gibt Erklärungen zu den Einstellungen. Zur Übersichtlichkeit wurde diese in dnsmasq.conf.orig umbenannt und eine neue Datei mit dem ürsprünglichen Namen erzeugt. In der neuen Datei werden nur die getätigten Konfigurationen eingetragen:
             
             
                 \begin{lstlisting}
@@ -193,7 +231,7 @@ address=/gw.wlan/192.168.4.1
                 Zuletzt wurde eine lokale DNS Domäne und ein Alias für den Access Point eingestellt. Unter diesem Alias ist dieser nun erreichbar.
 
 
-            \subsection{Access Point Einstellungen}
+            \subsubsection{Access Point Einstellungen}
                 Um den Raspberry Pi als Access Point nutzen zu können musste nun hostapd konfiguriert werden. Hierzu wurde zuerst der Dienst aktiviert und so eingestellt das er beim booten gestartet wird:
                   \begin{lstlisting}
                 sudo systemctl unmask hostapd
@@ -202,8 +240,8 @@ address=/gw.wlan/192.168.4.1
                 
                     Nun musste die Konfigurationsdatei unter /etc/hostapd/hostapd.conf erstellt und gefüllt werden.
                     In dieser werden verschiedene Parameter eingestellt. Darunter fallen unter anderem die SSID, das Passwort und die Art der Verschlüsselung. Es wurde eingestellt das nur WPA2 verwendet wird, da WEP als unsicher gilt. Weiterhin wurde der Funkstandard auf n und 2.4GHz eingestellt. Grund hiefür war das der Raspberry Pi keinen höheren Standard in Form von z.B AC unterstützen würde. Weiterhin ist der eingestellte Standard ausreichend  für das surfen im Gast-Internet. \\
-                    Der Kanal wurde auf null gesetzt. Mit dieser Einstellung sucht der Access Point automatisch einen passenden Kanal. Bedeutet, den mit den wenigsten Störungen bzw. einen Kanal der sich möglichst wenig mit anderen Netzen überschneidet.\\
-                    Um Wireless-Networking auf dem Raspberry Pi zu ermöglichen muss ein "Country Code" gesetzt werden. In diesem Fall auf "DE", welches Deutschland entspricht. Die ist notwendig, denn je nach Land die Frequenzbänder unterschiedlich vergeben bzw. reguliert sind. Im folgenden der Inhalt der Konfigurationsdatei:
+                    Der Kanal wurde fest auf Sechs gesetzt. Eine passende Kanalsuche mittels ACS kann nicht erfolgen. Die Implementierung von ACS in Hostapd wird nur von bestimmten Atheros Treibern unterstützt \cite{Quote_hostapdACS}. Der Raspberry Pi besitzt onboard jedoch nur einen Broadcom-Chip  \cite{Quote_Raspberrypi3b} und ist somit nicht kompatibel. \\
+                    Um Wireless-Networking auf dem Raspberry Pi zu ermöglichen muss ein "Country Code" gesetzt werden. In diesem Fall auf "DE", welches Deutschland entspricht \cite{Quote_hostapdDE}. Dieser ist notwendig, denn je nach Land sind die Frequenzbänder unterschiedlich vergeben bzw. reguliert. Im folgenden der Inhalt der Konfigurationsdatei:
  
                 
                     \begin{lstlisting}
@@ -212,7 +250,7 @@ interface=wlan0
 ssid=HimberrWLAN
 hw_mode=g
 ieee80211n=1
-channel=0
+channel=6
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
@@ -223,11 +261,11 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
                     \end{lstlisting} 
                    
-                   Nach den Einstellungen erfolgte ein Reboot und der Access Point war nun einsatzbereit.
+                   Nach den Einstellungen erfolgt ein Reboot und der Access Point ist nun einsatzbereit.
                 
                 
             
-    	\section{Passwortgenerierung}
+    	\subsection{Passwortgenerierung}
     		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub Repository hinterlegt und für jeden zugänglich. Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
     	
     	\lstset{
@@ -261,7 +299,7 @@ if __name__ == "__main__":
 		\end{eqnarray}\\
 
     	
-    	\section{Passworttausch}
+    	\subsection{Passworttausch}
     		Das Tauschen des Passworts wird durch ein Bash Skript, mit dem Namen changePassword.sh, vorgenommen. Zunächst wird das neue Passwort mit Hilfe von generatePassword.py generiert und der Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei gelesen. Die drei Parameter werden einmal als Klartext ausgegeben und dann werden sie dem Python Skript zum Generieren des QR-Codes übergeben. Im Anschluss wird mit dem Unix Tool sed die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
     		Die zugehörigen Python Dateien müssen sich im selben Ordner wie das Bash Skript befinden. Das Skript bezieht sich auf den Pfad an dem es liegt und nicht den aktiven Pfad, damit es von überall ausführbar ist und keine Probleme mit Cron auftreten.  \\
     	\lstset{
@@ -308,7 +346,7 @@ else
 	execute_script "$@"
 fi  	
     	\end{lstlisting}
-    		\subsection{Automischer Tausch}
+    		\subsubsection{Automischer Tausch}
     			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. Damit das Passwort und der QR-Code dennoch auf dem angeschlossenen Bildschirm angezeigt werden ist es wichtig beim Aufrufen des Skripts die Standardausgabe das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. Da manche Änderungen root-Rechte benötigen, wird der Aufruf in der crontab Datei des root Nutzers definiert.
     			\begin{lstlisting}
 * 3 * * 1 /home/pi/scripts/changePassword.sh > /dev/tty1
@@ -410,8 +448,14 @@ while True:
 	if key3.is_pressed:
 		os.system('clear')
     			\end{lstlisting}
-
-    	\section{Fazit mit Ausblick}
+    
+    
+    \section{Evaluation der Implementierung}
+    \section{Fazit und Ausblick}
+    \subsection{Fazit}
+    \subsection{Ausblick}
+    \subsection{eventuell übertragbarkeit}
+    
     	\pagebreak
     	\section{Abbildungsverzeichnis}
     	\listoffigures
@@ -419,4 +463,14 @@ while True:
         \bibliography{zitate}
         \bibliographystyle{plain}
     	
+    	
+   
+\clearpage
+
+\printglossary
+
+\clearpage
+
+\printglossary[type=\acronymtype]
+
 \end{document}
