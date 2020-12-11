@@ -1,38 +1,52 @@
 \contentsline {section}{\numberline {1}Zusammenfassung}{1}{section.1}%
-\contentsline {section}{\numberline {2}Allgemeines}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Fachbegriffe}{4}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Hardware}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Raspberry Pi}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Raspberry Pi Shield - Display LCD-Touch, 3,2in}{5}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}SD-Karte}{6}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Software}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}balenaEtcher}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}hostapd}{6}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}dnsmasq}{6}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}netfilter-persistent und iptables-persistent}{6}{subsubsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.4}Bash}{7}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Cron}{7}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}fim}{7}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Python 3.7}{7}{subsection.4.7}%
-\contentsline {subsubsection}{\numberline {4.7.1}pyqrcode}{7}{subsubsection.4.7.1}%
-\contentsline {subsubsection}{\numberline {4.7.2}GPIO zero}{7}{subsubsection.4.7.2}%
-\contentsline {section}{\numberline {5}Vorbereitung des Raspberry Pi}{7}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Auswahl und Installation des Betriebssystem}{7}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Aktualisierung und Paketinstallation}{8}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}SSH Zugriff einrichten}{8}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Konfiguration des RaspberryPi als funktionalen Access-Point}{8}{section.6}%
-\contentsline {subsection}{\numberline {6.1}WLAN Interface}{8}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Routing}{9}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}DNS und DHCP}{9}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Access Point Einstellungen}{10}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Passwortgenerierung}{11}{section.7}%
-\contentsline {section}{\numberline {8}Passworttausch}{12}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Automischer Tausch}{13}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Einrichten des Displays}{13}{section.9}%
-\contentsline {section}{\numberline {10}QR-Code Generierung}{14}{section.10}%
-\contentsline {section}{\numberline {11}Ausgabe des Passworts}{14}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Knopf Belegung}{15}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Anzeigen des QR-Codes}{15}{subsection.11.2}%
-\contentsline {section}{\numberline {12}Fazit mit Ausblick}{16}{section.12}%
-\contentsline {section}{\numberline {13}Abbildungsverzeichnis}{17}{section.13}%
-\contentsline {section}{\numberline {14}Quellenverzeichnis}{17}{section.14}%
+\contentsline {section}{\numberline {2}Einleitung}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Motivation}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Ziel}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Fachbegriffe --> kommt ins glossary}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Problemstellung}{5}{section.3}%
+\contentsline {section}{\numberline {4}Anforderungsanalyse}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Funktionale Anforderungen}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Nichtfunktionale Anforderungen}{5}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Lösungsidee}{5}{section.5}%
+\contentsline {section}{\numberline {6}Bewertung der Lösung anhand der Anforderungen}{5}{section.6}%
+\contentsline {section}{\numberline {7}Grundlagende Hard- und Software}{5}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Hardware}{5}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Raspberry Pi}{5}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Raspberry Pi Shield - Display LCD-Touch, 3,2in}{7}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}SD-Karte}{7}{subsubsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.2}Software}{7}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}balenaEtcher}{7}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}hostapd}{8}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}dnsmasq}{8}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}netfilter-persistent und iptables-persistent}{8}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.5}Bash}{8}{subsubsection.7.2.5}%
+\contentsline {subsubsection}{\numberline {7.2.6}Cron}{8}{subsubsection.7.2.6}%
+\contentsline {subsection}{\numberline {7.3}fim}{8}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Python 3.7}{8}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}pyqrcode}{9}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}GPIO zero}{9}{subsubsection.7.3.3}%
+\contentsline {section}{\numberline {8}Implementierung}{9}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Vorbereitung des Raspberry Pi}{9}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Auswahl und Installation des Betriebssystem}{9}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Aktualisierung und Paketinstallation}{9}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}SSH Zugriff einrichten}{9}{subsubsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.2}Konfiguration des RaspberryPi als funktionalen Access-Point}{10}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}WLAN Interface}{10}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Routing}{10}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}DNS und DHCP}{11}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Access Point Einstellungen}{11}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Passwortgenerierung}{12}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Passworttausch}{13}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Automischer Tausch}{14}{subsubsection.8.4.1}%
+\contentsline {section}{\numberline {9}Einrichten des Displays}{14}{section.9}%
+\contentsline {section}{\numberline {10}QR-Code Generierung}{15}{section.10}%
+\contentsline {section}{\numberline {11}Ausgabe des Passworts}{16}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Knopf Belegung}{16}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Anzeigen des QR-Codes}{16}{subsection.11.2}%
+\contentsline {section}{\numberline {12}Evaluation der Implementierung}{17}{section.12}%
+\contentsline {section}{\numberline {13}Fazit und Ausblick}{17}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Fazit}{17}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Ausblick}{17}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}eventuell übertragbarkeit}{17}{subsection.13.3}%
+\contentsline {section}{\numberline {14}Abbildungsverzeichnis}{18}{section.14}%
+\contentsline {section}{\numberline {15}Quellenverzeichnis}{18}{section.15}%
