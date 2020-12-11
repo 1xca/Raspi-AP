@@ -10,11 +10,11 @@
 \usepackage{listings,xcolor}
 \usepackage{pdfpages}
 \usepackage{float}
-\usepackage[acronym]{glossaries}
+%\usepackage[acronym]{glossaries}
 
-\makeglossaries
+%\makeglossaries
 %\input{glossary.tex}
-\loadglsentries{glossary.tex}
+%\loadglsentries{glossary.tex}
 
 
 \renewcommand{\figurename}{Abbildung}
@@ -73,7 +73,7 @@
     	
     	
     	
-    	\section{Motivation}
+    \section{Motivation}
     	Der Hauptgrund für dieses Projekt war es die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. \\ \\
     	Wenn Gäste in der heimischen Wohnung auftauchen, ist der Wunsch nach freiem WLAN meist sehr groß. Bedeutet, der pre-shared key muss abgelesen und den Gästen bekannt gemacht werden. Folgend muss dieser umständlich von Hand eingegeben werden. Um hierbei Sicherheit zu gewährleisten, ist dieser meist länger und kryptisch gewählt. Dies führt oft zur falschen Eingabe bzw. Mehrversuchen und darauf folgenden Ärger darüber. Weiterhin ist es vom Gastgeber nicht immer erwünscht, dass die Gäste nach der Verabschiedung den Zugriff zum WLAN behalten. \\ \\
     	Da die geschilderten Umstände den Verfassern dieses Dokumentes nicht fremd sind, soll mit diesem Projekt eine eigenständige Lösung erstellt werden. Der Fokus liegt auf einfacher Bedienung und komfortabler Sicherheit. Weiterhin wird für die Sicherheit auf fertige Endprodukte von Drittanbietern verzichtet. 
@@ -87,7 +87,7 @@
     	stdout = Standard Ausgabe, normalerweise mit Monitor verbunden
     	
     	
-    		\section{Grundlagen Hard- und Software}
+    \section{Grundlagen Hard- und Software}
       	In den folgenden Abschnitten werden Hardware und Software genauer erläutert. Im Glossar am Ende der Projektarbeit können weitere Erklärungen bzw. Akronyme entnommen werden.
       	\subsection{Hardware}
     		\subsubsection{Raspberry Pi}
@@ -130,15 +130,12 @@
 					\item SPI-Schnittstelle
 					\item Touchscreen Technologie resistiv
 				\end{itemize}
-			\subsubsection{SD-Karte}
-    			Die SD-Karte ist eine SanDisk extreme mit einer Speicherkapazität von 32GB. Sie dient als Speichermedium des Raspberry Pi's. Zu Beginn wird das Betriebssystem auf die Karte geflasht von dieser wird der Einplatinencomputer gebooted.
-
     			
     	\subsection{Software}
     		\subsubsection{balenaEtcher}
     			Programm mit dem ein OS auf eine SD Karte geflasht werden kann.
     		\subsubsection{hostapd}
-        		Mit \acrshort{hostapd} ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
+        		Mit  ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
     		\subsubsection{dnsmasq}
         		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwendet, um dies zu ermöglichen.
     		\subsubsection{netfilter-persistent und iptables-persistent}
@@ -146,21 +143,21 @@
         	\subsubsection{Bash}
         		Im Projekt wird Bash benutzt um die einzelnen Python Skripte aufzurufen, Infos aus Konfigurationsdateien auszulesen und schnelle Änderungen an Diesen vorzunehmen. Bash ist als Standardshell bei Raspberry Pi OS Lite vorinstalliert. 
     		\subsubsection{Cron}
-				Cron ermöglicht das zeitbasierte Ausführen des Bash Skripts. So kann beispielsweise jeden Montag um 03:00 Uhr nachts das Passwort automatisch geändert werden. 
+				Cron ermöglicht das zeitbasierte Ausführen des Bash Skripts. So kann beispielsweise jeden Montag um 03:00 Uhr nachts das Passwort automatisch geändert werden.
 			\subsubsection{fim}
 				fim ermöglicht es Bilder oder andere Media Dateien im Terminal anzuzeigen. In diesem Fall wird der QR-Code als .png erzeugt und mithilfe von fim angezeigt.
     		\subsubsection{Python 3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 ist bei Raspberry Pi OS Lite  vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
     				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
-    		\subsubsection{GPIO zero}
+    			\subsubsection{GPIO zero}
     				Das Modul GPIO zero wird in diesem Projekt für das Einlesen der einzelnen Buttons genutzt, die bereits in dem Display integriert sind. Das Mapping der Buttons wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
     	
     	
-    	\section{Problemstellung}
+    \section{Problemstellung}
     	Vielen Endnutzern ist die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurchk önnen Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Dies hat zur Folge, dass sich sobald einmal das Passwort bewusst/unbewusst weitergegeben wurde, jeder mit dem Access-Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk.Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw. zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-sharedKeys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge,dass der Zugang einfacher geknackt werden kann.
     	
-    	\section{Anforderungsanalyse --> Ausformulieren}
+    \section{Anforderungsanalyse --> Ausformulieren}
     		Im Folgenden werden die verschiedenen Funktionen definiert und kategorisiert.
 			\subsection{Funktionale Anforderungen}
 			
@@ -184,60 +181,54 @@
             	Danach muss die Konfiguration des Raspberry Pi zum Access-Point erfolgen. Sobald dies funktioniert kann das Generieren des pre-shared Keys und dessen Austausch stattfinden. Folglich wird die Ausgabe des Keys am Bildschirm realisiert. Danach kann dies, um das Generieren des QR-Codes und dessen Ausgabe erweitert werden.\\
             	Wenn diese Punkte voll funktional umgesetzt werden konnten, kann sich um einen automatischen oder manuellen Job (bei Tastendruck) zum Generieren und Austauschen des Keys gekümmert werden.
     	
-      	
-    	
-        \section{Lösungsidee}
-        	Ein Lösungsansatz stellt ein sich automatisch oder auf Tastendruck änderbarer pre-shared Key dar. Der Key wird jeden Montagmorgen um 03:00 Uhr automatisch durch einen "Cron-Job" gewechselt. Ein Taster kann zusätzlich betätigt werden, falls das Passwort sofort geändert werden soll.
-	Der Key wird so gewählt, dass er aus mathematischer Sicht nicht in dem Zeitraum geknackt werden kann, bis ein neuer erzeugt wird. Durch diese Maßnahme wird die Sicherheit des WLANs verbessert und sichergestellt. \\
-	Mit diesem neu generierten Key können sich Endgeräte anmelden und kommunizieren. Hiermit wird das Problem der ungewollten Nutzern gelöst. Diese können sich sobald der Key gewechselt hat, nicht mehr im Netz anmelden. Der Key wird an einem Display in zwei verschiedenen Varianten angezeigt:
-	\begin{itemize}
-		\item Klartext für Endgeräte ohne Kamera z.B. Laptops
-		\item QR-Code zum Scannen für z.B Smartphones
-	\end{itemize}
+	\section{Lösungsidee}
+    	Ein Lösungsansatz stellt ein sich automatisch oder auf Tastendruck änderbarer pre-shared Key dar. Der Key wird jeden Montagmorgen um 03:00 Uhr automatisch durch einen "Cron-Job" gewechselt. Ein Taster kann zusätzlich betätigt werden, falls das Passwort sofort geändert werden soll. \\
+		Der Key wird so gewählt, dass er aus mathematischer Sicht nicht in dem Zeitraum geknackt werden kann, bis automatisch ein neuer erzeugt wird. Durch diese Maßnahme wird die Sicherheit des WLANs verbessert und sicher-gestellt.
+		Mit diesem neu generierten Key können sich Endgeräte anmelden und kommunizieren. Hiermit wird das Problem der ungewollten Nutzern gelöst. Diese können sich sobald der Key gewechselt hat, nicht mehr im Netz anmelden. Der Key wird an einem Display in zwei verschiedenen Varianten angezeigt:
+		\begin{itemize}
+			\item Klartext für Endgeräte ohne Kamera z.B. Laptops
+			\item QR-Code zum Scannen für z.B Smartphones
+		\end{itemize}
 
-	Es wurde sich für einen QR-Code anstatt eines RFID/NFC Transponder entschieden, da hier die Möglichkeit des Abgreifens des Keys nicht besteht. In Abbildung  \ref{aufbau} ist der Aufbau des Lösungsansatzes graphisch dargestellt. 
+		Es wurde sich für einen QR-Code anstatt eines RFID/NFC Transponder entschieden, da hier die Möglichkeit des Abgreifens des Keys nicht besteht. In Abbildung  \ref{aufbau} ist der Aufbau des Lösungsansatzes graphisch dargestellt. 
 
-	\begin{figure}[ht]
-		\centering
-		\includegraphics[scale=0.6]{skizze}
-			\caption{Aufbau des Gastnetzes}
-			\label{aufbau}
-	\end{figure}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[scale=0.6]{skizze}
+				\caption{Aufbau des Gastnetzes}
+				\label{aufbau}
+		\end{figure}
 
-    Es ist zu erwähnen, dass sich diese Lösung auf die Umsetzung eines Gastnetzes bezieht. Dieses ist getrennt vom restlichen Heimnetz. Es melden sich dort hauptsächlich mobile Geräte an. Dies führt zu einer hohe Fluktuation an Endgeräten im Netzwerk und ist nicht für stationäre Geräte wie z.B Drucker geeignet.
+    	Es ist zu erwähnen, dass sich diese Lösung auf die Umsetzung eines Gastnetzes bezieht. Dieses ist getrennt vom restlichen Heimnetz. Es melden sich dort hauptsächlich mobile Geräte an. Dies führt zu einer hohen Fluktuation an Endgeräten im Netzwerk und ist nicht für stationäre Geräte wie z.B Drucker geeignet.
     
     
     	\subsection{Hardware}
-		Für dieses Projekt wird ein Raspberry Pi 3 B+ benötigt. Grund hierfür ist der HDMI Anschlusses, der aus Komfortgründen für das Display benutzt werden soll. Zudem hat dieses Modell ausreichend Leistung, ein integriertes WLAN-Modul und alle nötigen Anschlüsse.
-		Zusätzlich wird eine Mikro-SD Karte zum Laden des Betriebsystems und zur Speicherung der Daten benötigt. \\ \\
-		Das Display, welches verwendet wird, muss eine ausreichende Auflösung für die Darstellung des QR-Codes besitzen. Deshalb können keine kleineren und billigeren LCD Anzeigen verwendet werden. Außerdem muss dieses noch an den Raspberry Pi in Form von HDMI angeschlossen werden, da die Pins für mögliche Schalter/Umschalter verwendet werden können.
+			Für dieses Projekt wird ein Raspberry Pi 3 B benötigt. Grund hierfür ist das integrierte WLAN-Modul, ausreichend Leistung und alle nötigen Anschlüsse. \\
+			Zusätzlich wird eine Mikro-SD Karte zum Laden des Betriebsystems und zur Speicherung der Daten benötigt. \\ \\
+			Das Display, welches verwendet wird, muss eine ausreichende Auflösung für die Darstellung des QR-Codes besitzen. Deshalb können keine kleineren und billigeren LCD Anzeigen verwendet werden. Außerdem muss es die Möglichkeit haben entweder externe Taster anzubinden oder schon eigene Taster besitzen.
 		
 		\subsection{Software}
-		Um den Raspberry Pi als Access-Point verwenden zu können, müssen zusätzliche Pakete installiert (hostapd) und eine Netzwerkkonfiguration vorgenommen werden. Darunter fällt das Einstellen von DHCP und DNS für die Clients durch "dnsmasq" und Anpassen der IP-Konfiguration. \\ \\
+			Um den Raspberry Pi als Access-Point verwenden zu können, müssen zusätzliche Pakete installiert (hostapd) und eine Netzwerkkonfiguration vorgenommen werden. Darunter fällt das Einstellen von DHCP und DNS für die Clients durch "dnsmasq" und Anpassen der IP-Konfiguration. \\ \\
 		
-		Als Skriptsprache empfiehlt sich Python, da es dort sehr viele Libraries gibt, die einiges an Arbeit abnehmen. Zudem kann mit Python auf einfache Kommandos des Betriebssystems zugegriffen werden. Für die QR-Code Generierung eignen sich die Libraries "qrcode" und "PyQRCode". 
+			Als Skriptsprache empfiehlt sich Python, da es dort sehr viele Libraries gibt, die einiges an Arbeit abnehmen. Zudem kann mit Python auf einfache Kommandos des Betriebssystems zugegriffen werden. Für die QR-Code Generierung eignen sich die Libraries "qrcode" und "PyQRCode". 
 		
 		\subsection{Passwortkonzept}
-		Als Passwortkonzept wurde sich auf einen 10 Zeichen langen Key geeinigt. Dieser benützt 90 Zeichen in Form von Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen. Begründet wurde diese Entscheidung mit folgender Annahme: \\\\
-		Angenommen ein leistungsstarker Rechner schafft durch Brute-Force 2 Billionen Keys pro Sekunde, so würde er 346 Tage benötigen, um alle Keys zu testen.  Wenn schon zur Hälfte der Zeit der richtigen Key gefunden wurde, wäre dies immernoch mehr als ausreichend für eine Woche. Zu sehen ist dies in der folgenden Rechnung:
-		\begin{eqnarray}
-			(90^{10})\ keys\ \div\ 2000000000000\ \frac{keys}{s} =  17433922,005\ s\\
-			29936846.961918945312\ s\ \div\ 60\ \div\ 60\ \div\ 24\ \approx 202 \ Tage\\
-			202\ Tage\ \div\ 2\ =\ 101\ Tage
-		\end{eqnarray}\\
-	    So wäre die Sicherheit des Key gewährleistet.
+			Als Passwortkonzept wurde sich auf einen 12 Zeichen langen Key geeinigt. Dieser benützt 62 Zeichen in Form von Groß-, Kleinbuchstaben und Zahlen. Begründet wurde diese Entscheidung mit folgender Annahme: \\\\
+			Angenommen ein leistungsstarker Rechner schafft durch Brute-Force 2 Billionen Keys pro Sekunde, so würde er 18670 Tage benötigen, um alle Keys zu testen.  Wenn schon zur Hälfte der Zeit der richtigen Key gefunden wurde, wäre dies immernoch mehr als ausreichend für eine Woche. Zu sehen ist dies in der folgenden Rechnung:
+			\begin{eqnarray}
+				(62^{12})\ keys\ \div\ 2000000000000\ \frac{keys}{s} =  1613133381.198\ s\\
+				1613133381.198949911\ s\ \div\ 60\ \div\ 60\ \div\ 24\ \approx 18670 \ Tage\\
+				18670\ Tage\ \div\ 2\ =\ 9335\ Tage
+			\end{eqnarray}\\
+		    So wäre die Sicherheit des Key gewährleistet.
 	
 		\subsection{Tests}
-		Zu Testzwecken werden unterschiedliche Smartphones (Android/iOS) und Notebooks (Windows/Linux/macOS) benutzt. So soll sichergestellt werden, dass mögliche Probleme aufgrund von Diskrepanzen zwischen den Betriebssystemen bzw. Hardware erkannt werden.
-	
-	
+			Zu Testzwecken werden unterschiedliche Smartphones (Android/iOS) und Notebooks (Windows/Linux/macOS) benutzt. So soll sichergestellt werden, dass mögliche Probleme aufgrund von Diskrepanzen zwischen den Betriebssystemen bzw. Hardware erkannt werden.
+		
+		
 	  \section{Bewertung der Lösung anhand der Anforderungen}
     	
     
-
-	
-    
-    	
     	\section{Implementierung}
     	\subsection{Vorbereitung des Raspberry Pi}
     	\subsubsection{Auswahl und Installation des Betriebssystem}
@@ -504,7 +495,7 @@ EndSection
     		
     		Bei der Erstellung des Passworts wird es bereits im Format: "SSID: <ssid> WPA<version> PW:<passwort>" als Plaintext auf die Konsole geschrieben.
     		
-    		\subsection{Knopf Belegung}
+    		\subsection{Tastenbelegung}
     		    Damit der Knopfdruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann man einfach die Buttons auf die gewünschten GPIOs hören und reagieren. \\
 	    		Button1 zeigt den QR-Code an, wie das gemacht wird, erklärt das nächste Kapitel. \\
 	    		Button2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird einfach unser changePassword.py aufgerufen. \\
@@ -557,10 +548,10 @@ while True:
    
 \clearpage
 
-\printglossary
+%\printglossary
 
-\clearpage
+%\clearpage
 
-\printglossary[type=\acronymtype]
+%\printglossary[type=\acronymtype]
 
 \end{document}
