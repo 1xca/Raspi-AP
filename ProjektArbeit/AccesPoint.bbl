@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{Quote_gpio_zero}
+{Ben Nuttall}, 2020.
+\newblock \url{https://gpiozero.readthedocs.io/en/master/index.html}
+  [aufgerufen am 11.12.2020].
+
+\bibitem{Picture_Raspberrypi3b}
+{Elektronik-kompendium}, 2020.
+\newblock
+  \url{http://www.elektronik-kompendium.de/sites/raspberry-pi/bilder/19052512.jpg}
+  [aufgerufen am 25.11.2020].
+
+\bibitem{Quote_hostapd1}
+{Gentoo}, 2020.
+\newblock \url{https://wiki.gentoo.org/wiki/Hostapd#Capabilities_of_Hostapd}
+  [aufgerufen am 26.11.2020].
+
+\bibitem{Quote_display_manual}
+{joy-it}, 2020.
+\newblock
+  \url{https://joy-it.net/files/files/Produkte/RB-TFT3.2-V2/RB-TFT-Manual_04082020.pdf}
+  [aufgerufen am 11.12.2020].
+
+\bibitem{Quote_github_repo}
+{Luca Asmus, Rolf Wiersch, Marius Würstle}, 2020.
+\newblock \url{https://github.com/1xca/QRRaspAP} [aufgerufen am 11.12.2020].
+
+\bibitem{Picture_touchdisplay}
+{Reichelt}, 2020.
+\newblock \url{https://cdn-reichelt.de/bilder/web/artikel_ws/A300/TFTV2.jpg}
+  [aufgerufen am 26.11.2020].
+
+\end{thebibliography}

@@ -99,12 +99,14 @@
         		Im Projekt wird Bash benutzt um die einzelnen Python Skripte aufzurufen, Infos aus Konfigurationsdateien auszulesen und schnelle Änderungen an Diesen vorzunehmen. Bash ist als Standardshell bei Raspberry Pi OS Lite vorinstalliert. 
     		\subsection{Cron}
 				Cron ermöglicht das zeitbasierte Ausführen des Bash Skripts. So kann beispielsweise jeden Montag um 03:00 Uhr nachts das Passwort automatisch geändert werden. 
+			\subsection{fim}
+				fim ermöglicht es Bilder oder andere Media Dateien im Terminal anzuzeigen. In diesem Fall wird der QR-Code als .png erzeugt und mithilfe von fim angezeigt.
     		\subsection{Python 3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 ist bei Raspberry Pi OS Lite  vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
     				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
-    			\subsubsection{gpiozero}
-    				Im Beta-Stand noch nicht umgesetzt
+    			\subsubsection{GPIO zero}
+    				Das Modul GPIO zero wird in diesem Projekt für das Einlesen der einzelnen Buttons genutzt, die bereits in dem Display integriert sind. Das Mapping der Buttons wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
     	
     	\section{Vorbereitung des Raspberry Pi}
     	\subsection{Auswahl und Installation des Betriebssystem}
@@ -312,37 +314,104 @@ fi
 * 3 * * 1 /home/pi/scripts/changePassword.sh > /dev/tty1
     			\end{lstlisting}
     		
-    		    	
-    	\section{Ausgabe des Passworts}
-    		Derzeit wird aufgrund dem fehlenden Display (bisher noch nicht erhalten)  das Passwort im Klartext auf die Konsole ausgegeben. Zusätzlich wird im Folgenden die Generierung des QR-Codes erläutert.
+    	\section{Einrichten des Displays}
+    		Die Einrichtung des Displays wurde nach der mitgelieferten Anleitung durchgeführt. \cite{Quote_display_manual} Zusätzlich wurde auf einem anderen Raspberry Pi das Beispiel Image installiert und mit dem vorliegenden verglichen. Zunächst musste die /boot/config.txt so verändert werden, dass die Ausgabe mit dem richtigen Treiber auf dem Display erscheint. Folgende Konfigurationen sind zu machen:
+    		\begin{lstlisting}
+dtparam=audio=on
+dtparam=spi=on
+dtoverlay=joy-IT-Display-Driver-32b-overlay:rotate=270,swapxy=1
+
+hdmi_ignore_edid=0xa5000080
+hdmi_force_hotplug=1
+    		\end{lstlisting}
     		
-    		\subsection{QR-Code Generierung}
+    		Anschließend wird der Treiber auf die passende Konsole gemapped. Hierzu fügt man an das Ende der ersten Zeile in /boot/cmdline.txt die Knofiguration:
+    		\begin{lstlisting}
+fbcon=map:10
+    		\end{lstlisting}
+
+			Natürlich muss man den Treiber auch noch herunterladen, auspacken und nach /boot/overlays verschieben. Über diesen Link kann das Paket heruntergeladen werden:\\
+			
+			"http://joy-it.net/files/files/Produkte/RB-TFT3.2-V2/joy-IT-Display-Driver-32b-overlay.zip" \\
+
+    		Jetzt muss man die Datei 99-calibration.conf in /usr/X11/xor.conf-d/ mit folgenden Einstellungen erstellen:
+    		\begin{lstlisting}
+Section "InputClass"
+	Identifier "calibration"
+	MatchProduct "ADS7846 Touchscreen"
+	Option "Calibration" "189 3767 3842 249"
+	Option "SwapAxes" "0"
+EndSection
+    		\end{lstlisting}
+ 
+			In diesem Projekt wird das Raspberry OS Lite verwendet, weil in diesem Betriebssystem sehr wenige Pakete vorinstalliert sind, muss für den Display noch zusätzlich xserver-xorg-video-fbturbo installiert werden. \\
+			Anschließend muss für die Touch-Funktion die Datei /usr/share/X11/xorg.conf.d/10-evdev.conf in das selbe Verzeichnis kopiert und in 45-evdev.conf umbennant werden. Zum Schluß muss auch für die Touch-Funktion das Packet server-xorg-input-evdev installiert und der Raspberry Pi neugestartet werden.
+
+    	\section{QR-Code Generierung}
 			Das Skript qrCodeGenerator.py wird über changePassword aufgerufen und bekommt 3 Argumente die SSID des Netzwerks, WPA Einstellung und das Passwort. Diese werden ausgelesen und in die pyqrcode.create als String mitgegeben. Das Format des Strings ist sehr wichtig, denn so wird definiert wie das Handy den QR-Code zu interpretieren hat. Am Ende wird der Code mit einem print Statement auch auf die Konsole ausgegeben. \\ 
-    	
-    	\lstset{
-    		basicstyle=\ttfamily,
-    		language=Python,
-    		breaklines=true,
-        	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
-    	}
-    	
 
-            \begin{lstlisting}
-import sys
-import pyqrcode as pqr
+\lstset{
+	basicstyle=\ttfamily,
+	language=Python,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
 
-def create_qr_code(ssid, security, password):
+
+\begin{lstlisting}
+	import sys
+	import pyqrcode as pqr
+	
+	def create_qr_code(ssid, security, password):
 	qr = pqr.create(
 	'WIFI:S:{ssid};T:{security};P:{password};;'.format(ssid=ssid, security=security, password=password))
 	print(qr.terminal())
-
-if __name__ == "__main__":
+	
+	if __name__ == "__main__":
 	ssid = sys.argv[1]
 	security = sys.argv[2]
 	password = sys.argv[3]
 	create_qr_code(ssid, security, password)
-	 \end{lstlisting}
-    %	\section{Fazit mit Ausblick}
+\end{lstlisting}
+    		
+    	\section{Ausgabe des Passworts}
+    		
+    		Bei der Erstellung des Passworts wird es bereits im Format: "SSID: <ssid> WPA<version> PW:<passwort>" als Plaintext auf die Konsole geschrieben.
+    		
+    		\subsection{Knopf Belegung}
+    		    Damit der Knopfdruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann man einfach die Buttons auf die gewünschten GPIOs hören und reagieren. \\
+	    		Button1 zeigt den QR-Code an, wie das gemacht wird, erklärt das nächste Kapitel. \\
+	    		Button2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird einfach unser changePassword.py aufgerufen. \\
+	    		Button3 führt ein "clear" aus somit kann der Display mal wieder aufgeräumt werden, falls zuviele Passwörter dortstehen.
+    		
+    		\subsection{Anzeigen des QR-Codes}
+    			Damit der QR-Code angezeigt wird muss der erste Knopf an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist und er damit nicht einfach auf dem Terminal ausgegeben werden kann. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. \\
+    			Der erste Button wird für das Anzeigen des QR-Codes verwendet. Dort wird ein Subprocess erstellt und damit sobald der Childprozess getötet wird, nicht der Parent Process mitstirbt das Kommando mit dem Parameter preexec\_fn=os.setsid vorher ausgeführt. 15 Sekunden später wird die ganze Prozess Gruppe getötet. Mit dem gesendeten Signal SIGTERM wird die fim Ansicht beendet und man kehrt zur Shell zurück. \\ 
+    			\begin{lstlisting}
+#!/usr/bin/env python3
+
+from gpiozero import Button
+from time import sleep
+import subprocess
+import os
+import signal
+
+key1 = Button(18)
+key2 = Button(23)
+key3 = Button(24)
+
+while True:
+	if key1.is_pressed:
+		p = subprocess.Popen('exec fim /home/pi/qrcode.png', shell=True, preexec_fn=os.setsid)
+		sleep(15)
+		os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+	if key2.is_pressed:
+		subprocess.run(['changePassword.py'])
+	if key3.is_pressed:
+		os.system('clear')
+    			\end{lstlisting}
+
+    	\section{Fazit mit Ausblick}
     	\pagebreak
     	\section{Abbildungsverzeichnis}
     	\listoffigures
