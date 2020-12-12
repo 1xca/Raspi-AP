@@ -207,7 +207,8 @@
 		
 	  \section{Bewertung der Lösung anhand der Anforderungen}
     	
-    
+    	
+    	
     	\section{Implementierung}
     	\subsection{Vorbereitung des Raspberry Pi}
     	\subsubsection{Auswahl und Installation des Betriebssystem}
@@ -509,12 +510,13 @@ while True:
     
     \section{Fazit und Ausblick}
 	    \subsection{Fazit}
-	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt. Also sind die angegebenen funktionalen Anforderungen enthalten. \\ \\ Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Nachmachen dieses Projekt sehr vereinfacht. Die Interessierten müssen nur die im Repository \cite{Quote_github_repo} gezeigten Schritte durchführen und das Skript ausführen und schon haben sie einen funktionierenden Access Point. \\
+	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt. Somit sind die angegebenen funktionalen Anforderungen erfolgreich umgesetzt. \\ \\ 
+	    	Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Aufsetzen des Projekts sehr vereinfacht. Bei Bedarf müssen lediglich die im Repository \cite{Quote_github_repo} gezeigten Schritte durchgeführt werden, um den Access Point zu konfigurieren. \\
 	    \subsection{Ausblick}
 	    	Im Folgenden nennen wir einzelne Verbesserungen und mögliche Erweiterungen des Projektes. \\ \\
 	    	Eine Verbesserung ist die Einschränkung des Zugriffs auf das Heimnetzwerk. Aktuell können Gäste auf das Internet, aber auch auf die Geräte im Heimnetz zugreifen. Dieses Verhalten ist normalerweise nicht gewünscht. Eine mögliche Lösung wäre das Erstellen weiterer Firewall-Regeln. \\ \\
 	    	Weiterhin ist das Absichern der hostapd.conf Datei durch ein Passwort zu empfehlen. Diese beinhaltet das Passwort für den WLAN-Zugang im Klartext. Sobald jemand Zugriff auf diese Datei besitzt, kann dieser die Konfiguration des gesamten Gastnetzes verändern. \\ \\
-	    	Eine weitere Verbesserung ist ein dediziertes WLAN-Modul, denn derzeit limitiert der Raspberry Pi die Frequenz auf 2,4GHz \cite{Quote_Raspberrypi3b}. Das Upgrade auf 5 GHz ermöglicht eine höhere Datenübertragung, falls dies benötigt wird. Hierbei sollte auch darauf geachtet werden, dass das Modul die Implementierung, der automatischen Channel Auswahl von hostapd, unterstützt.
+	    	Eine weitere Verbesserung ist ein dediziertes WLAN-Modul, denn derzeit limitiert der Raspberry Pi die Frequenz auf 2,4GHz \cite{Quote_Raspberrypi3b}. Das Upgrade auf	 5 GHz ermöglicht eine höhere Datenübertragung, falls dies benötigt wird. Hierbei sollte auch darauf geachtet werden, dass das Modul die Implementierung, der automatischen Channel Auswahl von hostapd, unterstützt.
     
     
    	\pagebreak

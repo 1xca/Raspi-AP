@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  12 DEC 2020 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.15)  12 DEC 2020 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -354,7 +354,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<./images/rwu_logo_hor-lila-cyan_rgb_0.png, id=245, 998.26187pt x 334.31374pt>
+<./images/rwu_logo_hor-lila-cyan_rgb_0.png, id=241, 998.26187pt x 334.31374pt>
 File: ./images/rwu_logo_hor-lila-cyan_rgb_0.png Graphic file (type png)
 <use ./images/rwu_logo_hor-lila-cyan_rgb_0.png>
 Package pdftex.def Info: ./images/rwu_logo_hor-lila-cyan_rgb_0.png  used on inp
@@ -395,7 +395,7 @@ Overfull \hbox (1.85976pt too wide) in paragraph at lines 59--62
 ntes nicht fremd
  []
 
-<./images/raspberry_pi_3b.jpg, id=325, 669.50125pt x 502.87875pt>
+<./images/raspberry_pi_3b.jpg, id=320, 669.50125pt x 502.87875pt>
 File: ./images/raspberry_pi_3b.jpg Graphic file (type jpg)
 <use ./images/raspberry_pi_3b.jpg>
 Package pdftex.def Info: ./images/raspberry_pi_3b.jpg  used on input line 76.
@@ -403,7 +403,7 @@ Package pdftex.def Info: ./images/raspberry_pi_3b.jpg  used on input line 76.
 [3
 
 ]
-<./images/touch_display.jpg, id=333, 301.125pt x 301.125pt>
+<./images/touch_display.jpg, id=328, 301.125pt x 301.125pt>
 File: ./images/touch_display.jpg Graphic file (type jpg)
 <use ./images/touch_display.jpg>
 Package pdftex.def Info: ./images/touch_display.jpg  used on input line 99.
@@ -439,7 +439,7 @@ Overfull \hbox (0.88278pt too wide) in paragraph at lines 164--167
 rt und sicher-
  []
 
-<./images/skizze.png, id=368, 534.49687pt x 332.74312pt>
+<./images/skizze.png, id=363, 534.49687pt x 332.74312pt>
 File: ./images/skizze.png Graphic file (type png)
 <use ./images/skizze.png>
 Package pdftex.def Info: ./images/skizze.png  used on input line 176.
@@ -662,47 +662,37 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 529.
  (./AccesPoint.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
-
-
-Package rerunfilecheck Warning: File `AccesPoint.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `AccesPoint.out':
-(rerunfilecheck)             Before: 1374056B3171460F43E2498674DD746B;4265
-(rerunfilecheck)             After:  B230038C1DFF003D01F0F5162A129E75;4185.
+Package rerunfilecheck Info: File `AccesPoint.out' has not changed.
+(rerunfilecheck)             Checksum: B230038C1DFF003D01F0F5162A129E75;4185.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 529.
  ) 
 Here is how much of TeX's memory you used:
- 9067 strings out of 482823
- 132835 string characters out of 5956142
+ 9065 strings out of 482823
+ 132803 string characters out of 5956142
  731888 words of memory out of 5000000
- 24051 multiletter control sequences out of 15000+600000
+ 24050 multiletter control sequences out of 15000+600000
  545740 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  43i,11n,49p,983b,1271s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.11.3} has been referenced but does not
- exist, replaced by a fixed one
-
- </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600p
-k> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.60
-0pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.
-600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm109
-5.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1
-200.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecb
-x1440.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/e
-cbx1095.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecrm1095.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on AccesPoint.pdf (21 pages, 421538 bytes).
+ </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.60
+0pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.
+600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm080
+0.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1
+095.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecb
+x1200.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+cbx1440.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecbx1095.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm1095.600pk> </home/marius/.texlive2020/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on AccesPoint.pdf (21 pages, 421691 bytes).
 PDF statistics:
- 1152 PDF objects out of 1200 (max. 8388607)
- 669 compressed objects within 7 object streams
- 233 named destinations out of 1000 (max. 500000)
- 501 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1147 PDF objects out of 1200 (max. 8388607)
+ 664 compressed objects within 7 object streams
+ 232 named destinations out of 1000 (max. 500000)
+ 493 words of extra memory for PDF output out of 10000 (max. 10000000)
 
