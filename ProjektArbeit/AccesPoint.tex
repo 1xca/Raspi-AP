@@ -348,9 +348,9 @@ rsn_pairwise=CCMP
                    
                    Nach den Einstellungen erfolgt ein Reboot und der Access Point ist nun einsatzbereit.
                 
-                
+     \subsection{Passwortskript}           
             
-    	\subsection{Passwortgenerierung}
+    	\subsubsection{Passwortgenerierung}
     		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub Repository hinterlegt und für jeden zugänglich. Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
     	
     	\lstset{
@@ -378,7 +378,7 @@ if __name__ == "__main__":
     	    
 
     	
-    	\subsection{Passworttausch}
+    	\subsubsection{Austauschen des Passworts}
     		Das Tauschen des Passworts wird durch ein Bash Skript, mit dem Namen changePassword.sh, vorgenommen. Zunächst wird das neue Passwort mit Hilfe von generatePassword.py generiert und der Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei gelesen. Die drei Parameter werden einmal als Klartext ausgegeben und dann werden sie dem Python Skript zum Generieren des QR-Codes übergeben. Im Anschluss wird mit dem Unix Tool sed die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
     		Die zugehörigen Python Dateien müssen sich im selben Ordner wie das Bash Skript befinden. Das Skript bezieht sich auf den Pfad an dem es liegt und nicht den aktiven Pfad, damit es von überall ausführbar ist und keine Probleme mit Cron auftreten.  \\
     	\lstset{
@@ -425,10 +425,10 @@ else
 	execute_script "$@"
 fi  	
     	\end{lstlisting}
-    		\subsubsection{Automischer Tausch}
-    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. Damit das Passwort und der QR-Code dennoch auf dem angeschlossenen Bildschirm angezeigt werden ist es wichtig beim Aufrufen des Skripts die Standardausgabe das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. Da manche Änderungen root-Rechte benötigen, wird der Aufruf in der crontab Datei des root Nutzers definiert.
+    		\subsubsection{Zeitbasiertes Ausführen}
+    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. Damit das Passwort dennoch auf dem angeschlossenen Bildschirm angezeigt werden kann ist es wichtig beim Aufrufen des Skripts die Standardausgabe das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. Da manche Änderungen root-Rechte benötigen, wird der Aufruf in der crontab Datei des root Nutzers definiert.
     			\begin{lstlisting}
-* 3 * * 1 /home/pi/scripts/changePassword.sh > /dev/tty1
+* 3 * * 1 changePassword.py > /dev/tty1
     			\end{lstlisting}
     		
     \section{Einrichten des Displays}
