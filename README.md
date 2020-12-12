@@ -17,5 +17,5 @@ To-Do:
 - [ ] Einheitliche Wörter anpassen (Key, Passwort) <br>
 - [x] Datum und Matrikelnr anpassen <br>
 - [ ] Unterschreiben und einbinden der Erklräung <br>
-- [ ] Formatierung und Zeilenumbruch
-- [ ] Fachbegriffe löschen
+- [ ] Formatierung und Zeilenumbruch (Luca Zeilenumbruch done)
+- [x] Fachbegriffe löschen
