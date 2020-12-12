@@ -156,7 +156,7 @@
                 \subsubsection{Energiespar-Konfiguration}
                     Nicht jeder möchte, dass ein Bildschirm ununterbrochen beleuchtet wird. Weiterhin könnte es nicht erwünscht sein, dass das Gast-Wlan 24 Stunden sendet. Deshalb könnte ein Energiesparplan erstellt werden und implementiert werden. Dieser kann die Anschaltzeit des Displays und des Access Points regeln. 
                 \subsubsection{Automatisierungs-Skript}
-                    In Zukunft könnte es wünschenswert sein, die erstellten Konfigurationen erneut auf anderen Geräten auszuführen. Deshalb könnt ein Automatisierungs-Skript sinnvoll sein. Dies würde Zeitaufwand sparen und könnte ebenso bei veröffentlicht anderen helfen.  
+                    In Zukunft könnte es wünschenswert sein, die erstellten Konfigurationen erneut auf anderen Geräten auszuführen. An dieser Stelle ist ein Skript zur Automatisierung sinnvoll. Das würde Zeitaufwand sparen und kann bei der Veröffentlichung Anderen helfen.  
 
     		\subsection{Priorisierung}
             	Das wichtigste zu Beginn ist, dass die Hardware aufeinander abgestimmt wird. Bedeutet, alle Teile passen zusammen und können angeschlossen werden.
@@ -340,7 +340,9 @@ rsn_pairwise=CCMP
             In dem Python Skript changePassword.py befindet sich der gesamte Ablauf des Passworttauschs.  Das vollständige Skript findet sich im dazugehörigen Github-Repository.\cite{Quote_github_repo}
             
     	\subsubsection{Passwortgenerierung}
-    		Die erste Funktion des Skripts ist für die Generation eines sicheren Passworts zuständig. Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string wird definiert, aus welchem Alphabet das Passwort generiert wird.\\ 				Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. \\
+    		Die erste Funktion des Skripts ist für die Generation eines sicheren Passworts zuständig. Das Skript verwendet die zwei Imports string und secrets. \\ \\
+    		Mithilfe der Bibliothek string wird definiert, aus welchem Alphabet das Passwort generiert wird.\\ \\			
+    		Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. \\ \\
     		Das Zeichen wird anschließend an den schon vorhandenen String angehängt. Dies wird 12 mal wiederholt um die gewünschte Passwortlänge zu erreichen.
     	
 \lstset{
@@ -365,9 +367,9 @@ def get_random_pw():
 \end{lstlisting}
     	
     	\subsubsection{Austauschen des Passworts}
-    		Nachdem das Passwort generiert wurde, ließt changePassword.py den Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei aus. Die drei Parameter werden einmal als Klartext auf der Konsole ausgegeben und dann werden sie der Funktion zum Erstellen des QR-Codes übergeben. \\
-    		Im Anschluss führt das Skript mit dem Subprocess Modul das Unix Tool sed aus. Mit sed wird die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. \\
-    		Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
+    		Nachdem das Passwort generiert wurde, liest changePassword.py den Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei aus. Die drei Parameter werden einmal als Klartext auf der Konsole ausgegeben und dann werden sie der Funktion zum Erstellen des QR-Codes übergeben. \\ \\
+    		Im Anschluss führt das Skript mit dem Subprocess Modul das Unix Tool sed aus. Mit sed wird die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. \\ \\
+    		Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ \\
    
 \lstset{
     	basicstyle=\ttfamily,
@@ -422,7 +424,7 @@ if __name__ == "__main__":
 \end{lstlisting}
     	
     		\subsubsection{Erstellen des QR-Code}
-    				Die Funktion zur QR-Code Generierung bekommt als Argumente die SSID des Netzwerks, die WPA Einstellung und das Passwort. Diese werden ausgelesen und in die pyqrcode.create als String mitgegeben. Das Format des Strings ist sehr wichtig, denn so wird definiert wie das Endgerät den QR-Code zu interpretieren hat.  \\
+    				Die Funktion zur QR-Code Generierung bekommt als Argumente die SSID des Netzwerks, die WPA Einstellung und das Passwort. Diese werden ausgelesen und in die pyqrcode.create als String mitgegeben. Das Format des Strings ist sehr wichtig, denn so wird definiert wie das Endgerät den QR-Code zu interpretieren hat.  \\ \\
 				Der Code wird als png-Datei im Homeverzeichnis gespeichert, von wo er später ausglesen und angezeigt werden kann.\\ 
 
 \lstset{
@@ -448,8 +450,8 @@ def create_qr_code(ssid, security, password):
 \end{lstlisting}
     	
     		\subsubsection{Zeitbasiertes Ausführen}
-    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. \\
-    			Damit das Passwort dennoch auf dem angeschlossenen Bildschirm angezeigt werden kann ist es wichtig beim Aufrufen des Skripts die Standardausgabe auf das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. \\
+    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. \\ \\
+    			Damit das Passwort dennoch auf dem angeschlossenen Bildschirm angezeigt werden kann ist es wichtig beim Aufrufen des Skripts die Standardausgabe auf das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. \\ \\
     			Da manche Änderungen root-Rechte benötigen, wird der Aufruf mit dem Nutzer root definiert.
     			\begin{lstlisting}
 * 3 * * 1 root changePassword.py > /dev/tty1
