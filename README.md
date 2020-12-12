@@ -7,8 +7,8 @@ To-Do:
 - [ ] Skripte Absätze überarbeiten (neues Skript anpassen)--> Luca   <br>
 - [x] Überarbeiten Lösungsidee --> Marius                            <br>
 - [ ] Fazit und Ausblick --> Rolf,Marius, Luca                       <br>
-- [ ] Inhaltsverzeichnis umbennen (heißt Contents) + Seitenzahl nach Inhaltsverzeichnis <br>
-- [ ] Glossar löschen <br>
+- [x] Inhaltsverzeichnis umbennen (heißt Contents) + Seitenzahl nach Inhaltsverzeichnis <br>
+- [x] Glossar löschen <br>
 - [x] Evaluation löschen ]br>
 - [x] Formel/Rechnung anpassen <br>
 - [ ] Bewertung der Lösung anhand der Anforderungen --> Marius, Rolf <br>
