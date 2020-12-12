@@ -38,7 +38,7 @@
         %\vfill
           \normalsize
         \textbf{Zusammenfassung}\\
-    	Das Ziel dieses Projekts war es, die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. Der pre-shared Key eines WLANs wird in den meisten Netzwerken einmal oder nie geändert. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben. Gelöst wurde dies durch einen eigenen Access Point für Gäste. Über diesen wird der Zugriff ins Internet geleitet. Der pre-shared Key wird einmal die Woche oder manuell neu erzeugt und auf einem Display ausgegeben. Die Ausgabe erfolgt in Form eines QR - Codes und in Klartext.   \\
+    	Das Ziel dieses Projekts ist es, die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. Der pre-shared Key eines WLANs wird in den meisten Netzwerken einmal oder nie geändert. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben. Gelöst wird dies durch einen eigenen Access Point für Gäste. Über diesen wird der Zugriff ins Internet geleitet. Der pre-shared Key wird einmal die Woche oder manuell neu erzeugt und auf einem Display ausgegeben. Die Ausgabe erfolgt in Form eines QR-Codes und in Klartext.   \\
         
         \vspace{2.0cm}
         December 12, 2020
@@ -56,15 +56,16 @@
     	\pagestyle{plain}
 
     \section{Motivation}
-    	Der Hauptgrund für dieses Projekt war es die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. \\ \\
+    	Der Hauptgrund für dieses Projekt ist es die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. \\ \\
     	Wenn Gäste in der heimischen Wohnung auftauchen, ist der Wunsch nach freiem WLAN meist sehr groß. Bedeutet, der pre-shared key muss abgelesen und den Gästen bekannt gemacht werden. Folgend muss dieser umständlich von Hand eingegeben werden. Um hierbei Sicherheit zu gewährleisten, ist dieser meist länger und kryptisch gewählt. Dies führt oft zur falschen Eingabe bzw. Mehrversuchen und darauf folgenden Ärger darüber. Weiterhin ist es vom Gastgeber nicht immer erwünscht, dass die Gäste nach der Verabschiedung den Zugriff zum WLAN behalten. \\ \\
     	Da die geschilderten Umstände den Verfassern dieses Dokumentes nicht fremd sind, soll mit diesem Projekt eine eigenständige Lösung erstellt werden. Der Fokus liegt auf einfacher Bedienung und komfortabler Sicherheit. Weiterhin wird für die Sicherheit auf fertige Endprodukte von Drittanbietern verzichtet. 
     			
     \section{Grundlagen Hard- und Software}
-      	In den folgenden Abschnitten werden Hardware und Software genauer erläutert. Im Glossar am Ende der Projektarbeit können weitere Erklärungen bzw. Akronyme entnommen werden.
+    \label{sec:Grundlagen_Hard-und_Software}
+      	In den folgenden Abschnitten werden behandelte Hardware und Software genauer erläutert.
       	\subsection{Hardware}
     		\subsubsection{Raspberry Pi}
-    			Der Raspberry Pi wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware zu erlangen. Zudem ist er vielseitig einsetzbar.
+    			Der Raspberry Pi wurde für junge Menschen entwickelt, um ihnen eine preisgünstige Möglichkeit zu bieten, sich mit der Informatik zu beschäftigen. Der Einplatinencomputer ist etwa kreditkartengroß und kam Anfang 2012 auf den Markt. Er ermöglicht einen schnellen und praktischen Weg um Wissen in den Bereichen Programmieren und Hardware zu erlangen. Zudem ist er vielseitig einsetzbar. Abbildung~\ref{raspberrypi3b} zeigt grafisch den Aufbau des Raspberry Pi.
     			\begin{figure}[H]
     				\centering
 	    			\includegraphics[scale=0.5]{raspberry_pi_3b}
@@ -87,7 +88,7 @@
 					\item Upgraded switched Micro USB power source up to 2.5A  \cite{Quote_Raspberrypi3b}
 				\end{itemize}
 			\subsubsection{Raspberry Pi Shield - Display LCD-Touch, 3,2in}
-				Der Touchscreen wertet den Raspberry Pi zu einem vollwertigen Touch-PC auf. Für zusätzliche Funktionen besitzt der Display 3 Buttons an der Seite, welche einfach über die GPIO Pins eingelesen werden können.
+				Der Touchscreen wertet den Raspberry Pi zu einem vollwertigen Touch-PC auf. Für zusätzliche Funktionen besitzt der Display 3 Buttons an der Seite, welche einfach über die GPIO Pins eingelesen werden können. Zu sehen ist der Display in Abbildung~\ref{touchdisplay}. 
 				\begin{figure}[H]
 					\centering
 					\includegraphics[scale=0.5]{touch_display}
@@ -106,13 +107,13 @@
     			
     	\subsection{Software}
     		\subsubsection{balenaEtcher}
-    			Programm mit dem ein OS auf eine SD Karte geflasht werden kann.
-    		\subsubsection{hostapd}
-        		Damit ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} 
+    			Es handelt sich um ein Programm mit dem ein OS auf eine SD Karte geflasht werden kann.
+    		\subsubsection{Hostapd}
+        		Damit ist es möglich Geräte, die ein WLAN-Modul besitzen, als Access Point zu betreiben. Jedoch können keine Einstellungen im Bereich IP und Routing vorgenommen werden. Die Software ist nur für das Erstellen eines "wireless Ethernet switches" zuständig. \cite{Quote_hostapd1} \cite{Quote_hostapd_man}
     		\subsubsection{dnsmasq}
-        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP Adresse und einen DNS Server für die Namensauflösung. Deshalb muss in diesem Projekt ein DHCP und DNS erstellt werden. Von diesen bekommen die Endgeräte ihre IP Konfiguration im WLAN. Die Software dnsmasq wird in diesem Projekt verwendet, um dies zu ermöglichen.
+        		Geräte in einem Netzwerk benötigen zur Kommunikation eine IP-Konfiguration und einen DNS Server für die Namensauflösung. Das kann durch dnsmasq erreicht werden. Mit dnsmasq kann ein DHCP Server und DNS forwarder erstellt werden \cite{Quote_dnsmasq}. So können IP-Konfigurationen  im Netzwerk verteilt und DNS Anfragen angenommen werden. 
     		\subsubsection{netfilter-persistent und iptables-persistent}
-        		Für die Durchführung des Projektes ist es nötig iptables-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb wurden die Pakete netfilter-persistent und iptables-persistent installiert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.
+        		Für die Durchführung des Projektes ist es nötig iptables-Regeln anzulegen. Diese sollten nach einem Neustart nicht neu angelegt werden müssen. Deshalb werden die Pakete netfilter-persistent und iptables-persistent installiert. Damit können die Regeln in eine Datei abgespeichert und beim Neustart automatisch geladen werden.\cite{Quote_iptables} \cite{Quote_netfilter}
         	\subsubsection{Bash}
         		Im Projekt wird Bash benutzt um die Konfiguration zu automatisieren. Bash ist als Standardshell bei Raspberry Pi OS Lite vorinstalliert. 
     		\subsubsection{Cron}
@@ -122,13 +123,14 @@
     		\subsubsection{Python 3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 ist bei Raspberry Pi OS Lite  vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
-    				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen. \cite{Quote_pyqrcode}
+    				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt es nur die Parameter die enthalten sein sollen. \cite{Quote_pyqrcode}
     			\subsubsection{GPIO zero}
-    				Das Modul GPIO zero wird in diesem Projekt für das Einlesen der einzelnen Buttons genutzt, die bereits in dem Display integriert sind. Das Mapping der Buttons wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
+    				Das Modul GPIO zero stellt ein Interface für GPIO Geräte dar \cite{Quote_gpio_zero}. Es wird in diesem Projekt für das Einlesen der einzelnen Taster genutzt, die bereits in dem Display integriert sind. Das Mapping der Taster wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
     	
     	
     \section{Problemstellung}
-    	Vielen Endnutzern ist die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Dies hat zur Folge, dass sich sobald einmal das Passwort bewusst/unbewusst weitergegeben wurde, jeder mit dem Access Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk. Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw. zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-shared Keys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge, dass der Zugang einfacher geknackt werden kann.
+    	Vielen Endnutzern ist die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurch können Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Dies hat zur Folge, dass sobald einmal das Passwort bewusst/unbewusst weitergegeben wurde, jeder sich mit dem Access Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk.\\
+    	Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw. zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-shared Keys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge, dass der Zugang einfacher geknackt werden kann.
     	
    \section{Anforderungsanalyse}
     		Im Folgenden werden die verschiedenen Anforderungen genauer beschrieben.
@@ -141,39 +143,39 @@
                 \subsubsection{Zugriff ins Netzwerk}
                     Ohne Internet Zugriff ist zwar eine Anmeldung beim Access Point möglich, aber nicht sinnvoll.
                     Deshalb muss gewährleistet werden, dass der Datenverkehr vom Access Point weitergeleitet wird und nicht geblockt wird. Natürlich soll dieser auch wieder zurückgeleitet werden. Am Besten besitzt die Hardware außerdem einen LAN Anschluss. Dieser kann als Verbindung zur schon bestehenden Infrastruktur dienen.
-                \subsubsection{Sicherer Key}
-                    Beim Erstellen des Key muss beachtet werden, dass dieser auch sicher ist. Es soll unwahrscheinlich sein diesen in seinem gültigen Zeitraum knacken zu können. Deshalb muss ein Konzept zur Erstellung eines sicheren Key erstellt und umgesetzt werden. 
-    			\subsubsection{Automatisches Wechseln des Key}
-    			    Es soll möglich sein das sich der Key vollautomatisch in einem gewissen Zeitraum ändert. Folglich muss ein Skript erstellt werden, welches den Key austauschen kann.
-    			\subsubsection{Ausgabe des Key}
-		            Die Endnutzer müssen über den neu erstellten Key benachrichtigt werden. Zu beachtet ist, dass die Darstellung so komfortabel wie möglich umgesetzt wird. Es soll kein zu großer Mehraufwand entstehen. Weitere Hardware in Form eines Bildschirm zu Darstellung muss angeschlossen werden.
+                \subsubsection{Sicheres Passwort}
+                    Beim Erstellen des Passworts muss beachtet werden, dass dieses auch sicher ist. Es soll unwahrscheinlich sein dieses in seinem gültigen Zeitraum knacken zu können. Deshalb muss ein Konzept zur Erstellung eines sicheren Passworts erstellt und umgesetzt werden. 
+    			\subsubsection{Automatisches Wechseln des Passworts}
+    			    Es soll möglich sein das sich das Passwort vollautomatisch in einem gewissen Zeitraum ändert. Folglich muss ein Skript erstellt werden, welches das Passwort austauschen kann.
+    			\subsubsection{Ausgabe des Passworts}
+		            Die Endnutzer müssen über das neu erstellt Passwort benachrichtigt werden. Zu beachtet ist, dass die Darstellung so komfortabel wie möglich umgesetzt wird. Es soll kein zu großer Mehraufwand entstehen. Weitere Hardware in Form eines Bildschirm zu Darstellung muss angeschlossen werden.
 		            
 			\subsection{Optionale Anforderungen}
 			    In diesen Abschnitt werden Anforderungen beschrieben, die nicht für die grundlegende Funktionalität benötigt werden.
-                \subsubsection{Manueller Wechsels des Key}
-                    Wenn es gewünscht ist, soll es möglich sein den Key manuell neu erstellen und wechseln zu lassen. Das soll in Form einer physischen Benutzereingabe erfolgen. So wird sichergestellt, dass nur Befugte diesen Vorgang anstoßen können. 
+                \subsubsection{Manueller Wechsels des Passworts}
+                    Wenn es gewünscht ist, soll es möglich sein das Passwort manuell neu erstellen und wechseln zu lassen. Das soll in Form einer physischen Benutzereingabe erfolgen. So wird sichergestellt, dass nur Befugte diesen Vorgang anstoßen können. 
                 \subsubsection{Energiespar-Konfiguration}
-                    Nicht jeder möchte, dass ein Bildschirm ununterbrochen beleuchtet wird. Weiterhin könnte es nicht erwünscht sein, dass das Gast-Wlan 24 Stunden sendet. Deshalb könnte ein Energiesparplan erstellt werden und implementiert werden. Dieser kann die Anschaltzeit des Displays und des Access Points regeln. 
+                    Nicht jeder möchte, dass ein Bildschirm ununterbrochen beleuchtet wird. Weiterhin könnte es nicht erwünscht sein, dass das Gast-WLAN 24 Stunden sendet. Deshalb könnte ein Energiesparplan erstellt und implementiert werden. Dieser kann die Anschaltzeit des Displays und des Access Points regeln. 
                 \subsubsection{Automatisierungs-Skript}
-                    In Zukunft könnte es wünschenswert sein, die erstellten Konfigurationen erneut auf anderen Geräten auszuführen. An dieser Stelle ist ein Skript zur Automatisierung sinnvoll. Das würde Zeitaufwand sparen und kann bei der Veröffentlichung Anderen helfen.  
+                    In Zukunft kann es wünschenswert sein, die erstellten Konfigurationen erneut auf anderen Geräten auszuführen. An dieser Stelle ist ein Skript zur Automatisierung sinnvoll. Das spart Zeitaufwand und kann bei der Veröffentlichung Anderen helfen.  
 
     		\subsection{Priorisierung}
             	Das Wichtigste zu Beginn ist, dass die Hardware aufeinander abgestimmt wird. Bedeutet, alle Teile passen zusammen und können angeschlossen werden. \\ \\ 
-            	Danach muss die Konfiguration des Raspberry Pi zum Access Point erfolgen. Sobald dies funktioniert kann das Generieren des pre-shared Keys und dessen Austausch stattfinden. \\ \\ 
-            	Folglich wird die Ausgabe des Keys am Bildschirm realisiert. Danach kann es um das Generieren des QR-Codes und dessen Ausgabe erweitert werden.\\ \\ 	
-            	Wenn diese Punkte voll funktional umgesetzt werden konnten, kann sich um einen automatischen oder manuellen Job (bei Tastendruck) zum Generieren und Austauschen des Keys gekümmert werden.
+            	Danach muss die Konfiguration des Raspberry Pi zum Access Point erfolgen. Sobald dies funktioniert kann das Generieren des Passworts und dessen Austausch stattfinden. \\ \\ 
+            	Folglich wird die Ausgabe des Passworts am Bildschirm realisiert. Danach kann es um das Generieren des QR-Codes und dessen Ausgabe erweitert werden.\\ \\ 	
+            	Wenn diese Punkte voll funktional umgesetzt werden konnten, kann sich um einen automatischen oder manuellen Job (bei Tastendruck) zum Generieren und Austauschen des Passworts gekümmert werden. 
     	
 	\section{Lösungsidee}
-    	Ein Lösungsansatz stellt ein sich automatisch oder auf Tastendruck änderbarer pre-shared Key dar. Der Key wird jeden Montagmorgen um 03:00 Uhr automatisch durch einen "Cron-Job" gewechselt. Ein Taster kann zusätzlich betätigt werden, falls das Passwort sofort geändert werden soll. \\ \\
-		Der Key wird so gewählt, dass er aus mathematischer Sicht nicht in dem Zeitraum geknackt werden kann, bis automatisch ein Neuer erzeugt wird. Durch diese Maßnahme wird die Sicherheit des WLANs verbessert und sicher-gestellt.\\ \\
-		Mit diesem neu generierten Key können sich Endgeräte anmelden und kommunizieren. Hiermit wird das Problem der ungewollten Nutzern gelöst. Diese können sich sobald der Key gewechselt hat, nicht mehr im Netz anmelden. \\ \\
-		Der Key wird an einem Display in zwei verschiedenen Varianten angezeigt:
+    	Ein Lösungsansatz stellt ein sich automatisch oder auf Tastendruck änderbares Passwort dar. Das Passwort wird jeden Montagmorgen um 03:00 Uhr automatisch durch einen "Cron-Job" gewechselt. Ein Taster kann zusätzlich betätigt werden, falls das Passwort sofort geändert werden soll. \\ \\
+		Das Passwort wird so gewählt, dass er aus mathematischer Sicht nicht in dem Zeitraum geknackt werden kann, bis automatisch ein Neuer erzeugt wird. Durch diese Maßnahme wird die Sicherheit des WLANs verbessert und sicher gestellt.\\ \\
+		Mit diesem neu generierten Passwort können sich Endgeräte anmelden und kommunizieren. Hiermit wird das Problem der ungewollten Nutzern gelöst. Diese können sich sobald das Passwort gewechselt hat, nicht mehr im Netz anmelden. \\ \\
+		Der Passwort wird an einem Display in zwei verschiedenen Varianten angezeigt:
 		\begin{itemize}
 			\item Klartext für Endgeräte ohne Kamera z.B. Laptops
 			\item QR-Code zum Scannen für z.B Smartphones
 		\end{itemize}
 		
-		Ürsprünglich war ein RFID/NFC Transponder für die Anmeldung geplant. Es wurde sich für einen QR-Code entschieden, da hier die Möglichkeit des Abgreifens des Keys nicht besteht. In Abbildung  \ref{aufbau} ist der Aufbau des Lösungsansatzes graphisch dargestellt. 
+		Ürsprünglich war ein RFID/NFC Transponder für die Anmeldung geplant. Es wurde sich für einen QR-Code entschieden, da hier die Möglichkeit des Abgreifens des Passworts nicht besteht. In Abbildung  \ref{aufbau} ist der Aufbau des Lösungsansatzes graphisch dargestellt. 
 
 		\begin{figure}[ht]
 			\centering
@@ -182,16 +184,16 @@
 				\label{aufbau}
 		\end{figure}
 
-    	Es ist zu erwähnen, dass sich diese Lösung auf die Umsetzung eines Gastnetzes bezieht. Dieses ist getrennt vom restlichen Heimnetz. Es melden sich dort hauptsächlich mobile Geräte an. Dies führt zu einer hohen Fluktuation an Endgeräten im Netzwerk und ist nicht für stationäre Geräte wie z.B Drucker geeignet.
+    	Es ist zu erwähnen, dass sich diese Lösung auf die Umsetzung eines Gastnetzes bezieht. Es melden sich dort hauptsächlich mobile Geräte an. Dies führt zu einer hohen Fluktuation an Endgeräten im Netzwerk und ist nicht für stationäre Geräte wie z.B Drucker geeignet.
     
     
     	\subsection{Hardware}
 			Für dieses Projekt wird ein Raspberry Pi 3 B benötigt. Grund hierfür ist das integrierte WLAN-Modul, ausreichend Leistung und alle benötigten Anschlüsse sind vorhanden. \\
 			Zusätzlich wird eine Mikro-SD Karte zum Laden des Betriebsystems und zur Speicherung der Daten benötigt. \\ \\
-			Das Display, welches verwendet wird, muss eine ausreichende Auflösung für die Darstellung des QR-Codes besitzen. Deshalb können keine kleineren und billigeren LCD Anzeigen verwendet werden. Außerdem muss es die Möglichkeit haben entweder externe Taster anzubinden oder schon eigene Taster besitzen.
+			Das Display, welches verwendet wird, muss eine ausreichende Auflösung für die Darstellung des QR-Codes besitzen. Deshalb können keine kleineren und billigeren LCD Anzeigen verwendet werden. Außerdem muss es die Möglichkeit haben entweder externe Taster anzubinden oder schon eigene Taster zu besitzen. Für diese Aufgabe bietet sich das Raspberry Pi Shield - 3,2in LCD-Touch Display an, da es diesen Anforderungen entspricht.
 		
 		\subsection{Software}
-			Um den Raspberry Pi als Access Point verwenden zu können, müssen zusätzliche Pakete installiert (hostapd) und eine Netzwerkkonfiguration vorgenommen werden. Darunter fällt das Einstellen von DHCP und DNS für die Clients durch "dnsmasq" und Anpassen der IP-Konfiguration. Das Routing erfolgt durch eine neue iptables Regel.\\ \\
+			Um den Raspberry Pi als Access Point verwenden zu können, müssen zusätzliche Pakete installiert (Hostapd) und eine Netzwerkkonfiguration vorgenommen werden. Darunter fällt das Einstellen von DHCP und DNS für die Clients durch "dnsmasq" und Anpassen der IP-Konfiguration. Das Routing erfolgt durch eine neue iptables Regel.\\ 
 		
 			Als Skriptsprache empfiehlt sich Python, da es dort sehr viele Libraries gibt, die einiges an Arbeit abnehmen. Zudem kann mit Python auf einfache Kommandos des Betriebssystems zugegriffen werden. Für die QR-Code Generierung eignen sich die Libraries "qrcode" und "PyQRCode". 
 		
@@ -211,24 +213,24 @@
 		
 	\section{Bewertung der Lösung anhand der Anforderungen}
     	Der Raspberry Pi 3b ist für die Anforderungen geeignet, da ein WLAN-Modul, genügend Rechenleistung und alle nötigen Anschlüsse vorhanden sind. \\ \\
-    	Durch hostapd kann die Access Point Funktionalität optimal realisiert werden. Zusätzlich durch dnsmasq wird der DHCP und der DNS Server umgesetzt. Beide genannten Lösungen bieten eine einfache und schnelle Konfiguration. \\ \\
+    	Durch Hostapd kann die Access Point Funktionalität optimal realisiert werden. Zusätzlich durch dnsmasq wird der DHCP und der DNS Server umgesetzt. Beide genannten Lösungen bieten eine einfache und schnelle Konfiguration. \\ \\
     	Das Weiterleiten des Datenverkehrs übernimmt die iptables Konfiguration. Iptables empfiehlt sich, weil es vorinstalliert und das Team bereits damit vertraut ist. \\ \\
     	Mit der genannten Beispielrechnung wurde die Sicherheit des Passworts gezeigt. Das Passwort ist damit für den Zeitraum einer Woche mehr als sicher genug. \\ \\
     	Cron ist spezialisiert für zeitbasierte Aufgaben, womit es prädestiniert für das vollautomatische Tauschen des Passworts mithilfe des Passworttausch Skripts ist. \\ \\
-    	Das ausgewählte Display ist geeignet, aufgrund der ausreichenden Auflösung und der bereits angeschlossenen Taster. Die Ausgabe als QR-Code vereinfacht die Eingabe des Passworts für die Nutzer. Für andere Endgeräte ohne Kamera wird das Passwort zusätzlich im Klartext angezeigt. \\ \\
-    	Die Lösungsidee lässt genügend Spielraum für die optionalen Anforderungen.
+    	Das ausgewählte Display ist geeignet, aufgrund der ausreichenden Auflösung und der bereits angeschlossenen Taster. Die Ausgabe als QR-Code vereinfacht die Eingabe des Passworts für die Nutzer. Für andere Endgeräte ohne Kamera wird das Passwort zusätzlich dort im Klartext angezeigt. \\ \\
+    	Abschließend lässt die Lösungsidee genügend Spielraum zur Umsetzung der optionalen Anforderungen.
     	
     \section{Implementierung}
     	\subsection{Vorbereitung des Raspberry Pi}
     	\subsubsection{Auswahl und Installation des Betriebssystem}
-    	    Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
-        	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet wurde diese Entscheidung  durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfläche. Hierdurch konnte Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenutzte Software, desto weniger Angriffsfläche. \\ 
+    	    Um mit dem Projekt beginnen zu können wird zuerst ein Betriebssystem bestimmt.
+        	Es wurde sich für das Raspberry Pi OS Lite entschieden. Begründet ist diese Entscheidung durch die weniger vorinstallierten Pakete und einer fehlender grafischen Bedienoberfläche. Hierdurch kann Speicherplatz und Sicherheitsrisiken eingespart werden. Je weniger unbenutzte Software vorhanden, desto weniger Angriffsfläche wird angeboten. \\ 
     	
-        	Nach der Auswahl des Betriebssystems konnte dieses auf eine SD-Karte geschrieben werden.
-        	Hierzu wurde die Software balenaEtcher verwendet.   
+        	Nach der Auswahl des Betriebssystems kann es auf eine SD-Karte geschrieben werden.
+        	Hierzu wird die Software balenaEtcher verwendet.   
     	
     	\subsubsection{SSH Zugriff einrichten}
-        	Da das Projektteam aus drei Personen besteht, wurde ein SSH Zugriff in den Einstellungen des Raspberry Pi eingerichtet. Die Einstellungen können mit folgendem Befehl geöffnet werden: 
+        	Da das Projektteam aus drei Personen besteht, wird ein SSH Zugriff in den Einstellungen des Raspberry Pi eingerichtet. Die Einstellungen kann mit folgendem Befehl geöffnet werden: \\
         	\lstset{
             language=bash,
             keywordstyle=\color{blue},
@@ -244,11 +246,11 @@
 sudo raspi-config
         \end{lstlisting} 
     	
-        In diesem Zuge wurde der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den  Zugriff konnte das parallele Arbeiten am Projekt ermöglicht werden. 
+        In diesem Zuge wird der SSH Zugriff aktiviert und das Standardpasswort geändert. Durch den  Zugriff kann das parallele Arbeiten am Projekt ermöglicht werden. 
     	
     	\subsubsection{Aktualisierung und Paketinstallation}
-        	Nach der Neuinstallation eines Betriebssystems fehlen diesem oft die aktuellsten Versionen von Softwarepaketen und Updates. Deshalb wurden diese zuerst aktualisiert und installiert. So werden Konflikte aufgrund veralteter Software vermieden und die Sicherheit verbessert.  
-        	Darauf folgte das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt Software genauer beschrieben. 
+        	Nach der Neuinstallation eines Betriebssystems fehlen diesem oft die aktuellsten Versionen von Softwarepaketen und Updates. Deshalb werden diese zuerst aktualisiert und installiert. So können Konflikte aufgrund veralteter Software vermieden und die Sicherheit verbessert werden.  
+        	Darauf folgt das Nachinstallieren der für das Projekt noch benötigten Pakete. Diese wurden im Abschnitt "\nameref{sec:Grundlagen_Hard-und_Software}" genauer beschrieben. 
     	
     	
     
@@ -263,7 +265,7 @@ interface wlan0
     static ip_address=192.168.4.1/24
     nohook wpa_supplicant
                 \end{lstlisting} 
-                Mit der 192.168.4.1 wird eine statische IP Adresse vergeben unter die der Raspberry Pi im WLAN erreichbar ist. Weiterhin wird der wpa{\_}supplicant deaktiviert um keine Konflikte mit hostapd zu verursachen. 
+                Mit der 192.168.4.1 wird eine statische IP Adresse vergeben unter die der Raspberry Pi im WLAN erreichbar ist. Weiterhin wird der wpa{\_}supplicant deaktiviert um keine Konflikte mit Hostapd zu verursachen. \cite{Quote_hostapd1} \cite{Quote_APKonfig}
             
             \subsubsection{Routing}
                 Der Access Point muss den Datenverkehr der Endgeräte im WLAN zum Router weiterleiten können.
@@ -275,14 +277,14 @@ interface wlan0
                 \begin{lstlisting}
 # Enable IPv4 routing
 net.ipv4.ip_forward=1
-                \end{lstlisting} 
+                \end{lstlisting}
                 Endgeräte können nun den Hauptrouter erreichen. Um jedoch eine Kommunikation zu ermöglichen muss NAT eingestellt werden. Die wird durch einen Eintrag in die iptables Firewall erreicht: \\
             
                 \begin{lstlisting}
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
                 \end{lstlisting} 
        
-                Bei Datenverkehr zum Hauptrouter wird nun die Absender IP Adresse der Endgeräte mit der IP der LAN-Schnittstelle ersetzt. Bei Rückantworten an den Raspberry Pi werden diese an den jeweiligen Absender richtig weitergeleitet.\\
+                Bei Datenverkehr zum Hauptrouter wird nun die Absender IP Adresse der Endgeräte mit der IP der LAN-Schnittstelle ersetzt. Bei Rückantworten an den Raspberry Pi werden diese an den jeweiligen Absender richtig weitergeleitet. \cite{Quote_hostapd1} \cite{Quote_APKonfig}\\
             
                 Um die Firewall Regel bei einem Neustart zu behalten, wurde diese abgespeichert:\\
                 
@@ -290,7 +292,7 @@ sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo netfilter-persistent save
                 \end{lstlisting}    
             \subsubsection{DNS und DHCP}
-                Durch dnsmasq können nun die DHCP und DNS Einstellungen erfolgen. Diese werden in der /etc/dnsmasq.conf Datei vorgenommen. Diese dient als Vorlage und gibt Erklärungen zu den Einstellungen. Zur Übersichtlichkeit wurde diese in dnsmasq.conf.orig umbenannt und eine neue Datei mit dem ürsprünglichen Namen erzeugt. In der neuen Datei werden nur die getätigten Konfigurationen eingetragen:
+                Durch dnsmasq können nun die DHCP und DNS Einstellungen erfolgen. Diese werden in der /etc/dnsmasq.conf Datei vorgenommen. Diese dient als Vorlage und gibt Erklärungen zu den Einstellungen. Zur Übersichtlichkeit wurde diese in dnsmasq.conf.orig umbenannt und eine neue Datei mit dem ürsprünglichen Namen erzeugt. In der neuen Datei werden nur die getätigten Konfigurationen eingetragen:\\\\
             
             
                 \begin{lstlisting}
@@ -301,21 +303,21 @@ domain=wlan     # Local wireless DNS domain
 address=/gw.wlan/192.168.4.1
                 # Alias for this router
                 \end{lstlisting}  
-                Zuerst wird das Interface angeben, bei den die DHCP/DNS Konfiguration gelten soll. Die ist das schon vorherig erstellte Interface "wlan0". Es wurde sich auf einen DHCP Bereich von 192.168.4.2/24 - 192.168.4.20/24 entschieden. Dieser umfasst 18 IP Adressen, welcher als ausreichend für eine Woche angesehen wird. Die Lease - Zeit wurde auf 24 Stunden eingestellt, da Gäste meist nicht länger als einen Tag anwesend sind.
+                Zuerst wird das Interface angeben, bei den die DHCP/DNS Konfiguration gelten soll. Die ist das schon vorherig erstellte Interface "wlan0". Es wurde sich auf einen DHCP Bereich von 192.168.4.2/24 - 192.168.4.20/24 entschieden. Dieser umfasst 18 IP Adressen, welcher als ausreichend für eine Woche angesehen wird. Die Lease-Zeit wurde auf 24 Stunden eingestellt, da Gäste meist nicht länger als einen Tag anwesend sind.
                 Zuletzt wurde eine lokale DNS Domäne und ein Alias für den Access Point eingestellt. Unter diesem Alias ist dieser nun erreichbar.
 
 
             \subsubsection{Access Point Einstellungen}
-                Um den Raspberry Pi als Access Point nutzen zu können musste nun hostapd konfiguriert werden. Hierzu wurde zuerst der Dienst aktiviert und so eingestellt das er beim booten gestartet wird:
+                Um den Raspberry Pi als Access Point zu nutzen muss Hostapd konfiguriert werden. Hierzu wird zuerst der Dienst aktiviert und so eingestellt das er beim booten gestartet wird:\\
                   \begin{lstlisting}
                 sudo systemctl unmask hostapd
                 sudo systemctl enable hostapd
                   \end{lstlisting} 
                 
-                    Nun musste die Konfigurationsdatei unter /etc/hostapd/hostapd.conf erstellt und gefüllt werden.
-                    In dieser werden verschiedene Parameter eingestellt. Darunter fallen unter anderem die SSID, das Passwort und die Art der Verschlüsselung. Es wurde eingestellt das nur WPA2 verwendet wird, da WEP als unsicher gilt. Weiterhin wurde der Funkstandard auf n und 2.4GHz eingestellt. Grund hiefür war das der Raspberry Pi keinen höheren Standard in Form von z.B AC unterstützen würde. Weiterhin ist der eingestellte Standard ausreichend  für das surfen im Gast-Internet. \\
-                    Der Kanal wurde fest auf Sechs gesetzt. Eine passende Kanalsuche mittels ACS kann nicht erfolgen. Die Implementierung von ACS in Hostapd wird nur von bestimmten Atheros Treibern unterstützt \cite{Quote_hostapdACS}. Der Raspberry Pi besitzt onboard jedoch nur einen Broadcom-Chip  \cite{Quote_Raspberrypi3b} und ist somit nicht kompatibel. \\
-                    Um Wireless-Networking auf dem Raspberry Pi zu ermöglichen muss ein "Country Code" gesetzt werden. In diesem Fall auf "DE", welches Deutschland entspricht \cite{Quote_hostapdDE}. Dieser ist notwendig, denn je nach Land sind die Frequenzbänder unterschiedlich vergeben bzw. reguliert. Im Folgenden der Inhalt der Konfigurationsdatei:
+                    Nun muss die Konfigurationsdatei unter /etc/hostapd/hostapd.conf erstellt und gefüllt werden.
+                    In dieser werden verschiedene Parameter eingestellt. Darunter fällt unter anderem die SSID, das Passwort und die Art der Verschlüsselung. Es wird eingestellt, dass nur WPA2 verwendet wird, da WEP als unsicher gilt. Weiterhin wird der Funkstandard auf IEEE 802.11n und 2.4GHz eingestellt. Grund hiefür ist, dass der Raspberry Pi keinen höheren Standard in Form von z.B IEEE 802.11ac unterstützt. Weiterhin ist der eingestellte Standard ausreichend für das surfen im Gast-Internet. \\\\
+                    Der Kanal wird fest auf Sechs gesetzt. Eine passende Kanalsuche mittels "Automatic Channel Selection" (ACS) \cite{Quote_hostapdACS} kann nicht erfolgen. Die Implementierung von ACS in Hostapd wird nur von bestimmten Atheros Treibern unterstützt \cite{Quote_hostapdACS}. Der Raspberry Pi besitzt onboard jedoch nur einen Broadcom-Chip  \cite{Quote_Raspberrypi3b} und ist somit nicht kompatibel. \\\\
+                    Um Wireless-Networking auf dem Raspberry Pi zu ermöglichen muss ein "Country Code" gesetzt werden. In diesem Fall auf "DE", welches Deutschland entspricht \cite{Quote_hostapdDE}. Dieser ist notwendig, denn je nach Land sind die Frequenzbänder unterschiedlich vergeben bzw. reguliert. Im Folgenden der Inhalt der Konfigurationsdatei:\\
  
                 
                     \begin{lstlisting}
@@ -370,7 +372,7 @@ def get_random_pw():
     	\subsubsection{Austauschen des Passworts}
     		Nachdem das Passwort generiert wurde, liest changePassword.py den Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei aus. Die drei Parameter werden einmal als Klartext auf der Konsole ausgegeben und dann werden sie der Funktion zum Erstellen des QR-Codes übergeben. \\ \\
     		Im Anschluss führt das Skript mit dem Subprocess Modul das Unix Tool sed aus. Mit sed wird die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. \\ \\
-    		Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ \\
+    		Damit der Tausch in Kraft tritt muss der Hostapd Service neu gestartet werden. \\ \\
    
 \lstset{
     	basicstyle=\ttfamily,
@@ -474,7 +476,7 @@ hdmi_force_hotplug=1
 fbcon=map:10
     		\end{lstlisting}
 
-			Natürlich muss man den Treiber auch noch herunterladen, auspacken und nach /boot/overlays verschieben. Über diesen Link kann das Paket heruntergeladen werden:\\
+			Natürlich muss der Treiber herunterladen, auspackt und nach /boot/overlays verschoben werden. Über diesen Link kann das Paket heruntergeladen werden:\\
 			
 			"http://joy-it.net/files/files/Produkte/RB-TFT3.2-V2/joy-IT-Display-Driver-32b-overlay.zip" \\
 
@@ -496,13 +498,14 @@ EndSection
     		
     		Bei der Erstellung des Passworts wird es bereits im Format: "SSID: <ssid> WPA<version> PW:<passwort>" als Plaintext auf die Konsole geschrieben.
     		\subsubsection{Tastenbelegung}
-    		    Damit der Knopfdruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann man einfach die Buttons auf die gewünschten GPIOs hören und reagieren. \\
-	    		Button1 zeigt den QR-Code an, wie das gemacht wird, erklärt das nächste Kapitel. \\
-	    		Button2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird einfach unser changePassword.py aufgerufen. \\
-	    		Button3 führt ein "clear" aus somit kann der Display mal wieder aufgeräumt werden, falls dort zuviele Passwörter stehen.
+    		    Damit der Tastendruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann den Tastern der gewünschte GPIO zugewiesen werden, auf den sie reagieren sollen. \\\\
+	    		Taster1 zeigt den QR-Code an. Die wird im Abschnitt "\nameref{sec:Anzeigen_des_QR-Codes}" genauer erläutert. \\\\
+	    		Taster2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird einfach unser changePassword.py aufgerufen. \\\\
+	    		Taster3 führt ein "clear" aus. Somit kann der Display aufgeräumt werden, falls dort zu viele Passwörter stehen.
     		
     		\subsubsection{Anzeigen des QR-Codes}
-    			Damit der QR-Code angezeigt wird muss der erste Knopf an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist und er damit nicht einfach auf dem Terminal ausgegeben werden kann. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. 
+    		\label{sec:Anzeigen_des_QR-Codes}
+    			Damit der QR-Code angezeigt wird muss der erste Taster an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist. Die Datei kann nicht einfach auf dem Terminal ausgegeben werden. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. 
     			Der erste Button wird für das Anzeigen des QR-Codes verwendet. Dort wird ein Subprocess erstellt und damit, sobald der Childprozess getötet wird, nicht der Parent Process mitstirbt, das Kommando mit dem Parameter preexec\_fn=os.setsid vorher ausgeführt. 15 Sekunden später wird die ganze Prozess Gruppe getötet. Mit dem gesendeten Signal SIGTERM wird die fim Ansicht beendet und man kehrt zur Shell zurück. \\ 
     			\begin{lstlisting}
 #!/usr/bin/env python3
@@ -530,14 +533,14 @@ while True:
     
     \section{Fazit und Ausblick}
 	    \subsection{Fazit}
-	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt. Somit sind die angegebenen funktionalen Anforderungen erfolgreich umgesetzt. \\ \\ 
-	    	Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Aufsetzen des Projekts sehr vereinfacht. Bei Bedarf müssen lediglich die im Repository \cite{Quote_github_repo} gezeigten Schritte durchgeführt werden, um den Access Point zu konfigurieren. \\ \\
-	    	Die Tests offenbarten keine Probleme mit den verschiedenen Beriebssystemen.\\
+	    	Die hier vorgestellte Implementierung war sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt. Somit sind die angegebenen funktionalen Anforderungen erfolgreich umgesetzt. \\ \\ 
+	    	Ein Großteil der optionalen Funktionalitäten sind ebenfalls umgesetzt. Das Passwort kann zusätzlich mit einem Tastendruck zu einer beliebigen Zeit gewechselt werden. Weiterhin wurde das Setup Skript erstellt. Dieses vereinfacht das nochmalige Aufsetzen des Projekts sehr. Bei Bedarf müssen lediglich die im Repository \cite{Quote_github_repo} gezeigten Schritte durchgeführt werden, um den Access Point zu konfigurieren. Die Energiespar-Funktionalität wurde in diesem Projekt nicht umgesetzt.\\ \\
+	    	Die Tests mit verschiedenen Endgeräten offenbarten keine Probleme mit den verschiedenen Beriebssystemen. Gäste können sich nun über das eingerichtete Gäste-WLAN sich erfolgreich anmelden und im Internet surfen.\\
 	    \subsection{Ausblick}
 	    	Im Folgenden nennen wir einzelne Verbesserungen und mögliche Erweiterungen des Projektes. \\ \\
-	    	Eine Verbesserung ist die Einschränkung des Zugriffs auf das Heimnetzwerk. Aktuell können Gäste auf das Internet, aber auch auf die Geräte im Heimnetz zugreifen. Dieses Verhalten ist normalerweise nicht gewünscht. Eine mögliche Lösung wäre das Erstellen weiterer Firewall-Regeln. \\ \\
-	    	Weiterhin ist das Absichern der hostapd.conf Datei durch ein Passwort zu empfehlen. Diese beinhaltet das Passwort für den WLAN-Zugang im Klartext. Sobald jemand Zugriff auf diese Datei besitzt, kann dieser die Konfiguration des gesamten Gastnetzes verändern. \\ \\
-	    	Eine weitere Verbesserung ist ein dediziertes WLAN-Modul, denn derzeit limitiert der Raspberry Pi die Frequenz auf 2,4GHz \cite{Quote_Raspberrypi3b}. Das Upgrade auf	 5 GHz ermöglicht eine höhere Datenübertragung, falls dies benötigt wird. Hierbei sollte auch darauf geachtet werden, dass das Modul die Implementierung, der automatischen Channel Auswahl von hostapd, unterstützt.
+	    	Eine Verbesserung ist die Einschränkung des Zugriffs auf das Heimnetzwerk. Aktuell können Gäste auf das Internet, aber auch auf die Geräte im Heimnetz zugreifen. Dieses Verhalten ist nicht immer erwünscht. Eine mögliche Lösung wäre das Erstellen weiterer Firewall-Regeln. Diese schränken den Zugriff der Gäste auf nur das Internet ein. Weiter Anfragen werden verworfen.\\ \\
+	    	Weiterhin ist das Absichern der hostapd.conf Datei durch ein Passwort zu empfehlen. Diese beinhaltet das Passwort für den WLAN-Zugang im Klartext. Sobald jemand Zugriff auf diese Datei besitzt, kann dieser die Konfiguration des gesamten Gastnetzes verändern. Nach Absicherung der Datei muss in diesem Zuge das Skript angepasst bzw. bearbeitet werden. \\ \\
+	    	Eine weitere Verbesserung ist ein dediziertes WLAN-Modul, denn derzeit limitiert der Raspberry Pi die Frequenz auf 2,4GHz \cite{Quote_Raspberrypi3b}. Das Upgrade auf	 5 GHz ermöglicht eine höhere Datenübertragung, falls dies benötigt wird. Hierbei sollte auch darauf geachtet werden, dass das Modul die Implementierung, der automatischen Channel Auswahl von Hostapd, unterstützt.
     
     
    	\pagebreak
