@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: AccesPoint.aux
 The style file: plain.bst
 Database file #1: zitate.bib
-You've used 9 entries,
+You've used 11 entries,
             2118 wiz_defined-function locations,
-            533 strings with 5325 characters,
-and the built_in function-call counts, 1766 in all, are:
-= -- 144
-> -- 63
+            541 strings with 5555 characters,
+and the built_in function-call counts, 2156 in all, are:
+= -- 176
+> -- 77
 < -- 0
-+ -- 27
-- -- 18
-* -- 56
-:= -- 288
-add.period$ -- 18
-call.type$ -- 9
-change.case$ -- 27
++ -- 33
+- -- 22
+* -- 68
+:= -- 352
+add.period$ -- 22
+call.type$ -- 11
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 63
-empty$ -- 199
-format.name$ -- 18
-if$ -- 379
+cite$ -- 11
+duplicate$ -- 77
+empty$ -- 243
+format.name$ -- 22
+if$ -- 463
 int.to.chr$ -- 0
-int.to.str$ -- 9
+int.to.str$ -- 11
 missing$ -- 0
-newline$ -- 39
-num.names$ -- 18
-pop$ -- 90
+newline$ -- 47
+num.names$ -- 22
+pop$ -- 110
 preamble$ -- 1
-purify$ -- 27
+purify$ -- 33
 quote$ -- 0
-skip$ -- 72
+skip$ -- 87
 stack$ -- 0
-substring$ -- 45
-swap$ -- 9
+substring$ -- 55
+swap$ -- 11
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 44
 warning$ -- 0
-while$ -- 18
-width$ -- 10
-write$ -- 74
+while$ -- 22
+width$ -- 13
+write$ -- 90
