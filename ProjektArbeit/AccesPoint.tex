@@ -88,7 +88,7 @@
 					\item Upgraded switched Micro USB power source up to 2.5A  \cite{Quote_Raspberrypi3b}
 				\end{itemize}
 			\subsubsection{Raspberry Pi Shield - Display LCD-Touch, 3,2in}
-				Der Touchscreen wertet den Raspberry Pi zu einem vollwertigen Touch-PC auf. Für zusätzliche Funktionen besitzt der Display 3 Buttons an der Seite, welche einfach über die GPIO Pins eingelesen werden können. Zu sehen ist der Display in Abbildung~\ref{touchdisplay}. 
+				Der Touchscreen wertet den Raspberry Pi zu einem vollwertigen Touch-PC auf. Für zusätzliche Funktionen besitzt der Display 3 Taster an der Seite, welche einfach über die GPIO Pins eingelesen werden können. Zu sehen ist der Display in Abbildung~\ref{touchdisplay}. 
 				\begin{figure}[H]
 					\centering
 					\includegraphics[scale=0.5]{touch_display}
@@ -125,7 +125,7 @@
     			\subsubsection{pyqrcode}
     				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt es nur die Parameter die enthalten sein sollen. \cite{Quote_pyqrcode}
     			\subsubsection{GPIO zero}
-    				Das Modul GPIO zero stellt ein Interface für GPIO Geräte dar \cite{Quote_gpio_zero}. Es wird in diesem Projekt für das Einlesen der einzelnen Taster genutzt, die bereits in dem Display integriert sind. Das Mapping der Taster wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
+    				Das Modul GPIO zero stellt ein Interface für GPIO Geräte dar \cite{Quote_gpio_zero}. Es wird in diesem Projekt für das Einlesen der einzelnen Taster genutzt, die bereits in dem Display integriert sind. Das Mapping der Taster wird auch in der Anleitung des Displays erklärt. (Taste1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
     	
     	
     \section{Problemstellung}
@@ -148,7 +148,7 @@
     			\subsubsection{Automatisches Wechseln des Passworts}
     			    Es soll möglich sein das sich das Passwort vollautomatisch in einem gewissen Zeitraum ändert. Folglich muss ein Skript erstellt werden, welches das Passwort austauschen kann.
     			\subsubsection{Ausgabe des Passworts}
-		            Die Endnutzer müssen über das neu erstellt Passwort benachrichtigt werden. Zu beachtet ist, dass die Darstellung so komfortabel wie möglich umgesetzt wird. Es soll kein zu großer Mehraufwand entstehen. Weitere Hardware in Form eines Bildschirm zu Darstellung muss angeschlossen werden.
+		            Die Endnutzer müssen über das neu erstellt Passwort benachrichtigt werden. Zu beachtet ist, dass die Darstellung so komfortabel wie möglich umgesetzt wird. Es soll kein zu großer Mehraufwand entstehen. Weitere Hardware in Form eines Bildschirm zur Darstellung muss angeschlossen werden.
 		            
 			\subsection{Optionale Anforderungen}
 			    In diesen Abschnitt werden Anforderungen beschrieben, die nicht für die grundlegende Funktionalität benötigt werden.
@@ -340,7 +340,7 @@ rsn_pairwise=CCMP
                    Nach den Einstellungen erfolgt ein Reboot und der Access Point ist nun einsatzbereit.
                 
      \subsection{Passwortskript}           
-            In dem Python Skript changePassword.py befindet sich der gesamte Ablauf des Passworttauschs.  Das vollständige Skript findet sich im dazugehörigen Github-Repository.\cite{Quote_github_repo}
+            In dem Python Skript changePassword.py befindet sich der gesamte Ablauf des Passworttauschs.  Das vollständige Skript findet sich im dazugehörigen Github Repository.\cite{Quote_github_repo}
             
     	\subsubsection{Passwortgenerierung}
     		Die erste Funktion des Skripts ist für die Generierung eines sicheren Passworts zuständig. Das Skript verwendet die zwei Imports string und secrets. \\ \\
@@ -500,13 +500,13 @@ EndSection
     		\subsubsection{Tastenbelegung}
     		    Damit der Tastendruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann den Tastern der gewünschte GPIO zugewiesen werden, auf den sie reagieren sollen. \\\\
 	    		Taster1 zeigt den QR-Code an. Die wird im Abschnitt "\nameref{sec:Anzeigen_des_QR-Codes}" genauer erläutert. \\\\
-	    		Taster2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird einfach unser changePassword.py aufgerufen. \\\\
+	    		Taster2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird das Passworttausch Skript aufgerufen. \\\\
 	    		Taster3 führt ein "clear" aus. Somit kann der Display aufgeräumt werden, falls dort zu viele Passwörter stehen.
     		
     		\subsubsection{Anzeigen des QR-Codes}
     		\label{sec:Anzeigen_des_QR-Codes}
-    			Damit der QR-Code angezeigt wird muss der erste Taster an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist. Die Datei kann nicht einfach auf dem Terminal ausgegeben werden. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. 
-    			Der erste Button wird für das Anzeigen des QR-Codes verwendet. Dort wird ein Subprocess erstellt und damit, sobald der Childprozess getötet wird, nicht der Parent Process mitstirbt, das Kommando mit dem Parameter preexec\_fn=os.setsid vorher ausgeführt. 15 Sekunden später wird die ganze Prozess Gruppe getötet. Mit dem gesendeten Signal SIGTERM wird die fim Ansicht beendet und man kehrt zur Shell zurück. \\ 
+    			Damit der QR-Code angezeigt wird muss der erste Taster an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist. Die Datei kann nicht einfach auf dem Terminal ausgegeben werden. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. \\ \\
+    			Nach dem Tastendruck wird ein Subprocess erstellt und damit, sobald der Childprozess getötet wird, nicht der Parent Process mitstirbt, das Kommando mit dem Parameter preexec\_fn=os.setsid vorher ausgeführt. 15 Sekunden später wird die ganze Prozess Gruppe getötet. Mit dem gesendeten Signal SIGTERM wird die fim Ansicht beendet und man kehrt zur Shell zurück. \\ 
     			\begin{lstlisting}
 #!/usr/bin/env python3
 

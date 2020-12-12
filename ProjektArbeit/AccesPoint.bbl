@@ -10,6 +10,25 @@
 \newblock \url{https://wireless.wiki.kernel.org/en/users/documentation/acs}
   [aufgerufen am 10.12.2020].
 
+\bibitem{Quote_hostapd_man}
+{Das Debian-Projekt}, 2020.
+\newblock \url{https://manpages.debian.org/testing/hostapd/hostapd.8.en.html}
+  [aufgerufen am 26.11.2020].
+
+\bibitem{Quote_dnsmasq}
+{Das Debian-Projekt}, 2020.
+\newblock \url{https://wiki.debian.org/dnsmasq} [aufgerufen am 12.12.2020].
+
+\bibitem{Quote_iptables}
+{Das Debian-Projekt}, 2020.
+\newblock \url{https://packages.debian.org/de/source/sid/iptables-persistent}
+  [aufgerufen am 12.12.2020].
+
+\bibitem{Quote_netfilter}
+{Das Debian-Projekt}, 2020.
+\newblock \url{https://packages.debian.org/de/sid/netfilter-persistent}
+  [aufgerufen am 12.12.2020].
+
 \bibitem{Picture_Raspberrypi3b}
 {Elektronik-kompendium}, 2020.
 \newblock
@@ -50,6 +69,12 @@
 {Michele Martone}, 2020.
 \newblock \url{https://www.unix.com/man-page/debian/1/fim/} [aufgerufen am
   12.12.2020].
+
+\bibitem{Quote_APKonfig}
+{Raspberry Pi Foundation}, 2020.
+\newblock
+  \url{https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md}
+  [aufgerufen am 26.11.2020].
 
 \bibitem{Picture_touchdisplay}
 {Reichelt}, 2020.

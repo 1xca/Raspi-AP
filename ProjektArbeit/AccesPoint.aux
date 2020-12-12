@@ -18,8 +18,8 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{Picture_Raspberrypi3b}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Motivation}{3}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Fachbegriffe --> kommt ins glossary}{3}{subsection.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Grundlagen Hard- und Software}{3}{section.2}\protected@file@percent }
+\newlabel{sec:Grundlagen_Hard-und_Software}{{2}{3}{Grundlagen Hard- und Software}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Hardware}{3}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}Raspberry Pi}{3}{subsubsection.2.1.1}\protected@file@percent }
 \citation{Quote_Raspberrypi3b}
@@ -27,14 +27,19 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Raspberry Pi 3b - Quelle: \cite  {Picture_Raspberrypi3b} }}{4}{figure.1}\protected@file@percent }
 \newlabel{raspberrypi3b}{{1}{4}{Raspberry Pi 3b - Quelle: \cite {Picture_Raspberrypi3b}}{figure.1}{}}
 \citation{Quote_hostapd1}
+\citation{Quote_hostapd_man}
+\citation{Quote_dnsmasq}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}Raspberry Pi Shield - Display LCD-Touch, 3,2in}{5}{subsubsection.2.1.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Touchscreen Display für den Raspberry Pi - Quelle: \cite  {Picture_touchdisplay}}}{5}{figure.2}\protected@file@percent }
 \newlabel{touchdisplay}{{2}{5}{Touchscreen Display für den Raspberry Pi - Quelle: \cite {Picture_touchdisplay}}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Software}{5}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}balenaEtcher}{5}{subsubsection.2.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}hostapd}{5}{subsubsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Hostapd}{5}{subsubsection.2.2.2}\protected@file@percent }
+\citation{Quote_iptables}
+\citation{Quote_netfilter}
 \citation{Quote_man_fim}
 \citation{Quote_pyqrcode}
+\citation{Quote_gpio_zero}
 \citation{Quote_gpio_zero}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}dnsmasq}{6}{subsubsection.2.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}netfilter-persistent und iptables-persistent}{6}{subsubsection.2.2.4}\protected@file@percent }
@@ -49,11 +54,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Funktionale Anforderungen}{7}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Funktionaler Accesss Point}{7}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Zugriff ins Netzwerk}{8}{subsubsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Sicherer Key}{8}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Automatisches Wechseln des Key}{8}{subsubsection.4.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Ausgabe des Key}{8}{subsubsection.4.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Sicheres Passwort}{8}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Automatisches Wechseln des Passworts}{8}{subsubsection.4.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Ausgabe des Passworts}{8}{subsubsection.4.1.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Optionale Anforderungen}{8}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Manueller Wechsels des Key}{8}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Manueller Wechsels des Passworts}{8}{subsubsection.4.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Energiespar-Konfiguration}{9}{subsubsection.4.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Automatisierungs-Skript}{9}{subsubsection.4.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Priorisierung}{9}{subsection.4.3}\protected@file@percent }
@@ -63,52 +68,63 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Hardware}{10}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Software}{11}{subsection.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Passwortkonzept}{11}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Tests}{11}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Tests}{12}{subsection.5.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Bewertung der Lösung anhand der Anforderungen}{12}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Implementierung}{12}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Vorbereitung des Raspberry Pi}{12}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}Auswahl und Installation des Betriebssystem}{12}{subsubsection.7.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Implementierung}{13}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Vorbereitung des Raspberry Pi}{13}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}Auswahl und Installation des Betriebssystem}{13}{subsubsection.7.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}SSH Zugriff einrichten}{13}{subsubsection.7.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.3}Aktualisierung und Paketinstallation}{13}{subsubsection.7.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Konfiguration des RaspberryPi als funktionalen Access Point}{13}{subsection.7.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}WLAN Interface}{13}{subsubsection.7.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Routing}{13}{subsubsection.7.2.2}\protected@file@percent }
+\citation{Quote_hostapd1}
+\citation{Quote_APKonfig}
+\citation{Quote_hostapd1}
+\citation{Quote_APKonfig}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Routing}{14}{subsubsection.7.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3}DNS und DHCP}{14}{subsubsection.7.2.3}\protected@file@percent }
+\citation{Quote_hostapdACS}
 \citation{Quote_hostapdACS}
 \citation{Quote_Raspberrypi3b}
 \citation{Quote_hostapdDE}
-\citation{Quote_github_repo}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.4}Access Point Einstellungen}{15}{subsubsection.7.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Passwortskript}{15}{subsection.7.3}\protected@file@percent }
+\citation{Quote_github_repo}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Passwortskript}{16}{subsection.7.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.1}Passwortgenerierung}{16}{subsubsection.7.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.2}Austauschen des Passworts}{16}{subsubsection.7.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.3}Erstellen des QR-Code}{17}{subsubsection.7.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.2}Austauschen des Passworts}{17}{subsubsection.7.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.3}Erstellen des QR-Code}{18}{subsubsection.7.3.3}\protected@file@percent }
 \citation{Quote_display_manual}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.4}Zeitbasiertes Ausführen}{18}{subsubsection.7.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Einrichten des Displays}{18}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.4}Zeitbasiertes Ausführen}{19}{subsubsection.7.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Einrichten des Displays}{19}{subsection.7.4}\protected@file@percent }
 \citation{Quote_github_repo}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Ausgabe des Passworts}{19}{subsection.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.1}Tastenbelegung}{19}{subsubsection.7.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Ausgabe des Passworts}{20}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.1}Tastenbelegung}{20}{subsubsection.7.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.2}Anzeigen des QR-Codes}{20}{subsubsection.7.5.2}\protected@file@percent }
+\newlabel{sec:Anzeigen_des_QR-Codes}{{7.5.2}{20}{Anzeigen des QR-Codes}{subsubsection.7.5.2}{}}
 \citation{Quote_github_repo}
-\citation{Quote_Raspberrypi3b}
 \@writefile{toc}{\contentsline {section}{\numberline {8}Fazit und Ausblick}{21}{section.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Fazit}{21}{subsection.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Ausblick}{21}{subsection.8.2}\protected@file@percent }
+\citation{Quote_Raspberrypi3b}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Ausblick}{22}{subsection.8.2}\protected@file@percent }
 \citation{Picture_Raspberrypi3b}
 \citation{Picture_touchdisplay}
 \bibdata{zitate}
 \bibcite{Quote_gpio_zero}{1}
 \bibcite{Quote_hostapdACS}{2}
-\bibcite{Picture_Raspberrypi3b}{3}
-\bibcite{Quote_Raspberrypi3b}{4}
-\bibcite{Quote_hostapd1}{5}
-\bibcite{Quote_hostapdDE}{6}
-\bibcite{Quote_display_manual}{7}
-\bibcite{Quote_github_repo}{8}
-\bibcite{Quote_pyqrcode}{9}
-\bibcite{Quote_man_fim}{10}
-\bibcite{Picture_touchdisplay}{11}
-\bibstyle{plain}
+\bibcite{Quote_hostapd_man}{3}
+\bibcite{Quote_dnsmasq}{4}
+\bibcite{Quote_iptables}{5}
+\bibcite{Quote_netfilter}{6}
+\bibcite{Picture_Raspberrypi3b}{7}
+\bibcite{Quote_Raspberrypi3b}{8}
+\bibcite{Quote_hostapd1}{9}
+\bibcite{Quote_hostapdDE}{10}
+\bibcite{Quote_display_manual}{11}
+\bibcite{Quote_github_repo}{12}
+\bibcite{Quote_pyqrcode}{13}
 \@writefile{toc}{\contentsline {section}{\numberline {9}Abbildungsverzeichnis}{23}{section.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {10}Quellenverzeichnis}{23}{section.10}\protected@file@percent }
+\bibcite{Quote_man_fim}{14}
+\bibcite{Quote_APKonfig}{15}
+\bibcite{Picture_touchdisplay}{16}
+\bibstyle{plain}

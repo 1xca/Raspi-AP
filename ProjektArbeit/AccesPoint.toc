@@ -1,12 +1,11 @@
 \contentsline {section}{\numberline {1}Motivation}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Fachbegriffe --> kommt ins glossary}{3}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Grundlagen Hard- und Software}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Hardware}{3}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Raspberry Pi}{3}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Raspberry Pi Shield - Display LCD-Touch, 3,2in}{5}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Software}{5}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}balenaEtcher}{5}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}hostapd}{5}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}Hostapd}{5}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}dnsmasq}{6}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}netfilter-persistent und iptables-persistent}{6}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Bash}{6}{subsubsection.2.2.5}%
@@ -20,11 +19,11 @@
 \contentsline {subsection}{\numberline {4.1}Funktionale Anforderungen}{7}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Funktionaler Accesss Point}{7}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Zugriff ins Netzwerk}{8}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Sicherer Key}{8}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Automatisches Wechseln des Key}{8}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Ausgabe des Key}{8}{subsubsection.4.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.3}Sicheres Passwort}{8}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Automatisches Wechseln des Passworts}{8}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Ausgabe des Passworts}{8}{subsubsection.4.1.5}%
 \contentsline {subsection}{\numberline {4.2}Optionale Anforderungen}{8}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Manueller Wechsels des Key}{8}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.1}Manueller Wechsels des Passworts}{8}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Energiespar-Konfiguration}{9}{subsubsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Automatisierungs-Skript}{9}{subsubsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.3}Priorisierung}{9}{subsection.4.3}%
@@ -32,29 +31,29 @@
 \contentsline {subsection}{\numberline {5.1}Hardware}{10}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Software}{11}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Passwortkonzept}{11}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Tests}{11}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Tests}{12}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Bewertung der Lösung anhand der Anforderungen}{12}{section.6}%
-\contentsline {section}{\numberline {7}Implementierung}{12}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Vorbereitung des Raspberry Pi}{12}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Auswahl und Installation des Betriebssystem}{12}{subsubsection.7.1.1}%
+\contentsline {section}{\numberline {7}Implementierung}{13}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Vorbereitung des Raspberry Pi}{13}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Auswahl und Installation des Betriebssystem}{13}{subsubsection.7.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.2}SSH Zugriff einrichten}{13}{subsubsection.7.1.2}%
 \contentsline {subsubsection}{\numberline {7.1.3}Aktualisierung und Paketinstallation}{13}{subsubsection.7.1.3}%
 \contentsline {subsection}{\numberline {7.2}Konfiguration des RaspberryPi als funktionalen Access Point}{13}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}WLAN Interface}{13}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Routing}{13}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2}Routing}{14}{subsubsection.7.2.2}%
 \contentsline {subsubsection}{\numberline {7.2.3}DNS und DHCP}{14}{subsubsection.7.2.3}%
 \contentsline {subsubsection}{\numberline {7.2.4}Access Point Einstellungen}{15}{subsubsection.7.2.4}%
-\contentsline {subsection}{\numberline {7.3}Passwortskript}{15}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.3}Passwortskript}{16}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Passwortgenerierung}{16}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}Austauschen des Passworts}{16}{subsubsection.7.3.2}%
-\contentsline {subsubsection}{\numberline {7.3.3}Erstellen des QR-Code}{17}{subsubsection.7.3.3}%
-\contentsline {subsubsection}{\numberline {7.3.4}Zeitbasiertes Ausführen}{18}{subsubsection.7.3.4}%
-\contentsline {subsection}{\numberline {7.4}Einrichten des Displays}{18}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Ausgabe des Passworts}{19}{subsection.7.5}%
-\contentsline {subsubsection}{\numberline {7.5.1}Tastenbelegung}{19}{subsubsection.7.5.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Austauschen des Passworts}{17}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}Erstellen des QR-Code}{18}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}Zeitbasiertes Ausführen}{19}{subsubsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.4}Einrichten des Displays}{19}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Ausgabe des Passworts}{20}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {7.5.1}Tastenbelegung}{20}{subsubsection.7.5.1}%
 \contentsline {subsubsection}{\numberline {7.5.2}Anzeigen des QR-Codes}{20}{subsubsection.7.5.2}%
 \contentsline {section}{\numberline {8}Fazit und Ausblick}{21}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Fazit}{21}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Ausblick}{21}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.2}Ausblick}{22}{subsection.8.2}%
 \contentsline {section}{\numberline {9}Abbildungsverzeichnis}{23}{section.9}%
 \contentsline {section}{\numberline {10}Quellenverzeichnis}{23}{section.10}%
