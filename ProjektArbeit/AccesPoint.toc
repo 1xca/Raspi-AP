@@ -52,10 +52,9 @@
 \contentsline {section}{\numberline {10}Ausgabe des Passworts}{17}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Tastenbelegung}{17}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Anzeigen des QR-Codes}{17}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Evaluation der Implementierung}{18}{section.11}%
-\contentsline {section}{\numberline {12}Fazit und Ausblick}{18}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Fazit}{18}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Ausblick}{18}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}eventuell übertragbarkeit}{18}{subsection.12.3}%
-\contentsline {section}{\numberline {13}Abbildungsverzeichnis}{19}{section.13}%
-\contentsline {section}{\numberline {14}Quellenverzeichnis}{19}{section.14}%
+\contentsline {section}{\numberline {11}Fazit und Ausblick}{18}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Fazit}{18}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Ausblick}{19}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}eventuell übertragbarkeit}{19}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Abbildungsverzeichnis}{20}{section.12}%
+\contentsline {section}{\numberline {13}Quellenverzeichnis}{20}{section.13}%

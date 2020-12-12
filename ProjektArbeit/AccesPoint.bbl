@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Quote_gpio_zero}
 {Ben Nuttall}, 2020.
@@ -41,6 +41,15 @@
 \bibitem{Quote_github_repo}
 {Luca Asmus, Rolf Wiersch, Marius Würstle}, 2020.
 \newblock \url{https://github.com/1xca/QRRaspAP} [aufgerufen am 11.12.2020].
+
+\bibitem{Quote_pyqrcode}
+{Michael Nooner}, 2020.
+\newblock \url{https://pythonhosted.org/PyQRCode/} [aufgerufen am 12.12.2020].
+
+\bibitem{Quote_man_fim}
+{Michele Martone}, 2020.
+\newblock \url{https://www.unix.com/man-page/debian/1/fim/} [aufgerufen am
+  12.12.2020].
 
 \bibitem{Picture_touchdisplay}
 {Reichelt}, 2020.
