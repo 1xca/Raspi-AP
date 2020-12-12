@@ -134,18 +134,19 @@
     	
     	
     \section{Problemstellung}
-    	Vielen Endnutzern ist die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurchk önnen Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Dies hat zur Folge, dass sich sobald einmal das Passwort bewusst/unbewusst weitergegeben wurde, jeder mit dem Access-Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk.Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw. zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-sharedKeys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge,dass der Zugang einfacher geknackt werden kann.
+    	Vielen Endnutzern ist die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurchk önnen Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Dies hat zur Folge, dass sich sobald einmal das Passwort bewusst/unbewusst weitergegeben wurde, jeder mit dem Access Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk.Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw. zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-sharedKeys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge,dass der Zugang einfacher geknackt werden kann.
     	
-   \section{Anforderungsanalyse --> Ausformulieren}
+   \section{Anforderungsanalyse}
     		Im Folgenden werden die verschiedenen Anforderungen genauer beschrieben.
 			\subsection{Funktionale Anforderungen}
 			Funktionale Anforderungen sind Anforderungen, die notwendig für die Umsetzung des Projektes sind.
-            \subsubsection{Funktionaler Access-Point}
-                Um einen Zugriffspunkt für die Endnutzer ins Netzwerk zu schaffen, muss passenden Hardware gefunden und konfiguriert werden. Hierauf ein Access-Point mit gängigen Funktionalität erstellt werden.\\ Diese Hardware sollte für ihre Aufgaben passend dimensioniert sein. Ebenso sollte sie ein geeignetes WLAN-Modul besitzen um ein eigenes WLAN aufspannen zu können. Am Besten ist es, wenn dieses die heutzutage gängigen Funkstandards unterstütz.\\\\
+            \subsubsection{Funktionaler Accesss Point}
+                Um einen Zugriffspunkt für die Endnutzer ins Netzwerk zu schaffen, muss passende Hardware gefunden und konfiguriert werden. Hierauf wird ein Access Point mit gängiger Funktionalität erstellt.\\ 
+                Die Hardware sollte für ihre Aufgaben passend dimensioniert sein. Ebenso sollte sie ein geeignetes WLAN-Modul besitzen um ein eigenes WLAN aufspannen zu können. Am Besten ist es, wenn dieses die heutzutage gängigen Funkstandards unterstützt.\\\\
                 Weiterhin müssen sich die Endnutzer im WLAN anmelden und kommunizieren können. Unter anderem wird ein DNS und DHCP Server benötigt. Ohne diesen kann keine Kommunikation im Funknetzwerk entstehen. Grund ist die fehlende IP-Konfiguration der Endgeräte.
                 \subsubsection{Zugriff ins Netzwerk}
-                    Ohne Internet Zugriff ist zwar eine Anmeldung beim Access-Point möglich, aber nicht sinnvoll.
-                    Deshalb muss gewährleistet werden, dass der Datenverkehr vom Access-Point weitergeleitet wird und nicht geblockt wird. Natürlich soll dieser auch wieder zurück geleitet werden. Am Besten besitzt die Hardware außerdem einen LAN Anschluss. Dieser kann als Verbindung zur schon bestehenden Infrastruktur dienen.
+                    Ohne Internet Zugriff ist zwar eine Anmeldung beim Access Point möglich, aber nicht sinnvoll.
+                    Deshalb muss gewährleistet werden, dass der Datenverkehr vom Access Point weitergeleitet wird und nicht geblockt wird. Natürlich soll dieser auch wieder zurückgeleitet werden. Am Besten besitzt die Hardware außerdem einen LAN Anschluss. Dieser kann als Verbindung zur schon bestehenden Infrastruktur dienen.
                 \subsubsection{Sicherer Key}
                     Beim erstellen des Key muss beachtet werden, dass dieser auch sicher ist. Es soll unwahrscheinlich sein diesen in seinem gültigen Zeitraum knacken zu können. Deshalb muss ein Konzept zur Erstellung eines sicheren Key erstellt und umgesetzt werden. 
     			\subsubsection{Automatisches Wechseln des Key}
@@ -159,13 +160,13 @@
                 \subsubsection{Manueller Wechsels des Key}
                     Wenn es gewünscht es soll es möglich sein den Key manuelle neu erstellen und wechseln zu lassen. Die soll in Form einer physischen Benutzereingabe erfolgen. So wird sichergestellt, dass nur befugte diesen Vorgang anstoßen können. 
                 \subsubsection{Energiespar-Konfiguration}
-                    Nicht jeder möchte, dass ein Bildschirm ununterbrochen beleuchtet wird. Weiterhin könnte es nicht erwünscht sein, dass das Gast-Wlan 24 Stunden sendet. Deshalb könnte ein Energiesparplan erstellt werden und implementiert werden. Dieser kann die Anschaltzeit des Displays und des Access-Points regeln. 
+                    Nicht jeder möchte, dass ein Bildschirm ununterbrochen beleuchtet wird. Weiterhin könnte es nicht erwünscht sein, dass das Gast-Wlan 24 Stunden sendet. Deshalb könnte ein Energiesparplan erstellt werden und implementiert werden. Dieser kann die Anschaltzeit des Displays und des Access Points regeln. 
                 \subsubsection{Automatisierungs-Skript}
                     In Zukunft könnte es wünschenswert sein, die erstellten Konfigurationen erneut auf anderen Geräten auszuführen. Deshalb könnt ein Automatisierungs-Skript sinnvoll sein. Dies würde Zeitaufwand sparen und könnte ebenso bei veröffentlicht anderen helfen.  
 
     		\subsection{Priorisierung}
             	Das wichtigste zu Beginn ist, dass die Hardware aufeinander abgestimmt wird. Bedeutet, alle Teile passen zusammen und können angeschlossen werden.
-            	Danach muss die Konfiguration des Raspberry Pi zum Access-Point erfolgen. Sobald dies funktioniert kann das Generieren des pre-shared Keys und dessen Austausch stattfinden. Folglich wird die Ausgabe des Keys am Bildschirm realisiert. Danach kann dies, um das Generieren des QR-Codes und dessen Ausgabe erweitert werden.\\
+            	Danach muss die Konfiguration des Raspberry Pi zum Access Point erfolgen. Sobald dies funktioniert kann das Generieren des pre-shared Keys und dessen Austausch stattfinden. Folglich wird die Ausgabe des Keys am Bildschirm realisiert. Danach kann dies, um das Generieren des QR-Codes und dessen Ausgabe erweitert werden.\\
             	Wenn diese Punkte voll funktional umgesetzt werden konnten, kann sich um einen automatischen oder manuellen Job (bei Tastendruck) zum Generieren und Austauschen des Keys gekümmert werden.
     	
 	\section{Lösungsidee}
@@ -176,8 +177,8 @@
 			\item Klartext für Endgeräte ohne Kamera z.B. Laptops
 			\item QR-Code zum Scannen für z.B Smartphones
 		\end{itemize}
-
-		Es wurde sich für einen QR-Code anstatt eines RFID/NFC Transponder entschieden, da hier die Möglichkeit des Abgreifens des Keys nicht besteht. In Abbildung  \ref{aufbau} ist der Aufbau des Lösungsansatzes graphisch dargestellt. 
+		
+		Ürsprünglich war ein RFID/NFC Transponder für die Anmeldung geplant. Es wurde sich für einen QR-Code entschieden, da hier die Möglichkeit des Abgreifens des Keys nicht besteht. In Abbildung  \ref{aufbau} ist der Aufbau des Lösungsansatzes graphisch dargestellt. 
 
 		\begin{figure}[ht]
 			\centering
@@ -195,7 +196,7 @@
 			Das Display, welches verwendet wird, muss eine ausreichende Auflösung für die Darstellung des QR-Codes besitzen. Deshalb können keine kleineren und billigeren LCD Anzeigen verwendet werden. Außerdem muss es die Möglichkeit haben entweder externe Taster anzubinden oder schon eigene Taster besitzen.
 		
 		\subsection{Software}
-			Um den Raspberry Pi als Access-Point verwenden zu können, müssen zusätzliche Pakete installiert (hostapd) und eine Netzwerkkonfiguration vorgenommen werden. Darunter fällt das Einstellen von DHCP und DNS für die Clients durch "dnsmasq" und Anpassen der IP-Konfiguration. \\ \\
+			Um den Raspberry Pi als Access Point verwenden zu können, müssen zusätzliche Pakete installiert (hostapd) und eine Netzwerkkonfiguration vorgenommen werden. Darunter fällt das Einstellen von DHCP und DNS für die Clients durch "dnsmasq" und Anpassen der IP-Konfiguration. Das Routing erfolgt durch eine neue iptables Regel.\\ \\
 		
 			Als Skriptsprache empfiehlt sich Python, da es dort sehr viele Libraries gibt, die einiges an Arbeit abnehmen. Zudem kann mit Python auf einfache Kommandos des Betriebssystems zugegriffen werden. Für die QR-Code Generierung eignen sich die Libraries "qrcode" und "PyQRCode". 
 		
@@ -213,11 +214,16 @@
 			Zu Testzwecken werden unterschiedliche Smartphones (Android/iOS) und Notebooks (Windows/Linux/macOS) benutzt. So soll sichergestellt werden, dass mögliche Probleme aufgrund von Diskrepanzen zwischen den Betriebssystemen bzw. Hardware erkannt werden.
 		
 		
-	  \section{Bewertung der Lösung anhand der Anforderungen}
+	\section{Bewertung der Lösung anhand der Anforderungen}
+    	Der Raspberry Pi 3b ist für die Anforderungen geeignet, da ein WLAN-Modul, genügend Rechenleistung und alle nötigen Anschlüsse vorhanden sind. \\ \\
+    	Durch hostapd kann die Access Point Funktionalität optimal realisiert werden. Zusätzlich durch dnsmasq wird der DHCP und der DNS Server umgesetzt. Beide genannten Lösungen bieten eine einfache und schnelle Konfiguration. \\ \\
+    	Das Weiterleiten des Datenverkehrs übernimmt die iptables Konfiguration. Iptables empfiehlt sich, weil es vorinstalliert und das Team bereits damit vertraut ist. \\ \\
+    	Mit der genannten Beispielrechnung wurde die Sicherheit des Passworts gezeigt. Das Passwort ist damit für den Zeitraum einer Woche mehr als sicher genug. \\ \\
+    	Cron ist spezialisiert für zeitbasierte Aufgaben, womit es prädestiniert für das vollautomatische Tauschen des Passworts mithilfe des Passworttausch Skripts ist. \\ \\
+    	Das ausgewählte Display ist geeignet, aufgrund der ausreichenden Auflösung und der bereits angeschlossenen Taster. Die Ausgabe als QR-Code vereinfacht die Eingabe des Passworts für die Nutzer. Für andere Endgeräte ohne Kamera wird das Passwort zusätzlich im Klartext angezeigt. \\ \\
+    	Die Lösungsidee lässt genügend Spielraum für die optionalen Anforderungen.
     	
-    	
-    	
-    	\section{Implementierung}
+    \section{Implementierung}
     	\subsection{Vorbereitung des Raspberry Pi}
     	\subsubsection{Auswahl und Installation des Betriebssystem}
     	    Um mit dem Projekt beginnen zu können musste zuerst ein Betriebssystem bestimmt werden.
@@ -251,7 +257,7 @@ sudo raspi-config
     	
     	
     
-    	\subsection{Konfiguration des RaspberryPi als funktionalen Access-Point}
+    	\subsection{Konfiguration des RaspberryPi als funktionalen Access Point}
             \subsubsection{WLAN Interface}
                 Der Raspberry Pi benötigt eine statische IP Konfiguration für sein WLAN Interface. Diese wird in der Datei /etc/dhcpcd.conf vorgenommen. Die Datei wird um folgendes ergänzt:\\
                 \lstset{
@@ -528,7 +534,8 @@ while True:
     \section{Fazit und Ausblick}
 	    \subsection{Fazit}
 	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt. Somit sind die angegebenen funktionalen Anforderungen erfolgreich umgesetzt. \\ \\ 
-	    	Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Aufsetzen des Projekts sehr vereinfacht. Bei Bedarf müssen lediglich die im Repository \cite{Quote_github_repo} gezeigten Schritte durchgeführt werden, um den Access Point zu konfigurieren. \\
+	    	Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Aufsetzen des Projekts sehr vereinfacht. Bei Bedarf müssen lediglich die im Repository \cite{Quote_github_repo} gezeigten Schritte durchgeführt werden, um den Access Point zu konfigurieren. \\ \\
+	    	Die Tests offenbarten keine Probleme mit den verschiedenen Beriebssystemen.\\
 	    \subsection{Ausblick}
 	    	Im Folgenden nennen wir einzelne Verbesserungen und mögliche Erweiterungen des Projektes. \\ \\
 	    	Eine Verbesserung ist die Einschränkung des Zugriffs auf das Heimnetzwerk. Aktuell können Gäste auf das Internet, aber auch auf die Geräte im Heimnetz zugreifen. Dieses Verhalten ist normalerweise nicht gewünscht. Eine mögliche Lösung wäre das Erstellen weiterer Firewall-Regeln. \\ \\
