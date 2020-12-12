@@ -207,7 +207,8 @@
 		
 	  \section{Bewertung der Lösung anhand der Anforderungen}
     	
-    
+    	
+    	
     	\section{Implementierung}
     	\subsection{Vorbereitung des Raspberry Pi}
     	\subsubsection{Auswahl und Installation des Betriebssystem}
@@ -483,7 +484,6 @@ EndSection
     	\subsection{Ausgabe des Passworts}
     		
     		Bei der Erstellung des Passworts wird es bereits im Format: "SSID: <ssid> WPA<version> PW:<passwort>" als Plaintext auf die Konsole geschrieben.
-    		
     		\subsubsection{Tastenbelegung}
     		    Damit der Knopfdruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann man einfach die Buttons auf die gewünschten GPIOs hören und reagieren. \\
 	    		Button1 zeigt den QR-Code an, wie das gemacht wird, erklärt das nächste Kapitel. \\
@@ -491,7 +491,7 @@ EndSection
 	    		Button3 führt ein "clear" aus somit kann der Display mal wieder aufgeräumt werden, falls zuviele Passwörter dortstehen.
     		
     		\subsubsection{Anzeigen des QR-Codes}
-    			Damit der QR-Code angezeigt wird muss der erste Knopf an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist und er damit nicht einfach auf dem Terminal ausgegeben werden kann. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. \\
+    			Damit der QR-Code angezeigt wird muss der erste Knopf an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist und er damit nicht einfach auf dem Terminal ausgegeben werden kann. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. 
     			Der erste Button wird für das Anzeigen des QR-Codes verwendet. Dort wird ein Subprocess erstellt und damit sobald der Childprozess getötet wird, nicht der Parent Process mitstirbt das Kommando mit dem Parameter preexec\_fn=os.setsid vorher ausgeführt. 15 Sekunden später wird die ganze Prozess Gruppe getötet. Mit dem gesendeten Signal SIGTERM wird die fim Ansicht beendet und man kehrt zur Shell zurück. \\ 
     			\begin{lstlisting}
 #!/usr/bin/env python3
@@ -519,10 +519,13 @@ while True:
     
     \section{Fazit und Ausblick}
 	    \subsection{Fazit}
-	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt, also sind die angegebenen Pflichtfunktionen enthalten. \\ Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Nachmachen dieses Projekt sehr vereinfacht. Die interessierten müssen nur die im Repository \cite{Quote_github_repo} gezeigten Schritte durchführen und das Skript ausführen und schon haben sie einen funktionierenden Access Point. \\
-	    	Allerdings gibt es auch noch einzelne Probleme zum Beispiel können die Gäste vom Gastnetz auf das Heimnetz zugreifen. Zudem liegtdie  hostapd.conf Datei ungeschützt auf dem Raspberry Pi und beinhaltet das Passwort.
+	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt. Somit sind die angegebenen funktionalen Anforderungen erfolgreich umgesetzt. \\ \\ 
+	    	Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Aufsetzen des Projekts sehr vereinfacht. Bei Bedarf müssen lediglich die im Repository \cite{Quote_github_repo} gezeigten Schritte durchgeführt werden, um den Access Point zu konfigurieren. \\
 	    \subsection{Ausblick}
-	    \subsection{eventuell übertragbarkeit}
+	    	Im Folgenden nennen wir einzelne Verbesserungen und mögliche Erweiterungen des Projektes. \\ \\
+	    	Eine Verbesserung ist die Einschränkung des Zugriffs auf das Heimnetzwerk. Aktuell können Gäste auf das Internet, aber auch auf die Geräte im Heimnetz zugreifen. Dieses Verhalten ist normalerweise nicht gewünscht. Eine mögliche Lösung wäre das Erstellen weiterer Firewall-Regeln. \\ \\
+	    	Weiterhin ist das Absichern der hostapd.conf Datei durch ein Passwort zu empfehlen. Diese beinhaltet das Passwort für den WLAN-Zugang im Klartext. Sobald jemand Zugriff auf diese Datei besitzt, kann dieser die Konfiguration des gesamten Gastnetzes verändern. \\ \\
+	    	Eine weitere Verbesserung ist ein dediziertes WLAN-Modul, denn derzeit limitiert der Raspberry Pi die Frequenz auf 2,4GHz \cite{Quote_Raspberrypi3b}. Das Upgrade auf	 5 GHz ermöglicht eine höhere Datenübertragung, falls dies benötigt wird. Hierbei sollte auch darauf geachtet werden, dass das Modul die Implementierung, der automatischen Channel Auswahl von hostapd, unterstützt.
     
     
    	\pagebreak
