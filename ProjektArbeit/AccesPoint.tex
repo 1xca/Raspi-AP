@@ -10,13 +10,8 @@
 \usepackage{listings,xcolor}
 \usepackage{pdfpages}
 \usepackage{float}
-%\usepackage[acronym]{glossaries}
 
-%\makeglossaries
-%\input{glossary.tex}
-%\loadglsentries{glossary.tex}
-
-
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
 \renewcommand{\figurename}{Abbildung}
 
 \graphicspath{ {./images/} }
@@ -24,17 +19,7 @@
 
 \begin{document}
     
- 
-	\setlength{\parindent}{0ex}
-	
-	%\begin{titlepage}
-	%	\author{}
-	%	\title{\includegraphics[scale=0.3]{rwu_logo_hor-lila-cyan_rgb_0} \\ ~\\ ~\\ WLAN-AP mit regelmäßigem PSK-Tausch und QR-Code Anmeldung \vspace{8cm}}
-	%	\date{\today}
-	%	\maketitle
-	%	\thispagestyle{empty}
-    %	\end{titlepage}
-    	
+ \setlength{\parindent}{0ex}
     	
 \begin{titlepage}
     \begin{center}
@@ -61,25 +46,19 @@
         \vspace{0.8cm}
           
             
-        \end{center}
-    \end{titlepage}
+    \end{center}
+\end{titlepage}
     	
 
-    	
+    	\pagestyle{empty}
     	\tableofcontents
-    	\newpage
-    	
-    
-    	
-    	
-    	
+    	\cleardoublepage
+    	\pagestyle{plain}
+
     \section{Motivation}
     	Der Hauptgrund für dieses Projekt war es die Sicherheit im eigenen Gast-WLAN zu gewährleisten, unter Berücksichtigung der Faulheit und Bequemlichkeit vieler Endnutzer. \\ \\
     	Wenn Gäste in der heimischen Wohnung auftauchen, ist der Wunsch nach freiem WLAN meist sehr groß. Bedeutet, der pre-shared key muss abgelesen und den Gästen bekannt gemacht werden. Folgend muss dieser umständlich von Hand eingegeben werden. Um hierbei Sicherheit zu gewährleisten, ist dieser meist länger und kryptisch gewählt. Dies führt oft zur falschen Eingabe bzw. Mehrversuchen und darauf folgenden Ärger darüber. Weiterhin ist es vom Gastgeber nicht immer erwünscht, dass die Gäste nach der Verabschiedung den Zugriff zum WLAN behalten. \\ \\
     	Da die geschilderten Umstände den Verfassern dieses Dokumentes nicht fremd sind, soll mit diesem Projekt eine eigenständige Lösung erstellt werden. Der Fokus liegt auf einfacher Bedienung und komfortabler Sicherheit. Weiterhin wird für die Sicherheit auf fertige Endprodukte von Drittanbietern verzichtet. 
-    	
-      
-        
     	
     	\subsection{Fachbegriffe --> kommt ins glossary} 
     	host access point daemon = hostapd
@@ -145,11 +124,11 @@
     		\subsubsection{Cron}
 				Cron ermöglicht das zeitbasierte Ausführen des Bash Skripts. So kann beispielsweise jeden Montag um 03:00 Uhr nachts das Passwort automatisch geändert werden.
 			\subsubsection{fim}
-				fim ermöglicht es Bilder oder andere Media Dateien im Terminal anzuzeigen. In diesem Fall wird der QR-Code als .png erzeugt und mithilfe von fim angezeigt.
+				fim ermöglicht es Bilder oder andere Media Dateien im Terminal anzuzeigen. In diesem Fall wird der QR-Code als .png erzeugt und mithilfe von fim angezeigt. \cite{Quote_man_fim}
     		\subsubsection{Python 3.7}
     			Für die Skripte zur Passwortgenerierung, QR-Code Generierung und zum Einlesen der Buttons wird die Sprache Python verwendet. Python 3.7 ist bei Raspberry Pi OS Lite  vorinstalliert und erleichtert durch verschiedene Bibliotheken die Umsetzung des Projektes.
     			\subsubsection{pyqrcode}
-    				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen.
+    				Das Modul pyqrcode wird dafür benutzt, möglichst einfach und frei QR-Codes zu erzeugen. Zum Erzeugen des Codes benötigt sie nur die Parameter die enthalten sein sollen. \cite{Quote_pyqrcode}
     			\subsubsection{GPIO zero}
     				Das Modul GPIO zero wird in diesem Projekt für das Einlesen der einzelnen Buttons genutzt, die bereits in dem Display integriert sind. Das Mapping der Buttons wird auch in der Anleitung des Displays erklärt. (Button1 = PIN12/GPIO18) \cite{Quote_gpio_zero}
     	
@@ -203,7 +182,7 @@
     
     
     	\subsection{Hardware}
-			Für dieses Projekt wird ein Raspberry Pi 3 B benötigt. Grund hierfür ist das integrierte WLAN-Modul, ausreichend Leistung und alle nötigen Anschlüsse. \\
+			Für dieses Projekt wird ein Raspberry Pi 3 B benötigt. Grund hierfür ist das integrierte WLAN-Modul, ausreichend Leistung und alle benötigten Anschlüsse sind vorhanden. \\
 			Zusätzlich wird eine Mikro-SD Karte zum Laden des Betriebsystems und zur Speicherung der Daten benötigt. \\ \\
 			Das Display, welches verwendet wird, muss eine ausreichende Auflösung für die Darstellung des QR-Codes besitzen. Deshalb können keine kleineren und billigeren LCD Anzeigen verwendet werden. Außerdem muss es die Möglichkeit haben entweder externe Taster anzubinden oder schon eigene Taster besitzen.
 		
@@ -528,30 +507,21 @@ while True:
 		os.system('clear')
     			\end{lstlisting}
     
-    
-    
-    \section{Evaluation der Implementierung}
     \section{Fazit und Ausblick}
-    \subsection{Fazit}
-    \subsection{Ausblick}
-    \subsection{eventuell übertragbarkeit}
+	    \subsection{Fazit}
+	    	Die hier vorgestellte Implementierung war im großen und ganzen sehr erfolgreich. Der Raspberry Pi kann als Access Point verwendet werden und wechselt seinen Schlüssel automatisch. Dieser wird dann auf dem Display angezeigt, also sind die angegebenen Pflichtfunktionen enthalten. \\ Zusätzlich kann das Passwort auch mit einem Knopfdruck zu einer beliebigen Zeit gewechselt werden. Mit dem erstellten Setup Skript wurde das Nachmachen dieses Projekt sehr vereinfacht. Die interessierten müssen nur die im Repository \cite{Quote_github_repo} gezeigten Schritte durchführen und das Skript ausführen und schon haben sie einen funktionierenden Access Point. \\
+	    	Allerdings gibt es auch noch einzelne Probleme zum Beispiel können die Gäste vom Gastnetz auf das Heimnetz zugreifen. Zudem liegtdie  hostapd.conf Datei ungeschützt auf dem Raspberry Pi und beinhaltet das Passwort.
+	    \subsection{Ausblick}
+	    \subsection{eventuell übertragbarkeit}
     
     
-    	\pagebreak
-    	\section{Abbildungsverzeichnis}
-    	\listoffigures
-    	\section{Quellenverzeichnis}
-        \bibliography{zitate}
-        \bibliographystyle{plain}
+   	\pagebreak
+   	\section{Abbildungsverzeichnis}
+   	\listoffigures
+   	\section{Quellenverzeichnis}
+    \bibliography{zitate}
+    \bibliographystyle{plain}
     	
-    	
-   
 \clearpage
-
-%\printglossary
-
-%\clearpage
-
-%\printglossary[type=\acronymtype]
 
 \end{document}
