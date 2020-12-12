@@ -5,16 +5,32 @@
 \newblock \url{https://gpiozero.readthedocs.io/en/master/index.html}
   [aufgerufen am 11.12.2020].
 
+\bibitem{Quote_hostapdACS}
+{Chaitanya T K}, 2020.
+\newblock \url{https://wireless.wiki.kernel.org/en/users/documentation/acs}
+  [aufgerufen am 10.12.2020].
+
 \bibitem{Picture_Raspberrypi3b}
 {Elektronik-kompendium}, 2020.
 \newblock
   \url{http://www.elektronik-kompendium.de/sites/raspberry-pi/bilder/19052512.jpg}
   [aufgerufen am 25.11.2020].
 
+\bibitem{Quote_Raspberrypi3b}
+{Elektronik-kompendium}, 2020.
+\newblock
+  \url{http://www.elektronik-kompendium.de/sites/raspberry-pi/2102291.htm}
+  [aufgerufen am 25.11.2020].
+
 \bibitem{Quote_hostapd1}
-{Gentoo}, 2020.
+{Gentoo Foundation, Inc.}, 2020.
 \newblock \url{https://wiki.gentoo.org/wiki/Hostapd#Capabilities_of_Hostapd}
   [aufgerufen am 26.11.2020].
+
+\bibitem{Quote_hostapdDE}
+{International Organization for Standardization}, 2020.
+\newblock \url{https://www.iso.org/obp/ui/#iso:code:3166:DE} [aufgerufen am
+  11.12.2020].
 
 \bibitem{Quote_display_manual}
 {joy-it}, 2020.
