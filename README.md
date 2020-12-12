@@ -3,14 +3,19 @@ This is a project for university, where we configure a raspberrypi to be a wlan 
 
 To-Do:
 
-- [ ] Anforderungsanalyse (alle Punkte) auszuformulieren --> Rolf    <br>
+- [x] Anforderungsanalyse (alle Punkte) auszuformulieren --> Rolf    <br>
 - [x] Skripte Absätze überarbeiten (neues Skript anpassen)--> Luca   <br>
 - [x] Überarbeiten Lösungsidee --> Marius                            <br>
-- [ ] Fazit und Ausblick --> Rolf,Marius, Luca                       <br>
+- [x] Fazit und Ausblick --> Rolf,Marius, Luca                       <br>
 - [x] Inhaltsverzeichnis umbennen (heißt Contents) + Seitenzahl nach Inhaltsverzeichnis <br>
 - [x] Glossar löschen <br>
 - [x] Evaluation löschen ]br>
 - [x] Formel/Rechnung anpassen <br>
-- [ ] Bewertung der Lösung anhand der Anforderungen --> Marius, Rolf <br>
+- [x] Bewertung der Lösung anhand der Anforderungen --> Marius, Rolf <br>
 - [ ] Mehr Zitieren bzw. mehr Quellen angeben (vorallem Hardware bzw Software erklärung) -->Rolf,Marius, Luca  <br>
 - [ ] Rechtschreibung prüfen --> Rolf,Marius, Luca <br>
+- [ ] Einheitliche Wörter anpassen (Key, Passwort) <br>
+- [x] Datum und Matrikelnr anpassen <br>
+- [ ] Unterschreiben und einbinden der Erklräung <br>
+- [ ] Formatierung und Zeilenumbruch
+- [ ] Fachbegriffe löschen
