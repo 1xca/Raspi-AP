@@ -328,89 +328,125 @@ rsn_pairwise=CCMP
                    Nach den Einstellungen erfolgt ein Reboot und der Access Point ist nun einsatzbereit.
                 
      \subsection{Passwortskript}           
+            In dem Python Skript changePassword.py befindet sich der gesamte Ablauf des Passworttauschs.  Das vollständige Skript findet sich im dazugehörigen Github-Repository.\cite{Quote_github_repo}
             
     	\subsubsection{Passwortgenerierung}
-    		Die Passwortgenerierung wird mithilfe eines Python Skripts gelöst. Dieses ist in unserem GitHub Repository hinterlegt und für jeden zugänglich. Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string können die für Bash problematischen Zeichen aus dem Alphabet entfernt werden. Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. Welches anschließend an den schon vorhandenen String angehängt wird. Dies wird 10 mal wiederholt.
+    		Die erste Funktion des Skripts ist für die Generation eines sicheren Passworts zuständig. Das Skript verwendet die zwei Imports string und secrets. Mithilfe der Bibliothek string wird definiert, aus welchem Alphabet das Passwort generiert wird.\\ 				Das secrets Modul wird für das Generieren von stark kryptographischen Passwörter verwendet. Die verwendete Funktion secrets.choice wählt aus der mitgelieferten Sequenz ein zufälliges Zeichen aus. \\
+    		Das Zeichen wird anschließend an den schon vorhandenen String angehängt. Dies wird 12 mal wiederholt um die gewünschte Passwortlänge zu erreichen.
     	
-    	\lstset{
-    			basicstyle=\ttfamily,
-    			language=Python,
-    			breaklines=true,
-        		postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
-    		}
+\lstset{
+    	basicstyle=\ttfamily,
+    	language=Python,
+    	breaklines=true,
+  	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
     	
 
-            \begin{lstlisting}
+\begin{lstlisting}            
+#!/usr/bin/env python3
+
 import secrets
 import string
 
-def get_random_password():
-	temp = string.ascii_letters + string.digits + string.punctuation
-	alphabet = temp.replace('\'', '').replace('\\', '').replace('\"','').replace('\`', '').replace(';', '')
-	password = ''.join(secrets.choice(alphabet) for i in range(10))
+def get_random_pw():
+	alphabet = string.ascii_letters + string.digits
+	password = ''.join(secrets.choice(alphabet) for i in range(12))
 	return password
-
-if __name__ == "__main__":
-	print(get_random_password())
-            \end{lstlisting}
-    	
-    	    
-
+	
+\end{lstlisting}
     	
     	\subsubsection{Austauschen des Passworts}
-    		Das Tauschen des Passworts wird durch ein Bash Skript, mit dem Namen changePassword.sh, vorgenommen. Zunächst wird das neue Passwort mit Hilfe von generatePassword.py generiert und der Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei gelesen. Die drei Parameter werden einmal als Klartext ausgegeben und dann werden sie dem Python Skript zum Generieren des QR-Codes übergeben. Im Anschluss wird mit dem Unix Tool sed die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
-    		Die zugehörigen Python Dateien müssen sich im selben Ordner wie das Bash Skript befinden. Das Skript bezieht sich auf den Pfad an dem es liegt und nicht den aktiven Pfad, damit es von überall ausführbar ist und keine Probleme mit Cron auftreten.  \\
-    	\lstset{
-    		language=bash,
-        keywordstyle=\color{blue},
-        commentstyle=\color {violet},
-        stringstyle=\color{orange},
-        numbers=left,
-        breaklines=true,
-        postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-        basicstyle=\scriptsize\ttfamily,
-        showspaces=false,
-        frame= single,
-        xleftmargin=0.5cm
-    	}
-    	\begin{lstlisting}
-#!/usr/bin/env bash
-
-readonly SCRIPT="$(test -L "${BASH_SOURCE[0]}" && readlink "${BASH_SOURCE[0]}" || echo "${BASH_SOURCE[0]}")"
-readonly SCRIPT_DIR="$(cd "$(dirname "${SCRIPT}")"; pwd)"
-
-execute_script() {
-	# Get Access Point Parameter
-	local pass=$(python3 "${SCRIPT_DIR}/generateKey.py")         
-	local wpa=$(grep /etc/hostapd/hostapd.conf -e wpa | cut -f 2 -d '=' | head -n 1)
-	local ssid=$(grep /etc/hostapd/hostapd.conf -e ssid | cut -f 2 -d '=' | head -n 1)
-	echo "WPA-Type:${wpa} Ssid:${ssid} Passphrase:${pass}" 
-
-	# Generate QR-Code
-	python3 "${SCRIPT_DIR}/qrCodeGenerator.py" "${ssid}" "WPA${wpa}" "${pass}"
-
-	# Change the Password and restart Access Point
-	sed -i "s/wpa_passphrase=.*/wpa_passphrase=${pass}/g" \
-		"/etc/hostapd/hostapd.conf"
-	systemctl restart hostapd.service
+    		Nachdem das Passwort generiert wurde, ließt changePassword.py den Typ der Verschlüsselung sowie die SSID des Access Point aus der hostapd.conf Datei aus. Die drei Parameter werden einmal als Klartext auf der Konsole ausgegeben und dann werden sie der Funktion zum Erstellen des QR-Codes übergeben. \\
+    		Im Anschluss führt das Skript mit dem Subprocess Modul das Unix Tool sed aus. Mit sed wird die Zeile der hostapd.conf angepasst, welche das Passwort enthält. Mit der Option -i nimmt sed die Änderung direkt an der gegebenen Datei vor statt nur zu stdout zu schreiben. \\
+    		Damit der Tausch in Kraft tritt muss der hostapd Service neu gestartet werden. \\ 
+   
+\lstset{
+    	basicstyle=\ttfamily,
+    	language=Python,
+    	breaklines=true,
+  	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
 }
 
-# main
-if [[ "${BASH_SOURCE[0]}" != "$0" ]]; then
-	echo "Script is being sourced"
-else
-	set -x
-	set -euo pipefail
-	execute_script "$@"
-fi  	
-    	\end{lstlisting}
+\begin{lstlisting}
+#!/usr/bin/env python3
+import string
+import re
+import subprocess	
+
+def get_hostapd_text():
+    file = open('/etc/hostapd/hostapd.conf', 'r')
+    text = file.read()
+    file.close()
+    return text
+
+def get_wpa():
+    text = get_hostapd_text()
+    matches = re.findall("wpa=.", text)
+    return matches[0].replace('wpa=', 'WPA')
+
+def get_ssid():
+    text = get_hostapd_text()
+    matches = re.findall("ssid=.*", text)
+    return matches[0].replace('ssid=', '')
+    
+def change_password(password):
+    subprocess.run(
+        [
+            'sed',
+            '-i',
+            's/wpa_passphrase=.*/wpa_passphrase={password}/g'.format(
+                password=password
+            ),
+            '/etc/hostapd/hostapd.conf'
+        ]
+    )
+    subprocess.run(['systemctl', 'restart', 'hostapd.service'])
+    
+if __name__ == "__main__":
+    ssid = get_ssid()
+    wpa = get_wpa()
+    pw = get_random_pw()
+    print('SSID:', ssid,  wpa, 'PW:', pw)
+    create_qr_code(ssid, wpa, pw)
+    change_password(pw)
+
+\end{lstlisting}
+    	
+    		\subsubsection{Erstellen des QR-Code}
+    				Die Funktion zur QR-Code Generierung bekommt als Argumente die SSID des Netzwerks, die WPA Einstellung und das Passwort. Diese werden ausgelesen und in die pyqrcode.create als String mitgegeben. Das Format des Strings ist sehr wichtig, denn so wird definiert wie das Endgerät den QR-Code zu interpretieren hat.  \\
+				Der Code wird als png-Datei im Homeverzeichnis gespeichert, von wo er später ausglesen und angezeigt werden kann.\\ 
+
+\lstset{
+	basicstyle=\ttfamily,
+    	language=Python,
+    	breaklines=true,
+ 	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
+
+\begin{lstlisting}
+#!/usr/bin/env python3
+
+import pyqrcode as pqr
+	
+def create_qr_code(ssid, security, password):
+    qr = pqr.create('WIFI:S:{ssid};T:{security};P:{password};;'.format(
+        ssid=ssid,
+        security=security,
+        password=password
+    ))
+    qr.png('qrcode.png', scale=9)
+    
+\end{lstlisting}
+    	
     		\subsubsection{Zeitbasiertes Ausführen}
-    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. Damit das Passwort dennoch auf dem angeschlossenen Bildschirm angezeigt werden kann ist es wichtig beim Aufrufen des Skripts die Standardausgabe das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. Da manche Änderungen root-Rechte benötigen, wird der Aufruf in der crontab Datei des root Nutzers definiert.
+    			Cron erlaubt es, das Passwort regelmäßig zu einer definierten Zeit, hier beispielsweise Montags um 03:00 Uhr nachts, zu tauschen. Nachts bietet sich an, da zu dieser Zeit für gewöhnlich das Netz kaum bis nicht genutzt wird. \\
+    			Damit das Passwort dennoch auf dem angeschlossenen Bildschirm angezeigt werden kann ist es wichtig beim Aufrufen des Skripts die Standardausgabe auf das korrekte Gerät umzulenken. In diesem Fall wird stdout auf /dev/tty1 umgelenkt. \\
+    			Da manche Änderungen root-Rechte benötigen, wird der Aufruf mit dem Nutzer root definiert.
     			\begin{lstlisting}
-* 3 * * 1 changePassword.py > /dev/tty1
+* 3 * * 1 root changePassword.py > /dev/tty1
     			\end{lstlisting}
     		
-    \section{Einrichten des Displays}
+    \subsection{Einrichten des Displays}
     		Die Einrichtung des Displays wurde nach der mitgelieferten Anleitung durchgeführt. \cite{Quote_display_manual} Zusätzlich wurde auf einem anderen Raspberry Pi das Beispiel Image installiert und mit dem vorliegenden verglichen. Zunächst musste die /boot/config.txt so verändert werden, dass die Ausgabe mit dem richtigen Treiber auf dem Display erscheint. Folgende Konfigurationen sind zu machen:
     		\begin{lstlisting}
 dtparam=audio=on
@@ -443,44 +479,18 @@ EndSection
 			In diesem Projekt wird das Raspberry OS Lite verwendet, weil in diesem Betriebssystem sehr wenige Pakete vorinstalliert sind, muss für den Display noch zusätzlich xserver-xorg-video-fbturbo installiert werden. \\
 			Anschließend muss für die Touch-Funktion die Datei /usr/share/X11/xorg.conf.d/10-evdev.conf in das selbe Verzeichnis kopiert und in 45-evdev.conf umbennant werden. Zum Schluß muss auch für die Touch-Funktion das Packet server-xorg-input-evdev installiert und der Raspberry Pi neugestartet werden.
 
-    	\section{QR-Code Generierung}
-			Das Skript qrCodeGenerator.py wird über changePassword aufgerufen und bekommt 3 Argumente die SSID des Netzwerks, WPA Einstellung und das Passwort. Diese werden ausgelesen und in die pyqrcode.create als String mitgegeben. Das Format des Strings ist sehr wichtig, denn so wird definiert wie das Handy den QR-Code zu interpretieren hat. Am Ende wird der Code mit einem print Statement auch auf die Konsole ausgegeben. \\ 
-
-\lstset{
-	basicstyle=\ttfamily,
-	language=Python,
-	breaklines=true,
-	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
-}
-
-
-\begin{lstlisting}
-	import sys
-	import pyqrcode as pqr
-	
-	def create_qr_code(ssid, security, password):
-	qr = pqr.create(
-	'WIFI:S:{ssid};T:{security};P:{password};;'.format(ssid=ssid, security=security, password=password))
-	print(qr.terminal())
-	
-	if __name__ == "__main__":
-	ssid = sys.argv[1]
-	security = sys.argv[2]
-	password = sys.argv[3]
-	create_qr_code(ssid, security, password)
-\end{lstlisting}
     		
-    	\section{Ausgabe des Passworts}
+    	\subsection{Ausgabe des Passworts}
     		
     		Bei der Erstellung des Passworts wird es bereits im Format: "SSID: <ssid> WPA<version> PW:<passwort>" als Plaintext auf die Konsole geschrieben.
     		
-    		\subsection{Tastenbelegung}
+    		\subsubsection{Tastenbelegung}
     		    Damit der Knopfdruck erkannt wird, gibt es in dem GitHub Repository \cite{Quote_github_repo} das buttonInput.py Skript. Mithilfe von GPIO zero kann man einfach die Buttons auf die gewünschten GPIOs hören und reagieren. \\
 	    		Button1 zeigt den QR-Code an, wie das gemacht wird, erklärt das nächste Kapitel. \\
 	    		Button2 wird dafür verwendet ein neues Passwort zu generieren. Dort wird einfach unser changePassword.py aufgerufen. \\
 	    		Button3 führt ein "clear" aus somit kann der Display mal wieder aufgeräumt werden, falls zuviele Passwörter dortstehen.
     		
-    		\subsection{Anzeigen des QR-Codes}
+    		\subsubsection{Anzeigen des QR-Codes}
     			Damit der QR-Code angezeigt wird muss der erste Knopf an dem Display gedrückt werden. Dies hat den Grund, dass der QR-Code eine .png Datei ist und er damit nicht einfach auf dem Terminal ausgegeben werden kann. Ein weiterer Grund ist, dass der QR-Code den Plaintext verdrängen würde und dann nicht mehr sichtbar wäre. \\
     			Der erste Button wird für das Anzeigen des QR-Codes verwendet. Dort wird ein Subprocess erstellt und damit sobald der Childprozess getötet wird, nicht der Parent Process mitstirbt das Kommando mit dem Parameter preexec\_fn=os.setsid vorher ausgeführt. 15 Sekunden später wird die ganze Prozess Gruppe getötet. Mit dem gesendeten Signal SIGTERM wird die fim Ansicht beendet und man kehrt zur Shell zurück. \\ 
     			\begin{lstlisting}
