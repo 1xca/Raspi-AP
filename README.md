@@ -4,7 +4,7 @@ This is a project for university, where we configure a raspberrypi to be a wlan 
 To-Do:
 
 - [ ] Anforderungsanalyse (alle Punkte) auszuformulieren --> Rolf    <br>
-- [ ] Skripte Absätze überarbeiten (neues Skript anpassen)--> Luca   <br>
+- [x] Skripte Absätze überarbeiten (neues Skript anpassen)--> Luca   <br>
 - [x] Überarbeiten Lösungsidee --> Marius                            <br>
 - [ ] Fazit und Ausblick --> Rolf,Marius, Luca                       <br>
 - [x] Inhaltsverzeichnis umbennen (heißt Contents) + Seitenzahl nach Inhaltsverzeichnis <br>
