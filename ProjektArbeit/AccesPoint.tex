@@ -136,24 +136,32 @@
     \section{Problemstellung}
     	Vielen Endnutzern ist die eigene Bequemlichkeit sehr wichtig. Daraus resultiert, dass der pre-shared Key eines WLANs in den meisten Netzwerken einmal oder nie geändert wird. Dadurchk önnen Gäste dauerhaften Zugang zum Netzwerk behalten, obwohl das nicht erwünscht ist. Dies hat zur Folge, dass sich sobald einmal das Passwort bewusst/unbewusst weitergegeben wurde, jeder mit dem Access-Point verbinden kann. Negative Auswirkungen könnten sich äußern in Form von Missbrauch des Internetzuganges oder durch Angriffe auf das interne Netzwerk.Ein weiteres Problem ist die Umständlichkeit einen sicheren pre-shared Key zu verwenden. Es führt zu unangenehmen Mehraufwand eine kryptische und lange Zeichenkette auf Endgeräten einzugeben bzw. zu merken, den viele Endnutzer nicht eingehen wollen. Deshalb werden oft einfache pre-sharedKeys in Form von z.B Wortkombinationen verwendet. Dies hat zur Folge,dass der Zugang einfacher geknackt werden kann.
     	
-    \section{Anforderungsanalyse --> Ausformulieren}
-    		Im Folgenden werden die verschiedenen Funktionen definiert und kategorisiert.
+   \section{Anforderungsanalyse --> Ausformulieren}
+    		Im Folgenden werden die verschiedenen Anforderungen genauer beschrieben.
 			\subsection{Funktionale Anforderungen}
-			
+			Funktionale Anforderungen sind Anforderungen, die notwendig für die Umsetzung des Projektes sind.
             \subsubsection{Funktionaler Access-Point}
-            
-                \subsubsection{Internet Zugriff}
-                	 DHCP Server
-    				 DNS Server
-    				 Firewall
+                Um einen Zugriffspunkt für die Endnutzer ins Netzwerk zu schaffen, muss passenden Hardware gefunden und konfiguriert werden. Hierauf ein Access-Point mit gängigen Funktionalität erstellt werden.\\ Diese Hardware sollte für ihre Aufgaben passend dimensioniert sein. Ebenso sollte sie ein geeignetes WLAN-Modul besitzen um ein eigenes WLAN aufspannen zu können. Am Besten ist es, wenn dieses die heutzutage gängigen Funkstandards unterstütz.\\\\
+                Weiterhin müssen sich die Endnutzer im WLAN anmelden und kommunizieren können. Unter anderem wird ein DNS und DHCP Server benötigt. Ohne diesen kann keine Kommunikation im Funknetzwerk entstehen. Grund ist die fehlende IP-Konfiguration der Endgeräte.
+                \subsubsection{Zugriff ins Netzwerk}
+                    Ohne Internet Zugriff ist zwar eine Anmeldung beim Access-Point möglich, aber nicht sinnvoll.
+                    Deshalb muss gewährleistet werden, dass der Datenverkehr vom Access-Point weitergeleitet wird und nicht geblockt wird. Natürlich soll dieser auch wieder zurück geleitet werden. Am Besten besitzt die Hardware außerdem einen LAN Anschluss. Dieser kann als Verbindung zur schon bestehenden Infrastruktur dienen.
                 \subsubsection{Sicherer Key}
+                    Beim erstellen des Key muss beachtet werden, dass dieser auch sicher ist. Es soll unwahrscheinlich sein diesen in seinem gültigen Zeitraum knacken zu können. Deshalb muss ein Konzept zur Erstellung eines sicheren Key erstellt und umgesetzt werden. 
     			\subsubsection{Automatisches Wechseln des Key}
+    			    Es soll möglich sein das sich der Key vollautomatisch in einem gewissen Zeitraum ändert. Folglich muss ein Skript erstellt werden, welches den Key austauschen kann.
     			\subsubsection{Ausgabe des Key}
-		
-			\subsection{Nichtfunktionale Anforderungen}
+		            Die Endnutzer müssen über den neu erstellten Key benachrichtigt werden. Zu beachtet ist, dass die Darstellung so komfortabel wie möglich umgesetzt wird. Es soll kein zu großer Mehraufwand entstehen. Weitere Hardware in Form eines Bildschirm zu Darstellung muss angeschlossen werden.
+		           
+		            
+			\subsection{Optionale Anforderungen}
+			    In diesen Abschnitt werden Anforderungen beschrieben, die nicht für die grundlegende Funktionalität benötigt werden.
                 \subsubsection{Manueller Wechsels des Key}
+                    Wenn es gewünscht es soll es möglich sein den Key manuelle neu erstellen und wechseln zu lassen. Die soll in Form einer physischen Benutzereingabe erfolgen. So wird sichergestellt, dass nur befugte diesen Vorgang anstoßen können. 
                 \subsubsection{Energiespar-Konfiguration}
+                    Nicht jeder möchte, dass ein Bildschirm ununterbrochen beleuchtet wird. Weiterhin könnte es nicht erwünscht sein, dass das Gast-Wlan 24 Stunden sendet. Deshalb könnte ein Energiesparplan erstellt werden und implementiert werden. Dieser kann die Anschaltzeit des Displays und des Access-Points regeln. 
                 \subsubsection{Automatisierungs-Skript}
+                    In Zukunft könnte es wünschenswert sein, die erstellten Konfigurationen erneut auf anderen Geräten auszuführen. Deshalb könnt ein Automatisierungs-Skript sinnvoll sein. Dies würde Zeitaufwand sparen und könnte ebenso bei veröffentlicht anderen helfen.  
 
     		\subsection{Priorisierung}
             	Das wichtigste zu Beginn ist, dass die Hardware aufeinander abgestimmt wird. Bedeutet, alle Teile passen zusammen und können angeschlossen werden.
